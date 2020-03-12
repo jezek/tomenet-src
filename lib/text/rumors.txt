@@ -1,0 +1,961 @@
+# $Id$
+
+# ToME-NET rumours file, based on ToME rumours.txt (first 200, they are).
+# You can colour the rumours with '{' tag. Use '{{' to write literal '{'.
+# Any lines above 'N:' will be ignored.
+
+# You should manually write the total # of rumours (lines - 10).
+
+N:*:Default
+951
+They say that you can't trust rumors.
+You have no more Black Potions of Death.
+They say that smart guys hang around at 1600'.
+They say that tough guys hang around at 1500'.
+They say that handsome guys hang around at 1200'.
+They say that a visit to 3250' can be quite an experience.
+They say that a visit to 3250' will only get you killed.
+Throw a Potion of Blindness at a monster and it cannot cast any spells!
+MAKE MONEY FAST! Find a Treasure Pit!
+Not satisfied with the artifacts you find? Then create your own!
+They say that Sauron has forged an all-powerful Ring.
+A good item will not corrode.
+They say that Nibelungs live in dark caves.
+Some weapons that slay dragons can be very deadly against them...
+Finding the Phial of Galadriel at 50' is nothing to be proud of.
+There are Black Market stores hidden deep in the dungeon, with COOL stuff!
+What a pity, you cannot read it!
+You will encounter a dark, tall stranger...
+A Mithril mail will not rust.
+An Adamantite mail will not rust.
+A Rusty Chain Mail cannot rust any further.
+You won't want to find Raal's Tome of Destruction!
+A Wand of Death is of little use against foes that are dead already.
+Try taking off your armour before fighting a Gelatinous Cube!
+They say that only one sword can score *CRITICAL* hits.
+This rumor is not true.
+If you can fall like a feather, you need not care about gravity.
+They say that you should rejoice if you find a scroll labeled ""!
+You don't always have to kill everything you meet!
+If you can't beat it, leave it alone!
+An umber hulk can be a confusing sight.
+There *is* a good use for Potions of Detonations, Ruination and Death...
+Watch your step!
+It's a bad idea to throw away a Longsword (4d6).
+It's a bad idea to wield a Longsword (4d6).
+Actually, Slime Mold Juice is not completely useless.
+Help me! I'm being held captive in a Vault at 2850'!
+Ever tried inscribing your armour {{erodeproof}?
+Using a Morningstar in the evening has no effect.
+Why are you wasting time reading fortunes?
+There is a horrible, ghastly fate awaiting you... at 2700'!
+You can get the Longsword 'Ringil' by doing the following:
+You can protect yourself from Great Wyrms of Power by doing the following:
+It's true name is 249.
+You feel like someone's pulling your leg!
+AAAAAAAAAAARRRRRRRRGGGGHHHHHHH!
+Try inscribing the name of the first monster killed by it in the weapon!
+The richer the victim the happier the thief.
+Beware the Jabberwock, my son! The jaws that bite, the claws that catch...
+There's something bad about what you are carrying in your backpack...
+Thieves are more likely to appear if you are carrying a lot of money.
+Brand's sword, Werewindle, probably knows more than just one trick.
+They say that Scrolls of *Curse Weapon* can create powerful cursed artifacts.
+They say that the Chainsword makes monsters mad with its awful noise!
+They say that Ringil shines so brightly that it makes monsters angry.
+Orcs are mortally afraid of weapons that can slay them.
+There is a way to turn a Ring of Speed (-20) into a Ring of Speed (+20).
+There is no way to turn a Ring of Speed (-20) into a Ring of Speed (+20).
+VECNA LIVES!!!
+Cool guys can resist fire.
+They say that death incarnate wears heavy metal boots...
+You feel the Longsword (t) you are carrying in your backpack is special...
+If you start seeing red monsters, you have probably gained infravision.
+They say that the dungeon is deeper than the Abyss.
+When all else fails, read the instructions.
+No poison is immediately deadly.
+I have seen a Ring of Speed (+50) in the Black Market!
+Telepathy works like a two-way door.
+Elvish waybread might negate the effects of poison.
+Once uncursed, Calris will become a deadly weapon.
+If there's a stairway to hell, there must also be a stairway to heaven.
+You feel your luck is turning...
+If you thought Death swords were bad, wait until you meet Killer katanas!
+Overeating can be bad for your health if there are others nearby.
+Cave dwellers are accustomed to darkness and rarely enjoy bright light.
+A creature made of stone can be slain by a spell that turns stone to mud.
+It is often a good idea to throw items that you don't want to eat or drink.
+The faster you run the more food you will burn.
+Invisible monsters will often expose themselves if you drop items around you.
+They say that the key to killing tougher monsters is called "hit&run".
+They say that there is no such thing as free advice.
+Wearing an Amulet of Doom will take you into the Dungeons of Doom.
+You can often wrest one last charge from an empty wand if you try hard enough.
+Wands may recharge themselves if you leave them on the floor long enough.
+There is more than one way to deal with a locked door.
+Afraid of your valuables getting stolen? Carry more junk!
+Afraid of your money getting stolen? Invest it!
+If you hear something smash into splinters, you had better watch out.
+They say that you had better leave Greater hell-beasts alone.
+Selling unidentified potions to shopkeepers might be safer than quaffing them.
+Always look out for trapdoors on "special" feeling levels!
+There is a way to max out your stats with Potions of Charisma & Nexus.
+Unique opponents will recover their health faster than other creatures.
+They say that only one sword, Nothung, can slay Fafner the Dragon.
+"So when I die, the first thing I will see in heaven is a score list?"
+You're going into the morgue at midnight?
+How dare you! I will not buy that!
+A Potion of Detonations is also known as nitroglycerin...
+Operation OVERKILL has started now.
+There is a trap on this level!
+A weapon of Undead Slaying has all you need to kill a ghost.
+A weapon of Dragon Slaying may give you resistance to a dragon's breath attack.
+They say that only a Warrior will want to wear the Terror Mask.
+All that is shall come to an end - a dark day dawns for the gods.
+The One Ring is powerful, but will eventually destroy its owner.
+Having troubles with summoners? Door Creation is your friend!
+Stairway Creation may be slower than Teleport Level, but safer...
+Wands of Heal Monster are useful! Hint: ball spell, @....moo(o)ooo
+Guaranteed heal self - scenario: o'@, type c4c4c4c4
+If it can't see you, it can't hurt you!
+If it can't see you, you might still be able to hurt it...
+I love you, you love me, we are a happy family!
+No animal is interested in sex if it is mortally scared.
+The butler did it.
+The butler is innocent.
+There is a plenty of Longswords around 1000'.
+Groo is your worst nightmare.
+Freddy Krueger is your worst nightmare.
+Groo is an idiot! Groo is a dolt! He is a fool! He has no mind!
+There are often stairways in graveyards: bad people are carried to hell...
+Only a god of Thunder could ride a lightning bolt!
+When the day of Ragnarok comes, Surtur will set the world afire...
+Surtur's accursed sword, Twilight, burns with everlasting fire.
+Groo may be as dumb as an amoeba, but he knows a good sword when he sees one.
+Flora's sexy boots will make you more attractive.
+Flora's sexy boots will cause the monsters to drool on you.
+Weapons of Flame will light your way.
+Want to invest some money? Contact $crooge McDuck, 1300'.
+Need a loan? Contact $crooge McDuck, 1300'.
+They say that the gods get angry if you pray too much.
+For any remedy there is a misery.
+Poison will kill you slowly.
+Didn't you forget to pay?
+Death is just life's way of telling you you've been fired.
+They say that nobody can defeat his own ghost.
+A greedy genocide can be a fatal mistake, especially if you are low on hits.
+PLEASE ignore the previous rumor.
+There are scrolls that can be read only by mages.
+Some undead opponents will come back if defeated, more powerful than before!
+The answer is 42.
+The raven sings, the raven saw and in the corn he sayeth 'CAH'
+One level further down somebody is getting killed, right now.
+Meet me at 1900' if you are a man.
+Bashing a creature may sometimes stun it.
+And now, Groo does what Groo does best!
+One Ring to rule them all, One Ring to find them.
+One Ring to bring them all and in the darkness bind them.
+Three Rings for the Elven-kings under the sky...
+Never carry a Potion of Detonations if there is a fire trap nearby!
+Laugh to scorn the power of man, for none of woman born shall harm thee!
+All hail thee that shalt be king hereafter!
+He who laughs at Groo's brains will find there is nothing to laugh about.
+A wise man always speaks too soon...
+Let us not dwell on possible bad fortunes!
+Appearance is only the frosting, not the cake!
+A feeling of Death flows through your body.
+Violence is no solution.
+Boots of Speed (+50) are no myth!
+Drain you of your sanity: Face the Thing That Should Not Be!
+Since by curse it came to me, accursed be this Ring!
+Each shall itch to possess the Ring, but none in it shall find pleasure!
+I know whatever was; whatever is, whatever shall be.
+Barney MUST die!!!
+Pudpadnoy Tooboothokoot is possessed by a demon known only as "It".
+They say that the One Ring has a very special curse.
+They say that alcohol is bad for your health.
+What if you DON'T give a name to the artifact you create..?
+They say that ancient battlefields are often haunted.
+Beware of pits that fill the whole level!
+Liar! I have not the gold!
+They say that the true name of wall monsters is 177.
+Never mind the Phial of Galadriel - the Phial of the Gods kicks its butt!
+A Ring of Speed? Phooey! Try looking for a Ring of *Speed*!
+Thisss cccity isss guilty... the crime isss life... the ssentence isss DEATH!
+If you hear heavy steps - watch out!
+A visit to the Zoo is educational: you meet many strange animals.
+What happens if you wear a Ring of Extra Ring Fingers (-2) {{cursed}?
+Oremor nhoj em llik tsum uoy emag siht niw ot.
+If I cancel tomorrow the undead will thank me today.
+Hellfire will burn your soul...
+Never attempt to Call the Void in an enclosed space!
+Call the Void needs a lot of room to cast...
+Why doesn't Detect Monsters show invisible monsters? 'Cos you can't see 'em!
+I'll tell you the truth, son: your soul's gonna burn in a lake of fire!
+*** LOW HITPOINT WARNING! ***
+You cruelly stab the helpless, sleeping Software bug!
+Slab: Jus' say AarrghaarrghpleeassennononoUGH.
+Spirit, hatch that painted spirit of the lamb sparrow.
+Gone insane from the pain that sure they know: for who the flange sound?
+With time the child dissipates within, this blinking boy made badly.
+Not to be never, never not to see, so as to dub the thee unforgiven.
+The eternal death of eons of the foreigner of the lie can die not absolutely.
+Drain you of your sanity: in front do the thing that does not have to be.
+The opinion you had were salt expresses.
+They say that you there is a Nether spell to control the three Elven Rings.
+They say that the dark mists of morgoth can both bestow and remove the curse.
+Save the game in dungeon and you'll be buried there.
+They say that in this world {RThe Lady {wrules us all.
+They say that a sorceror never waits for a feeling to come.
+They say that a genuine artifact hates to remain unused.
+They say that you should find a way to use mimic rings.
+They say that you should find a way to make use of cursed rings.
+They say that you should find a way to use Unmagic Mushrooms.
+They say that seven crystal balls grant you a wish!
+They say that removing a rubble often is a bad idea.
+They say that removing a rubble sometimes gives you a treasure.
+They say that some players are more invisible than others.
+They say that an archer should try 'killing from afar'.
+They say that they say that what they say can be utterly wrong.
+They say that a Dark Sword hates magic.
+They say that a Dark Sword is just a cursed sword.
+Need a help? Just read the guide in your tomenet folder.
+Wanna have a talk? Just visit #tomenet on irc.worldirc.org
+They say that behind Morgoth lies another world of extreme danger.
+They say that wizards are subtle and quick to anger, even the kindest.
+They say that a macro can save your life hundreds of times.
+They say that only truly-free person can go beneath 1000'
+They say that a hellish is suitable to visit the Hell.
+Ever found a staircase-up in the wilderness?
+Ever been in the mushroom farm?
+They say that the Mafia would buy some kinda mushrooms for a price.
+Morgul weapons are utterly useless - but there's one notable exception...
+They say that a stone is just a stone.
+They say that a phial is just a mundane glass with decorations.
+They say that a star is a badge for sheriffs.
+Ever seen a broken stick of *slay* lag?
+They say that you should be good to the poor farmer.
+Never forget to lock the door when you leave your house!
+They say that {RThe Lady {whates to have her *real* name called.
+They say that some cookies were imported from overseas.
+They say that a Dark Sword can be great if enchanted neatly.
+They say that a pair of leather boots 'Ringil' won't always grant speed.
+They say that some supreme spells won't concern worldly matters.
+You can do away with notorious {RThe Lady {wby doing the following:
+They say that a clever thief never does her job with her pack full.
+They say that a Demigod should leave his worldly treasures.
+They say that Morgoth never forgets to inscribe his hammer with {{!E}.
+Ever tried a batman archer?
+Ever tried a batman monk?
+Ever tried a female Ent?
+They say that you should enter jelly-pit naked.
+Just call the police if you find a hideout of evil above 1000'
+They say that better ask veterans than pray to a goddess.
+They say that there's a world called 'potland'.
+They say that cloning technology is prohibited.
+They say that a warrior starts his adventure by selling his Broad Sword.
+They say that a true rogue should learn to turn off the light.
+They say that you should learn to type '/' on the chat-line.
+They say that you should die at the centre of a large room.
+They say that you should fight behind a rubble.
+They say that when you die your ghost will haunt there.
+They say that temple priest loves to save your soul.
+They say that you should learn to haggle.
+Get killed? Just ask a sorceror for a rescue!
+Get killed? Just ask a warlock for a rescue!
+Get killed? Never tell it to a rogue!
+They say that you should learn to throw Molotov cocktails.
+They say that chattering deep in dungeon is a bad habit for dungeoneers.
+They say that some mad players are attempting to create a golem...
+They say that 50' is safer place than the town.
+Never dive the dungeon naked, unless you're a monk.
+They say that with 2 words 'pfft' and 'w00t' you can describe the universe.
+They say that you should carry flasks of oil even when your lamp is full.
+Never harm the future Einstein of the village!
+They say that you'll have headache after a trip with magic mushrooms.
+They say that everyone can be a F.L.Wright in TomeNET.
+Ever seen a member of The Guild?
+Ask a priest to enchant your stuffs.
+Ask a rogue to curse your stuffs.
+Ask a sorceror to wraith you.
+Ask a sorceror to examine your randarts.
+Ask a telepath to dominate you.
+Ask an unbeliever to get rid of that Q.
+Ask a priest to sweep a pit.
+Ask a warlock to go downstairs first.
+Ask a disenchanter mold to disenchant your HA DarkSword.
+Nowadays even a warrior should learn to read.
+Nowadays even a warrior should learn to type.
+Nowadays even a warrior should learn shorthands.
+=sp+15@7, 1.8M!
+PoAS@7, 2M
+=dam+19@7, 15k
+Mirky@2, 20k
+Ever found a Westie broken dagger?
+Ever found a Everburning Torch?
+Ever activated a DSM?
+Ever activated the Celeborn in the town?
+Ever met Morgie twice?
+Ever tried to rob a store?
+Ever been in yeek town?
+Ever heard about Mirkwood Legends?
+Ever seen a God or Goddess player?
+{R[The Lady] {BThou art doomed, poor little TomeNET player..
+{B[Olorin] mh
+{D[Moltor] {Bpfft
+{B[Evileye] hehe
+{B[Jir] {y:)
+{B[Mihi] May the source be with you! *^-')b
+{b[C.Blue]{B o_O
+{D[Magnet] {BLet's slay evil !
+You are hit by a bolt from the blue!
+They say that there once was a poor batman who found both Ringil and Feanor.
+They say that there once was a man who fought 2 Morgothes at the same time.
+They say that reading Anne McCaffrey won't help you at all.
+They say that often a sorc came in through the bathroom window.
+They say that Choppiness is a warm gun.
+They say that a disenchanted Dark Sword is not so good for non-unbelievers.
+Watch out!! The Erlkonig Thavakrache is just behind you!!!
+They say that zombie uniques are nothing to worth while slaying.
+They say that you should read a scroll of acquirement in town.
+They say that a vault is a place to die, and not a place to resurrect.
+They say that you shouldn't give someone of the same sex an engagement ring.
+They say that archers should learn more about their opponents.
+They say that a death in TomeNET is very akin to that of real life.
+They say that you should let someone else to go down first.
+They say that act as a fool and you'll be treated as a fool.
+They say that be harsh to others and you'll be treated in a similar way.
+Beware! Cave spiders are MUCH more powerful here!
+Never slam the door!
+They say that One of the easiest way to find PoAS is to play an unbeliever.
+They say that alchemist never stocks restore potions of the kind you need. 
+Segmentation fault - core dumped.
+Segmentation fault - cookie dumped.
+This server either isn't up, or you mistyped the hostname.
+They say that only vaccinated can survive beneath 2000'
+They say that Yeek is weak, weak is Yeek.
+They say that Ent is slow, slow is Ent.
+They say that an unbeliever without ESP is a dead meat.
+They say that spellcasters should learn archery also.
+They say that you should learn how to use ghost powers.
+They say that you don't have to save the world.
+They say that you still don't need an amulet to save the world.
+They say that no hell below us, above us only sky so no use praying to Gods.
+They say that quick dive, quick die.
+"So when I die, the first thing I will see is #@# ?"
+They say that an average dungeoneer carries 20 books all the way.
+I wonder why some priests would cast Orb onto a messy floor.
+Dig your own grave and you'll survive longer.
+They say that you should be extremely vigilant the moment you recall.
+They say that very often a dagger(+0,+0) is greater than a Broad Sword(+5,+5).
+They say that archers never care for damage rings.
+Try inscribing #'Ringil' on your Long Sword.
+Try inscribing #of Feanor on your Hard Leather Boots.
+Ever tried to eat a ring?
+Ever asked {RThe Lady {wfor a date?
+Darn, that rogue casted the spell of Summon Lag!
+They say that you should learn to dive, though it's not in the water.
+They say that when you have Chaos resistance, why bother Confusion one?
+They say that when you have Hold Life, why bother Nether resistance?
+They say that when you have Shock resistance, why bother Sound one?
+When you have all the resistances, why bother casting resistance spell?
+Once upon a time, a stupid player couldn't beat Morgie even with his Ringil.
+They say that why people even bothers storing Amulet of Charisma in house?
+They say that massive pieces of wood is essential for bridge building.
+Troubles? Please ask THE PERSON IN CHARGE, and not me!
+They say that many apprentice warlocks genocided themselves.
+They say that Glove of Invulnerability doesn't work fully nowadays.
+Ever tried to combat while meditating?
+Ever wondered why your AC changes sometimes?
+Found a Fishing Pole? Go to the Sea to the South of the town and fish!
+Ever wondered why a mimic eagarly hunts spiders?
+They say that speed rings so precious, some people still prefers damage rings.
+They say that you'd love to drop anchor when in a vault.
+Ever found a hound pit?
+Ever met a cookie monster?
+Found 10 mushrooms of Hallucination? Time to throw a party!
+They say that hjkl dancer benefits more nowadays.
+Lost deep in the dungeon? Carry string of Ariadne next time around!
+I wonder why some players would scatter the floor with their recall scrolls..
+Ever tried to polymorph other players?
+Ever eaten an eye?
+They say that angband players are of less gourmant.
+They say that silence is a requirement for enjoying music.
+Ever heard the sound of silence? Oops, everyone /ignore you!
+{d[Thavakrache] {BEver seen an anonymous message?
+They say that there's 1/4294967296 chance of finding the same randarts twice.
+Ever found the same randarts twice?
+They say that a true hero never gets afraid.
+They say that a tengu sometimes marks an instakill.
+Ever wondered why all those small town stores are open 24/7?
+Ever seen a living statue? Or ever been?
+Ever bounced on a phase spiders' trampoline?
+They say that carrion crawlers are good at creating carrion.
+They say that the deeper you go the higher you fly.
+Your stuffs weigh you down? Drop the gold!
+They say that you should lead cold hounds to breathe at fire hounds.
+Ever heard about a meat shield?
+They say that wiry and prompt fighter attacks like a lightning.
+They say that amulet of adornment gives off more charm than that of charisma.
+They say that every vault contains at least one entrance.
+They say that you shouldn't attack a greater vault alone.
+They say that avoiding to kill felines won't grant you a ring.
+They say that uninscribed arrows are utter crap.
+PernM cookie ingredient: flour, NetHack, Zangband, PernA and players online.
+They say that you can rust armours.
+Ever seen your tombstone?
+Got tired of cunning players? Quaff a potion of naivety!
+They say that a poor player created adamantium golem that never follows him.
+They say that a poor player created Pinnocio that is doomed to be burnt.
+{vAdamantium {wso precious, ever wondered why its massive piece is that cheap?
+They say that have you seen another {yQ {wstanding in the shadow?
+They say that have you seen another rogue standing in the shadow?
+They say that no one can be stealthy enough to sneak up on a Quylthulg.
+What's that Quylthulg creature anyway?
+Ever relished a dragon steak?
+Ever seen a {rcoloured {bcookie{w?
+Yikes! This cookie was {rp{Ga{vi{on{Bt{Re{yd{w!!
+They say that {yP {wis terrible and {oP {wis horrible.
+Ever seen a {DP{w?
+You know you played TomeNET too much when you wonder why you don't auto-attack.
+Ever macroed \eQy@ ?
+They say that it's no good digging with a dagger.
+{rYou die.
+Wanna revenge? Stock potions of detonation!
+They say that Sauron has forged an all-powerful useless Ring.
+Wanna slay Sauron? Ask Wormie!
+Foudinni said: You cannot be satisfied with imaginary cakes.
+You're lucky today if you find a coloured fortune.
+They say that once a player named Grima slew Sauron with a dagger.
+They say that repented evils still are horrible foes of priests.
+They say that holy animals are holy, just don't touch them.
+They say that it's not only players that know phase'n'shoot.
+They say that 90% of sorcerors are born to die.
+They say that 100% of mortals are born to die.
+They say that if you notice a hound of different colour in a pack, run away!
+They say that never drink and dive.
+They say that cloning technology often results in mutants.
+They say that it worthes while enchanting a launcher.
+A mouth of Sauron,a nose of Sauron and 2 eyes of Sauron make a face of Sauron.
+Ever seen the second town?
+Found a scroll of acquirement? Hush! Don't tell that to anyone!
+They say that the best way to make use of ?acq is to sell it to other players.
+Inscribe your potion of death {{augmentation}.
+Inscribe your nifty randarts {{Slow Metabolism}.
+What on earth is the difference between sickness and sickliness?
+Ever seen a pack of multi-coloured walking potions of experience?
+They say that tomenet incubi/succubi are on the other side of the screen.
+They say that mage staff helps mages of ages to walk.
+They say that without mage staff a mage should crawl to move around.
+They say that shadow cloak envelops a rogue in the shade.
+They say that a cloak of shock resistance is made of ebonite.
+Shrink asks you: what do you imagine with {BZZZZZZZ{op{w@{GZZZZZZZ{w# ?
+Lamps won't stack? Try identifying them!
+You see a sign: Never steal the {ocarrots{w, damned dungeoneers!
+They say that you should inscribe on ?acq the name of what you want.
+Ever found a potion of augmentation while your stats are not max-ed yet?
+They say that casting spells trains your intelligence.
+They say that an arrow without macro is like a gun without trigger.
+Foudinni says: always prepare to fight, always prepare to run!
+Who is that Foudinni guy anyway?
+Ever tried to rub a lamp? - Erm, which key to rub?
+They say that you should detect traps more than once.
+They say that all the clerics should learn to pray at very level 1.
+They say that one thing I can tell you is you got to be free.
+They say that Maggot is on bouties for smuggling hallucinogenic mushrooms.
+Foudinni says: Okay, now who bells the cat?
+Foudinni says: Here's Rhodes; jump!
+They say that there's no use crying over spilt arts.
+They say that prepare to die when you dared to enter the land of kings.
+Built a castle? Time to vacate your long-dwelt small flat!
+They say that all the wizards are positivists and never believe in words.
+They say that shopkeepers won't change inventory as far as a customer is in.
+Glue the shards of pottery and you'll have a china.
+Ever faced a Greater Titan Sorceror?
+They say that genius is but one remove from idiot.
+"You can't have everything.  Where would you put it?" -- Steven Wright
+They say that wilderness caves can be too nasty for novice dungeoneers.
+They say that potion of blindness can give greater boost than that of speed.
+They say that potion of cure critical wound has wide uses.
+Foudinni says: After you.
+They say that traps so nasty, there's still one notable exception..
+Watch out! Someone've just put traps under your feet!
+They say that there's a trap you can never identify, and you do want to!
+They say that you should keep Morgul sword to slay that fearsome Frodo.
+They say that clerics have special ability to identify cursed items.
+Ever *destroy*ed the Greater Vault?
+Ever *genocide*d the townies?
+They say that some dungeons have only one-way traffic.
+They say that some dungeons have no exit.
+Dance a tap with Witan boots on!
+They say that you should stop and think it twice if someone chuckles at you.
+They say that a true thief never makes a sound.
+They say that sorcs often carry about a sling even though they never shoot.
+They say that a pair of boots of Eryn Lasgalen is not so useful.
+Afraid of chemical weapons? Wear mirkie!
+They say that boots made of woods are too noisy for dungeoneering.
+They say that in some areas a map is kept in secrecy.
+They say that the deeper you go, the nastier the traps are.
+They say that chaotic creatures can be healed with chaos blasts.
+Around the next corner waits you a pack of hounds.
+They say that a priest can dispel other player's ghost too.
+They say that beneath an item on the floor can lie a trap.
+They say that in this world darkness kills.
+Can a dragon enter into a church?
+They say that pints of ale are expensive deep in the dungeon.
+They say that discordance creeps into your party without making a sound..
+They say that in TomeNET most of bugs are inside the code.
+They say that you should always attack a vault from the flank.
+They say that you should be very careful when a trap seemed to do nothing.
+They say that traps of the same name can does various effect.
+They say that true sorcerors never run.
+They say that you should always cross the screen horizontally.
+They say that there's a certain chance of speed ring(+100)... 1 in 10^28.
+They say that werewolves are much more dangerous while the moon is full.
+They say that genuine artifacts may resist some of the effects of traps.
+They say that genuine artifacts are vulnerable to some kinds of traps.
+Check the broken bones before throwing them away - they can be wishbones!
+They say that touching bones of your race brings bad luck.
+They say that there's some secret slash-commands of great use.
+They say that speed boost beyond a line is not so helpful.
+They say that you should learn not to attack... in some situations.
+They say that elemental rings grants extra protection of corresponding kind.
+Ever activated an elemental ring?
+They say that boomerangs are somewhat fragile, but..
+They say that exploding ammos have million flavors.
+They say that there's an inscription that all Nazguls hate.
+DAMNATION! Who trapped the stairs!!?
+You cannot get rid of cursed weapon? Ask Uvatha kindly!
+They say that chaos Piranha really bites.. even here.
+They say that sprigs of Athelas is a cooking spice of precious kind.
+They say that every housewife should stock athelas for special cuisine.
+They say that lembas remedes many things, including overeat.
+They say that Black Breath is contagious beware the carriers!
+They say that levitation never allows you to leave the ground.
+They say that not all the anti-magic devices have the same effect.
+They say that you should never ask 'What does ... do?'
+They say that a weakest being often has a toughest friend.
+Ever dropped a piece of {vadamantite{w?
+They say that DarkGod has hired some body-guards.
+They say that 'Moldoux' is French word that means 'protected like hell'.
+They say that not all the men on a dragon's back are DragonRiders.
+They say that a good item is not so exellent.
+They say that an excellent item is not so special.
+They say that a terrible item is not so worthless.. somethimes.
+They say that if you notice insanity approaching you better visit clinic.
+They say that a cookie is for you, a rumour is for everybody.
+They say that Full Moon induces the insanity.
+They say that pints of fine ale are social drinks.
+They say that a wise girl knows not to act insane.
+They say that a cute marmeid will invite you to pass the line.
+They say that amulet of life saving saves it out of your own life.
+I doubt the usefulness of the amulet of suspicion.
+They say that you should learn to activate telepathic crystals.
+They say that a potion of curing is just an alias of that of healing.
+They say that a potion of curing cures more than your body.
+They say that falling into a chasm may drive you mad.
+They say that reflection works *well* against ammos.
+They say that reflection helps you to think things.
+They say that bottles of potion are made of glass.
+They say that some cursed articles are too lovely to discard.
+They say that some creatures don't believe in magic.
+They say that you should learn to shoot yeeks.
+They say that even a level-100 priest might need potions of wisdom still.
+They say that anti-magic shell is something other than anti-magic shield.
+They say that amulet of anti-magic doesn't give anti-magic shield.
+Behold the eyes! Eye the Beholders!
+They say that you should bring some fine wine when invited to an elven dinner.
+They say that if you see a {vm {won the top of dungeon, just don't touch it.
+They say that an archer generally is coward but that doesn't matter him.
+They say that there's fifteen ways to leave your Morgul weapon.
+Doorway too broad? Jam some!
+Send us new cookies via /rfe command!
+They say that shopkeepers crafty, they beat prices down if your lore is poor.
+They say that every shopkeeper is racist.
+A failed alpinist said; that peak was way too high!
+They say that do not meddle in the affairs of wizards, because they are...
+They say that you should always think of why '{DStormbringer{w' is named so.
+Can you swim with ENIAC on your shoulder?
+Wanna be the Guild master? Just get rid of the current one!
+They say that some traps are unidentifiable b/c you cannot see the effect.
+You saw a signpost: {yKeep the law and happy murdering!
+Foudinni said: just don't kill a hen that lays {ygolden {weggs.
+Never forget to knock the door!
+They say that not all the swords are obedient. Don't cut yourself!
+They say that you should learn why people would shout in the midst of dungeon.
+They say that some vaults are protected by some kinds of magic.
+If you noticed you left something behind you, never hesitate to fetch it.
+Wanna retreat? Retrace your steps!
+When there's a open door, why one would dig a hole next to it??
+They say that from disadvantage you can learn a lot.
+They say that some intellectuals take armours as cramps.
+They say that {DStormbringer {wbrings you storms, good or bad.
+They say that Always prepare one more easy way out.
+They say that a monk will never get given the slip.
+They say that one can still learn to swim.
+Foudinni said: Wanna rob? Make him dead drunk first!	
+They say that abuse of The Speed will lead you to the jail.
+They say that you should be extremely careful when carrying explosives.
+They say that you should be *vigilant* to survive 1000'.
+They say that you should avoid every egg if you find a ring of egg resistance.
+They say that be kind enough to give thirsty marker some paper.
+Afraid of dropping your weapon? Grasp it tight with both hands!
+Ever laid a carpet of potions?
+They say that never genocide the thieves.
+Ever wondered why you can see a {rj {w from afar while you cannot see a {bj{w?
+Wanna buy a sweet home? Doll yourself up!
+They say that without flintstone you cannot light a {ytorch{w.
+Don't you know that it's a fool who digs with sword?
+Ever tried to hit your comrade with {Ba Potion of Healing{w?
+Ever tried to hit your comrade sorc with {Ba Potion of Restore Mana{w?
+Why a wand of plenty contains plenty of charges? Because it's easy to charge.
+They say that a crazy monster can drive you crazy too.
+They say that a tanker can explode and sink with one single smallest torpedo.
+They say that an adventurer is just a Jack of all trades.
+They say that an yeek really needs exercises.
+They say that for sure Sasha the Slender knows how to uncurse Morgul weps.
+They say that you don't need Free-Action at all to feed carrion crawlers.
+They say that carrying Teleportation scrolls, staves and rings isn't paranoia.
+They say that never try to pick things up when you're wounded.
+They say that Ent is tree and tree can {rburn{W.
+They say that learn about your merchandise.
+I still cannot see why that naked barbalian isn't afraid of traps at all.
+They say that hobbits are great slingers, in general.
+They say that from a garbage dump you can pick nice grenades.
+They say that jump over the doors and everything's fine.
+They say that if you find a long and straight corridor, just don't walk in.
+They say that you cannot master martial arts really without learning to dodge.
+Purchase the Gazette and you'll never miss the trend!
+They say that you can't teach an old dog new tricks.
+Lifelong study is nice thing, but start training when lv50 isn't so cool idea.
+Ever cursed a {DMorgul {wdagger?
+Ever blessed a {DMorgul {wwhip?
+They say that cheezing is nice and sweet, till a bolt from the blue kills you.
+They say that the lazy warrior jumped over the doors.
+They say that carrying dozens of Mana pots without immunities is mere suicide.
+They say that carrying dozens of Heal pots without immunities is not so bad.
+They say that it's comedie when a {GT{wroll decides to be a wizard.
+Started to learn a new skill? Time to revise your macros!
+A broken dagger and a filthy rag can be the best suits for a wizard.
+They say that exploding arrows can be lethal, can be comedical.
+They say that more often than not a single Light spell kills a wizard.
+They say that getting skills underground is not so nice idea.
+They say that you should carry permalight to fight with the Unlight.
+Under certain situations you should use intelligence a potion never gives.
+They say that if you feel the air is stable, be sure to secure the way out.
+They say that if you feel the air is stable, watch out the current.
+They say that if you feel a suppressive air, leave the place right now!
+They say that if you feel a suppressive air, try to wear an impressive air.
+They say that if you feel a feeling of peace, stop to wield a weapon.
+They say that if you feel a feeling of peace, don't mind unless you're a mage.
+They say that if you feel like a stranger, seek out to be friendly.
+They say that if you feel like a stranger, just visit a tourist office.
+They say that even if the walls seem solid you can dig them as usual.
+They say that a feeling often comes with a treasure.
+They say that a feeling often comes with a trouble.
+They say that some wizards love to wear a cap of stupidity. Huh?
+Ever tried to fix a shattered weapon?
+They say anti-magic shell wraps you while anti-magic field radiates from you.
+Flirting with incubus drives you mad while sleeping with him drives you sad.
+Flirting with succubus drives you mad while sleeping with her drives you sad.
+They say that some skills demand perfection, some useful from the first step.
+They say that a mortal had better just avoid touching Nazgul rings.
+How comes those priests avoid to visit chapels nowadays?
+They say that generally a snake doesn't have arms.
+Ever tried to cancel your engagement rings?
+They say that a {rfirestone {wis not for you.
+They say that a tripe is to a dog as a firestone is to a dragon.
+You cannot pick things up from the bottom of {bwater {wwithout getting wet.
+They say that martial artists often are sensual.
+They say that a monk has splendid night life.
+Catch the Disembodied Hand That Strangled People for extra ring fingers.
+They say that clever dungeoneers always open a door without touching the knob.
+Alas, you died? Never forget to gather your ashes!
+They say that identifying useless items is useful somewhat.
+They say that Mandragora is just another kind of Shrieker Mushroom Patch.
+Foudinni said: cutting throad under daylight? You bonehead!!
+They say that an invisible man carrying lantern is suitable role for Chaplin.
+Ever activated the Book of the Deads?
+They say that Smeagol can help you to get rid of *cursed* Ring.
+They say that Polymorph Ring of {rGoldfish {wworthes while creating.
+Ever fired arrows made of your own bones?
+They say that never drink from a fountain.
+They say that never drink from a fountain beneath 2000'.
+They say that Hobbits have big hairy feet suitable for barefoot walking.
+They say that some skills are useful even from the elements.
+They say that Trolls can make a wizard that is not good at magic.
+They say that how can a snake fight with sword?
+You can check out any time you like, but you can never leave
+They say that 
+{sIRON, STEEL, {fMETAL!
+... But the evil that man do lives on ...
+Peace of mind, you run away from me!
+What if God was one of us?
+SERVER ERROR: Please update your graphic driver
+must... kill.. the... king....
+I wonder what Motok will be without ales
+Leave it. You won't need your ego here.
+You feel the dagger in your bag is {{special}
+4th Reich is rising for the last time!
+Today, I shall rule the world!
+But on this battlefield no one wins
+You take my life, but I'll take yours too
+You better stand, there's no turning back
+Without a tear, I draw my parting groan
+He pulls the trigger and I feel the blow
+I can see the light... IT {fBURNS
+A light in the black.. Oh just the fear of the dark
+Iron Maiden can't be fought
+Iron Maiden can't be sought
+Iron Maiden wants you for dead
+I have a phobia that someone's always there
+What is real?
+FUTUREAL!
+yodelllleeeeiiiiioooooo
+To cheez, or not to cheez- That is the question
+I better leave this level...
+Lame life awaits those who avoids Death
+If birthday is celebrated, why not death?
+I used to remember when....
+Who likes short shorts?
+I like short shorts
+I am the antithesarus
+Now we wander into our final hour
+... finding new ways to betray ...
+If the Bible is fake, why is it on the non-fiction side?
+SHUT UP AND LISTEN, f00
+I pity the fool
+Stand up, it's time to face your day
+Such a bitter taste...
+Put the needle on it
+What is the meaning of life?
+What is life without death?
+What is life with infinite ressurections?
+What is life?
+Ugh, what's that horrid smell? Some cheezer nearby?
+Close your eyes as we witness another... BULLET RIDE
+This whole thing smells of death
+I smell better than the sh*t you're in
+You wanna piece o me?
+70m3|\|37 r0xx0r
+Leave him in the Sunset 28
+To remember the moments in the sun
+To the diamond that lost her world today
+Give her faith and a reason
+Eat steel, beast!
+Haha, taste steel!
+tell her that she is valuable... less than tomenet
+Carry on even if it's hard
+To remember the moments in the sun
+For the fire of a handgun.. {fBurns brighter than the sun
+I can't believe it's not buttocks
+This is it
+The kiss of Judas...
+If there is a God, he is like me.
+I hear footsteps closing in...
+I recognize them from my early days..
+Time changes, images stay the same
+I don't know who you are, but I'm with you.
+Undead promises... The Night awaits
+I feel the lips on my cheek...
+Haunts me once again
+Why'd you have to go and make things so complicated?
+All man dies
+Valar Morghulis
+For what is life, without death?
+Poo is a funny word
+Damn, that @ has one sexy set of ass
+Run, live to fly -- fly to live!
+Wake me up inside!
+Can I play with madness?
+Give me the sense to wonder -- to wonder if I'm free
+Spit back in their face
+The fires of hell raged in his eyes
+The prophet stared at his crystal ball...
+Your soul's gonna burn in the lake of fire
+We'll live like kings! Damn hell ass kings!
+How DARE he laugh at me...
+All immortals will face their doom soon enough
+The higher you fly, the farther you'll fall
+I don't wanna fall to pieces, I just wanna sit and stare at you
+Hit me one more time, come on
+My little sister can hit harder than that
+BRING IT ON!!!
+I'm fading into fantasy
+I was born into a scene of angriness and greed, and dominance and persecution
+All days are lost, to conditioned zones
+I'm a .. wrathchild!
+Pick up the bones and set them on fire
+ain't nothin' gonna alter the course of my destination
+Spice up your life!
+Just a slob, like one of us?
+Put a needle on it!
+pfft
+I feel pretty!
+Seven deadly sins Seven ways to win Seven holy paths to hell...
+pfft is such an overrated word
+The Angel on one side... The Devil the other...
+Roll the dice!
+Do I really feel lucky?
+... I'M HIDEOUS!
+You're not gonna win- you'd better go back again
+Lost in this maze...
+So what does it matter?
+Don't you think God can save your life
+Rage, rage against the dying of the light
+Nothing to lose, so much to gain
+I _will_ prevail
+Ha ha, a yellow p
+Only the good die young
+If you're over 50, take some meds
+The demon in your mind will rape you in your bed at night
+If I cancel tomorrow the undead will thank me today
+Fly in the face of your prophets I mock your morality plays
+Walking on water are miracles all you can trust
+Which path do you take?
+What if you wait? It's maybe too late
+No one can save you now from the hell you're in
+The thought fled from your mind
+What if I stab my own mind?
+Where are you, body?
+That's a lie!
+Don't run, I won't hurt you...
+Just because I'm not cute enough!!
+You meanie!
+Life is a dream in which we will all wake from...
+Stop procastinating!
+Don't you feel it's more than this if you concentrate
+Going for a ride, to meet them in the Fiction City
+No one can escape Destiny
+What kind of man kills because of ideology?
+What kind of god justifies violence?
+There's a clone of everyone somewhere...
+Too much cheeze makes you fat and smelly!
+Why don't you take me there?
+{rNow you're on the black list of merchants...
+{rNow you're on the black list of admins...
+{y'Bastard{L!!!{w - The angry shopkeeper throws you out!
+{yMorgoth, the Lord of Darkness dies from {e754{y damage.
+Moldoux, the Defenceless Mold breathes fire for {f800 {wdamage!
+{GMoltor has attained level 99.
+Gotta pee!
+{b**{cFarmet Maggot was slain by Captain America.{b**
+The thought fled from your mind.
+Your parts are showing...
+unh?
+I like it better when it hurts.
+You make me wanna lala!
+It's easy to see I'm not down with that.
+If you want to, I can save you.
+He wasn't what I wanted, what I thought, no.
+Freak out, let it go.
+Don't turn around, I'm sick and I'm tired of your face.
+How does it feel?
+Uh huh, life's like this.
+Everything's chaaaaaaaaaaangin, when I turn around.
+You don't want me there, you just shut me ouuuuuuut
+I'd rather be anything but ordinary please.
+These things I'll never say.
+Got fired by fried chicken ass.
+Doesn't really matter how I feel inside.
+Nothing to surround me and keep me from my fears.
+I'm naked around you, and it feels so right.
+Gimme fuel gimme fire gimme that which I desire!
+So much for my happy ending.
+I know exactly what to do to reach a higher level of you.
+Come on in, come on in to my world tonight.
+Read between the lines.
+I see the red light more and more!
+Don't stop at the top!
+I refuse to be brought down by you!
+I know that only you can render pain.
+Taste of my scythe!
+One day I'll face you all alone, enduring out with wind and ice!
+3.14159265358979323846264338327950288419716939937510582
+Are you happy now?
+Goodbye to you.
+I can feel the beat, feel the beat, feel the beat.
+Everybody, move your feet until you're naughty!
+Oh yeah!
+DON'T STOP don't stop DON'T STOP the beat!
+Get up, come on get down with the sickness.
+I see spirits in the mist!
+Are you a man or a mouse?
+How can this be, is this reality?
+Shut your mouth, try not to panic.
+Run my baby, run my baby run
+If there is a God, he is like me.
+What is left when honor is lost?
+Get outta the kiddie pool and start makin moves!
+Thou art too proud of thy little deeds.
+Humility is the root of all virtue.
+Strive to do justice unto all things!
+Thou hath lost an eighth!
+Stellarian fighters are ready to strike!
+I am very pizza-eee.
+He's all gross and old and eew.
+Human flesh is the big natural resource now.
+Make peace with laziness.
+End the delusion of time.
+Direct your attention inward.
+Power over others is weakness disguised as strength.
+Wherever you are, be there totally.
+Death is a stripping away of all that is not you.
+Primary reality is within, secondary reality without. 
+No matter what happens, I will create no more pain for myself.
+We must travel in the direction of our fear.
+um
+My fall will be for you.
+Corn is no place for a mighty warrior!
+Twelve sided died!
+Ow, my most of me!
+There is no business like show business!
+Fold preflop.
+Like, you know, whatever.
+Destroy, she said.
+Total carnage!
+up up down down left right left right B A start
+Hear the pfft of destiny.
+If i don't make it, someone else will stand my ground.
+Deceiver of hearts, deciever of fools
+Do I believe in wonders, do I believe in dreams?
+My senses capture me
+Inside?
+Do you see why?
+I'll let others elaborate.
+They say that the color of one's speech shows their tone of voice.
+There is no greater adventure than looking for a hidden staircase.
+I'm tired.
+I'm faux pasing all over the place.
+fear -> anger -> hate -> the dark side
+{mwheeedle woodlewoodle wheeeew!
+It is the Order of Things.
+Your dreams will lead you to aphelion!
+I guess that's really just it.
+the head plans the hands kill the heart only pumps blood
+What if Gillette had designed the guillotine?
+I've run out of mental RAM.
+We didn't start the fire!
+I really need to figure out what the hell I'm doing.
+Dude, where's my car?
+The technological singularity is coming!
+O fortuna! Velut luna!
+Never feed a gremlin after midnight.
+This l00t's not gonna l00t itself!
+He that hath no sword, let him sell his garment and buy one.
+Let him who would move the world, first move himself.
+Know ye, O seeker of the mystic wisdoms, that the ways of magic are diverse and strange.
+What it do?
+There's a little fruit bat in all of us.
+They say that !dksv is the same as !d!k!s!v
+Do not ever forget the madness.
+If you want it for yourself, please say so.
+I have made my decision.
+There's no hope as long as the Ring exists.
+This is what I was afraid of.
+Give me liberty or give me death!
+Men are more apt to believe what they least understand.
+Doubt is the midwife of curiosity, and curiosity breeds wisdom.
+The One Ring can only be destroyed in the fires of Mount Doom.
+Halls of evil, dreams of dread~
+Killed by Death

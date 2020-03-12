@@ -1,0 +1,680 @@
+# $Id$
+# File: d_info.txt
+
+
+# This file is used to initialize the "lib/raw/d_info.raw" file, which is
+# used to initialize the "dungeon type" information for the Angband game.
+
+# Do not modify this file unless you know exactly what you are doing,
+# unless you wish to risk possible system crashes and broken savefiles.
+
+# Some store indexes are defined in "defines.h", and must not be
+# changed.
+
+# NOTE: Changed L and A to permille instead of percent after increasing arrays from 3 to 5. - C. Blue
+# NOTE: Indices are hardcoded in defines.h, do not change.
+
+# N:<index>:<name>
+# D:<3 letter short name>:<long name>
+# W:<min depth>:<max depth>:<min player level>:<next dungeon>:<min alloc>:<max alloc chance>
+# L:<floor1>:<%1>:<floor2>:<%2>:<floor3>:<%3>:<floor4>:<%4>:<floor5>:<%5>
+# L:<%end1>:<%end2>:<%end3>:<%end4>:<%end5>
+# A:<wall1>:<%1>:<wall2>:<%2>:<wall3>:<%3>:<wall4>:<%4>:<wall5>:<%5>:<outer wall>:<inner wall>
+# A:<%end1>:<%end2>:<%end3>:<%end4>:<%end5>
+# O:<%treasure>:<%combat>:<%magic>:<%tools>
+# E:<dices>d<sides>:<frequency>:<attack type>
+# F:<flags>
+# R:<percent>:<flags mode>
+# M:<monster flags>
+# S:<monster spells>
+
+# Note for <flags mode> :
+# 0 = No restriction
+# 1 = AND
+# 2 = NAND
+# 3 = OR
+# 4 = NOR
+
+# Note:
+# FLoor/Filltype fields 4 and 5 are now (ab)used for IRONDEEPDIVE_MIXED_TYPES exclusively.
+
+# Version stamp (required)
+
+V:4.0.0
+
+### Wilderness(purely cosmetic, never used) ###
+# (actually, not used but often refered)
+
+N:0:Wilderness
+D:Wil:a way to the Wilderness
+W:0:0:0:0:0:14:500
+L:89:800:199:200:1:0:0:0:0:0
+A:96:1000:56:0:56:0:0:0:0:0:57:58
+O:20:20:20:20
+F:PRINCIPAL | FLAT | NO_RECALL
+R:100:0
+
+### The principal dungeons, they were created by spliting the vanilla dungeon ###
+
+N:1:Mirkwood
+D:Mkw:a way to the Mirkwood Forest.
+B:81
+W:11:34:5:0:14:160
+#L:89:950:199:50:88:0:0:0:0:0
+#IDDC
+L:89:950:199:50:88:0:89:317:89:317
+#A:96:1000:97:0:56:0:0:0:0:0:202:96
+#IDDC
+A:96:1000:97:0:56:0:96:333:96:333:202:96
+O:20:20:20:20
+F:PRINCIPAL | NO_DOORS | NO_DESTROY | FLAT
+F:FILL_METHOD_0
+R:90:1
+M:SPIDER
+R:10:0
+
+N:2:Mordor
+D:Mdr:a door to the Land of Mordor.
+W:34:66:15:0:14:160
+B:81
+#L:88:667:93:333:1:0:0:0:0:0
+#IDDC
+L:88:667:93:333:1:0:88:333:93:166
+L:0:1000:0:0:0
+#A:97:500:56:500:56:0:0:0:0:0:57:97
+#IDDC
+A:97:500:56:500:56:0:97:250:56:250:57:97
+A:0:1000:0:0:0
+O:20:20:20:20
+F:PRINCIPAL | LAVA_RIVER | CAVERN | NO_STREAMERS
+F:FILL_METHOD_2
+R:100:0
+
+N:3:Angband
+D:Ang:an entrance to the Pits of Angband.
+W:67:127:30:0:14:160
+#L:1:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:1:1000:1:0:1:0:1:333:1:333
+#A:56:1000:56:0:56:0:0:0:0:0:57:58
+#IDDC
+A:56:1000:56:0:56:0:56:333:56:333:57:58
+O:20:20:20:20
+F:PRINCIPAL | CAVERN
+F:ADJUST_LEVEL_1_2 | ADJUST_LEVEL_1
+F:FILL_METHOD_0
+R:100:0
+
+N:4:Barrow-Downs
+D:BDw:a way to the Barrow-Downs.
+B:81
+# tmp. Made deeper (consider building Mirkwood near Bree)
+# instantiated the Wight-King, who holds a cheaper, still funny art ;) The Stone of Lore
+#W:1:10:1:0:14:160
+W:1:35:1:0:14:160
+#L:88:780:89:180:199:40:0:0:0:0
+#IDDC
+L:88:780:89:180:199:40:88:390:89:90
+L:0:950:50:0:0
+#A:96:290:97:610:219:100:0:0:0:0:57:97
+#IDDC
+A:96:290:97:610:219:100:96:145:97:305:57:97
+A:1000:0:0:0:0
+O:20:20:20:20
+F:PRINCIPAL | FLAT
+F:FILL_METHOD_3
+F:FINAL_GUARDIAN_971 | FINAL_ARTIFACT_15
+R:25:1
+M:UNDEAD
+R:75:0
+
+# The Additional dungeons
+
+# Mount Doom
+# Levels 85-99
+# finally meet Sauron here, now exclusively
+N:5:Mount Doom
+D:MDm:a way to the top of the Mount Doom.
+B:81
+W:85:99:38:0:14:160
+#L:86:900:205:100:1:0:0:0:0:0
+#IDDC
+L:86:900:205:100:1:0:86:300:86:300
+#eek! pits with essentially no walls? - adam
+#A:177:1000:0:0:0:0:85:87
+#changed to sandwall instead
+#A:177:1000:0:0:0:0:0:0:0:0:85:98
+#IDDC
+A:177:1000:0:0:0:0:177:344:177:344:85:98
+O:10:10:30:30
+E:2d10:10:FIRE
+F:CAVE | LAVA_RIVER | NO_RECALL | NO_STREAMERS | NOT_WATERY
+F:FILL_METHOD_0
+F:FINAL_GUARDIAN_860
+R:100:1
+M:IM_FIRE
+
+# Nether Realm
+# Levels 166-196
+# guarded by Zu-Aon, w/ Ring of Phasing, which opens the last gate to Valinor
+# HARDCODING-WARNINGS: netherrealm_bottom/netherrealm_level/special stores depend on NR going from dlev 166 to 166 + 30
+N:6:Nether Realm
+D:Nth:a magical portal to the Nether Realm.
+B:80
+#W:666:696:40:0:14:160
+W:166:196:40:0:14:160
+L:102:800:86:150:85:50:0:0:0:0
+A:85:800:87:200:87:0:0:0:0:0:57:85
+#A:86:800:210:200:210:0:57:85
+A:500:500:0:0:0
+O:25:25:25:25
+E:10d10:3:NETHER
+F:NO_RECALL_INTO | NO_STREAMERS | BIG | NOT_WATERY | NO_WALL_STREAMERS
+F:ADJUST_LEVEL_2 | FILL_METHOD_9
+F:NO_MAGIC_MAP | FINAL_GUARDIAN_1097 | FINAL_ARTIFACT_203
+#F:LAVA_RIVER
+R:5:0
+R:95:3
+M:RES_NETH | R_CHAR_G | R_CHAR_W | R_CHAR_U | R_CHAR_x | R_CHAR_N
+
+# The Lost Land of Numenor
+# levels 35-50
+# guarded by Ar-Pharazon the Golden, who has the stone "Toris Mejistos".
+N:7:Submerged Ruins
+D:Num:a submerged way to the lost land of Numenor.
+#W:35:51:15:0:14:160
+#W:35:42:15:0:14:160 for Ar-Pharazon level consistency again:
+W:35:51:15:0:14:160
+#L:84:950:187:50:1:0:0:0:0:0  changed to deep water, for druids
+#L:187:1000:84:0:1:0:0:0:0:0
+#IDDC
+L:187:1000:84:0:1:0:187:333:187:333
+#A:187:900:84:90:56:10:0:0:0:0:57:187
+#IDDC
+A:187:900:84:90:56:10:187:300:187:300:57:187
+A:600:0:400:0:0
+O:30:30:10:10
+E:1d1:1:ACID
+F:NO_STREAMERS | FILL_METHOD_3
+#F:NO_WALL_STREAMERS
+F:FINAL_GUARDIAN_980 | FINAL_ARTIFACT_204
+F:SHORT_IDDC
+R:20:0
+R:80:3
+M:AQUATIC | CAN_SWIM | CAN_FLY
+
+# Used for astral mode
+N:8:The Halls of Mandos
+D:HMa:*A BUG*
+#W:1:98:1:0:14:160
+W:1:100:1:0:14:160
+#L:1:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:1:1000:1:0:1:0:1:333:1:333
+#A:56:1000:56:0:56:0:0:0:0:0:57:58
+A:56:1000:56:0:56:0:56:333:56:333:57:58
+O:20:20:20:20
+#F:RANDOM_TOWNS | NO_RECALL | NO_SHAFT
+F:RANDOM_TOWNS | NO_SHAFT | IRON | NO_DUNGEON_BONUS | EXP_20
+F:FILL_METHOD_0
+R:100:2
+M:UNIQUE
+R:100:0
+
+# Cirith Ungol
+# levels 25-50
+# guarded by Shelob, who guards Sting. (As an artifact which gains levels, it's
+# a worthwhile reward...)
+N:9:Cirith Ungol
+D:CUg:an entrance to Cirith Ungol.
+B:81
+W:25:51:10:0:14:160
+#L:87:50:88:650:16:300:0:0:0:0
+#IDDC
+L:87:50:88:650:16:300:88:217:88:217
+#A:97:900:16:100:56:0:0:0:0:0:16:58
+#IDDC
+A:97:900:16:100:56:0:97:300:97:300:16:58
+O:30:30:30:10
+E:4d4:20:POISON
+F:FINAL_GUARDIAN_481 | FINAL_ARTIFACT_88
+F:CIRCULAR_ROOMS
+F:FILL_METHOD_2
+F:MANY_MONSTERS | SHORT_IDDC | EMPTY | DARK
+R:2:0
+R:90:1
+M:SPIDER
+R:8:3
+M:ORC | RES_DARK | RES_POIS
+S:BR_POIS | BR_DARK
+
+# The Heart of the Earth
+# levels 25-36
+# guarded by Golgarach, the Living Rock, with the Anchor of Space-Time
+N:10:The Heart of the Earth
+D:HoE:a passage leading into the very heart of the world.
+B:81
+W:25:37:10:0:14:160
+#L:1:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:1:1000:1:0:1:0:1:333:1:333
+#A:56:1000:56:0:56:0:0:0:0:0:57:58
+#IDDC
+A:56:1000:56:0:56:0:56:333:56:333:57:58
+O:40:10:10:20
+F:LIFE_LEVEL | EVOLVE | NO_RECALL | FINAL_GUARDIAN_1035 | FINAL_ARTIFACT_14
+R:40:3
+M:R_CHAR_# | R_CHAR_X | R_CHAR_g | R_CHAR_E |
+R:30:3
+M:PASS_WALL | KILL_WALL | HURT_ROCK
+R:30:0
+
+# The Paths of the Dead
+# levels 40-70
+# Feagwath is there, guarding Doomcaller
+N:16:The Paths of the Dead
+D:PoD:the entrance to the Paths of the Dead.
+W:40:70:20:0:24:100
+#L:88:850:84:150:1:0:0:0:0:0
+#IDDC
+L:88:850:84:150:1:0:88:283:88:283
+#A:56:750:87:250:56:0:0:0:0:0:57:58
+#IDDC
+A:56:750:87:250:56:0:56:375:87:125:57:58
+O:30:30:30:2
+E:1d1:20:RAISE
+F:FINAL_GUARDIAN_804 | FINAL_ARTIFACT_91
+F:FILL_METHOD_3
+R:5:0
+R:10:3
+M:R_CHAR_p
+R:85:3
+M:UNDEAD | NONLIVING
+
+# The Illusory Castle
+# levels 35-52
+# Guarded by The Glass Golem guarding The Helm of Knowledge -> now The King in Yellow
+N:17:The Illusory Castle
+D:Ill:an entrance to the Illusory Castle.
+W:35:52:10:0:24:100
+#L:1:980:188:20:1:0:0:0:0:0
+#IDDC
+L:1:980:188:20:1:0:1:327:1:327
+#A:56:500:189:500:56:0:0:0:0:0:57:58
+#IDDC
+A:56:500:189:500:56:0:56:250:189:250:57:58
+O:50:10:20:20
+E:6d2:6:CONFUSION
+F:RANDOM_TOWNS | NO_STREAMERS | NO_WALL_STREAMERS | NOT_WATERY
+F:FINAL_GUARDIAN_735 | FINAL_ARTIFACT_160
+F:FILL_METHOD_1 | TOWER
+R:30:0
+R:70:3
+M:STUPID | WEIRD_MIND | SHAPECHANGER | ATTR_MULTI | CHAR_MULTI | RAND_25 |
+M:RAND_50 | EMPTY_MIND | INVISIBLE | PASS_WALL | KILL_WALL
+M:MULTIPLY
+S:BR_CONF | BR_CHAO | BA_CHAO | CONF | FORGET | TRAPS
+
+# The Maze
+# Levels 25-37
+# Guarded by The Minotaur of the Labyrinth with the Steel Helm of Hammerhand
+N:18:The Maze
+D:Maz:a small tunnel leading to a maze of twisty little passages, all alike.
+W:25:38:15:0:20:160
+#L:1:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:1:1000:1:0:1:0:1:333:1:333
+#A:56:980:48:20:56:0:0:0:0:0:57:58
+#IDDC
+A:56:980:48:20:56:0:56:327:56:327:57:58
+O:2:40:10:40
+F:MAZE | SMALLEST | FORGET
+F:FINAL_GUARDIAN_1029 | FINAL_ARTIFACT_38
+F:SHORT_IDDC
+R:80:0
+R:20:3
+M:R_CHAR_p
+
+# The Orc Cave
+# levels 10-22
+# There is Azog with the Wand of Thrain at the bottom
+N:19:The Orc Cave
+D:Orc:a dark tunnel leading to an Orc Cave.
+B:81
+W:10:23:3:0:35:200
+#L:88:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:88:1000:1:0:1:0:88:333:88:333
+#A:97:1000:56:0:56:0:0:0:0:0:57:97
+#IDDC
+A:97:1000:56:0:56:0:97:333:97:333:57:97
+O:5:50:10:25
+F:RANDOM_TOWNS |
+#F:FINAL_OBJECT_810
+F:FINAL_GUARDIAN_373 | CAVE |
+F:FILL_METHOD_0
+R:30:3
+M:TROLL
+R:20:0
+R:50:3
+M:ORC | R_CHAR_k | R_CHAR_o | R_CHAR_O
+
+# Erebor
+# levels 60-72
+# Glaurung (715) guards Nauglamir -> Smaug (697) guards Arkenstone
+N:20:Erebor
+D:Ere:a tunnel leading into depths of the Lonely Mountain.
+B:104
+W:50:61:35:0:20:140
+#L:88:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:88:1000:1:0:1:0:88:333:88:333
+#A:97:900:87:100:56:0:0:0:0:0:57:97
+#IDDC
+A:97:900:87:100:56:0:97:300:97:300:57:97
+O:40:40:40:40
+F:BIG | LAVA_RIVER | CAVERN | FORCE_DOWN | NO_STREAMERS | NO_WALL_STREAMERS
+F:CAVE | DOUBLE | FINAL_GUARDIAN_697 | FINAL_ARTIFACT_3
+F:FILL_METHOD_2
+#R:10:0
+R:60:1
+M:DRAGON | R_CHAR_D
+R:30:1
+M:DRAGON | R_CHAR_d
+R:100:4
+M:R_CHAR_A
+R:10:0
+
+# The Old Forest
+# levels 13-25
+# Old Man Willow protects it, with the Boomerang of Beor.
+N:21:The Old Forest
+D:OFr:a path into the Old Forest.
+B:81
+W:13:26:5:0:15:100
+#L:88:760:84:160:199:80:0:0:0:0
+#IDDC
+L:88:760:84:160:199:80:88:253:88:253
+L:680:160:160:0:0
+#A:96:1000:56:0:56:0:0:0:0:0:202:96
+#IDDC
+A:96:1000:56:0:56:0:96:333:96:333:202:96
+O:20:5:15:30
+F:WATER_RIVERS | NO_DOORS | NO_DESTROY | FLAT | NO_STREAMERS | NO_WALL_STREAMERS
+F:RANDOM_TOWNS | FINAL_GUARDIAN_206 | FINAL_ARTIFACT_128
+F:FILL_METHOD_3
+R:30:0
+R:40:3
+M:ANIMAL
+R:30:3
+M:UNDEAD | R_CHAR_h
+
+# The Mines of Moria
+# levels 30-50
+# There is the Balrog of Moria with The Quarterstaff of Olorin
+N:22:The Mines of Moria
+D:MoM:a stone door leading to the Mines of Moria.
+B:81
+W:30:50:15:0:40:40
+#L:88:995:49:5:1:0:0:0:0:0
+#IDDC
+L:88:995:49:5:1:0:88:332:88:332
+#A:97:1000:56:0:56:0:0:0:0:0:57:97
+#IDDC
+A:97:1000:56:0:56:0:97:333:97:333:57:97
+O:30:50:10:5
+F:WATER_RIVER | BIG | NO_STREAMERS
+F:FORCE_DOWN | FINAL_GUARDIAN_872 | FINAL_ARTIFACT_120
+F:RANDOM_TOWNS
+F:WILD_45_30__44_37
+F:FILL_METHOD_0
+R:40:3
+M:ORC
+R:30:3
+M:TROLL | GIANT
+R:20:3
+M:DEMON
+R:10:0
+
+# The tower of Dol Guldur
+# Levels 57-70
+# The Necromancer (weak sauron) at the bottom, with the Ring of Durin
+N:23:Dol Guldur
+D:TDG:a gate leading to the tower of Dol Guldur.
+W:57:71:28:0:24:160
+#L:1:800:174:200:1:0:0:0:0:0
+#IDDC
+L:1:800:174:200:1:0:1:400:174:100
+#A:56:1000:56:0:56:0:0:0:0:0:57:58
+#IDDC
+A:56:1000:56:0:56:0:56:333:56:333:57:58
+O:20:1:70:9
+F:SMALL | FINAL_GUARDIAN_819 | FINAL_ARTIFACT_205
+F:FILL_METHOD_3 | TOWER
+R:30:3
+M:R_CHAR_p | R_CHAR_P
+R:10:3
+M:ORC | TROLL
+R:20:3
+M:UNDEAD
+R:30:3
+M:DEMON | DRAGON
+R:10:0
+
+# Dungeons from Variaz
+
+# The Small Water Cave
+# levels 32-34
+# The Watcher in the Water at the bottom guarding the Trident of Wrath
+N:24:The Small Water Cave
+D:SWC:the entrance to a small water cave.
+B:81
+W:32:35:15:0:14:160
+#L:84:1000:84:0:84:0:0:0:0:0  changed to deep water, for druids
+#L:187:1000:84:0:84:0:0:0:0:0
+#IDDC
+L:187:1000:84:0:84:0:187:333:187:333
+#A:97:1000:56:0:56:0:0:0:0:0:57:58
+#IDDC
+A:97:1000:56:0:56:0:97:333:97:333:57:58
+O:10:10:30:30
+E:1d1:20:ACID
+F:FINAL_GUARDIAN_517 | FINAL_ARTIFACT_107
+F:FILL_METHOD_0 | NO_RECALL | SMALL | NO_DOORS
+R:10:0
+R:10:3
+M:AQUATIC
+R:40:1
+M:IM_COLD
+S:BA_WATE
+R:40:3
+M:IM_COLD
+
+# The Land of Mountains
+# T'ron the rebel Dragonrider is hiding here, with his suit of
+# dragonrider armour.
+# Levels 45-70
+N:25:The Sacred Land of Mountains
+D:LoM:the way to The Sacred Land of Mountains.
+B:104
+W:40:45:20:0:14:160
+#L:89:1000:89:0:89:0:0:0:0:0
+#IDDC
+L:89:1000:89:0:89:0:89:333:89:333
+#A:97:1000:56:0:56:0:0:0:0:0:97:97
+#IDDC
+A:97:1000:56:0:56:0:97:333:97:333:97:97
+O:20:20:20:20
+F:RANDOM_TOWNS | FLAT | NO_STREAMERS | NO_WALL_STREAMERS
+F:FINAL_GUARDIAN_789 | FINAL_ARTIFACT_27
+F:FILL_METHOD_0
+F:SHORT_IDDC
+R:100:0
+#really correct @ CAN_FLY? I guess, since lore-wise T'ron is supposed to hide
+# there, as someone who can actually fly.. or something.
+R:60:2
+M:CAN_FLY
+R:100:4
+M:R_CHAR_A
+
+# The Land of Rhun
+# levels 26-40
+# Guarded by Ulfang the Black, Morgoth's first Easterling follower.
+# He has Careth Asdriag (an heirloom of Rhun according to its description.)
+N:26:The Land of Rhun
+D:LoR:a way to the the Land of Rhun.
+W:26:41:13:0:14:160
+#L:89:1000:1:0:1:0:0:0:0:0
+#IDDC
+L:89:1000:1:0:1:0:89:334:89:334
+#A:89:500:96:250:84:250:0:0:0:0:57:58
+#IDDC
+A:89:500:96:250:84:250:89:250:96:125:57:58
+O:20:20:20:20
+F:RANDOM_TOWNS | FLAT | NO_STREAMERS | FINAL_GUARDIAN_990 | FINAL_ARTIFACT_87
+F:FILL_METHOD_1 | NO_WALL_STREAMERS
+R:30:3
+M:R_CHAR_p | R_CHAR_h
+R:30:3
+M:ANIMAL
+R:40:0
+
+# The Sandworm's Lair
+# level 22-30
+# guarded by the Sandworm Queen (and her children), who will drop her armour
+N:27:The Sandworm lair
+D:SwL:a sandhole.
+B:81
+W:22:30:12:0:5:200
+#L:91:850:94:100:93:50:0:0:0:0
+#IDDC
+L:91:850:94:100:93:50:91:284:91:284
+#A:98:1000:96:0:84:0:0:0:0:0:94:94
+#IDDC
+A:98:1000:96:0:84:0:98:333:98:333:94:94
+O:15:5:60:20
+F:NO_DOORS | SAND_VEIN |
+F:FINAL_GUARDIAN_1030 | FINAL_ARTIFACT_153
+F:FILL_METHOD_0
+F:SHORT_IDDC | MANY_MONSTERS | VMANY_MONSTERS
+#DERARE_MONSTERS |
+R:90:3
+M:R_CHAR_w
+R:10:3
+M:MULTIPLY
+#S:MULTIPLY
+
+# Used by the death fate
+N:28:Death Fate
+D:Dth:a fated death.
+W:1:1:1:0:30:255
+L:1:1000:1:0:1:0:0:0:0:0
+A:1:1000:1:0:1:0:0:0:0:0:1:1
+O:1:1:1:1
+#F:EMPTY | SMALLEST | NO_RECALL | NO_STREAMERS | NO_WALL_STREAMERS | NOT_WATERY
+F:EMPTY | SMALLEST | NO_STREAMERS | NO_WALL_STREAMERS | NOT_WATERY
+F:NO_EXIT_WOR | NO_EXIT_STAIR | NO_EXIT_PROB | NO_EXIT_FLOAT | NO_RECALL_INTO
+F:FILL_METHOD_0
+R:100:0
+
+# The Grinding Ice
+# levels 20-40
+# Guarded by the White Balrog guarding The Pike 'Til-i-arc'
+N:29:The Helcaraxe
+D:Ice:the entrance to the Grinding Ice of the Helcaraxe.
+W:20:41:10:0:14:160
+#L:90:0:88:700:84:300:0:0:0:0
+#IDDC
+L:90:0:88:700:84:300:88:350:84:150
+L:900:0:100:0:0
+#A:95:0:56:1000:56:0:0:0:0:0:57:58
+#IDDC
+A:95:0:56:1000:56:0:56:333:56:333:57:58
+A:1000:0:0:0:0
+O:20:20:20:20
+E:1d4:15:COLD
+F:DOUBLE | WATER_RIVER | CAVERN | NO_STREAMERS | NO_WALL_STREAMERS
+F:FINAL_GUARDIAN_1034 | FINAL_ARTIFACT_96
+F:FILL_METHOD_2
+R:100:1
+M:IM_COLD
+
+# The Training Tower
+# levels 1-2
+N:30:The Training Tower
+D:Nwb:A tower for newbies.
+$ARCADE_SERVER!W:1:2:1:0:14:160
+$ARCADE_SERVER$W:1:98:1:0:14:160
+#L:1:800:174:200:1:0:0:0:0:0
+#IDDC
+L:1:800:174:200:1:0:1:400:174:100
+#A:56:1000:56:0:56:0:0:0:0:0:57:58
+#IDDC
+A:56:1000:56:0:56:0:56:334:56:334:57:58
+O:20:20:20:20
+F:PRINCIPAL | TOWER | EMPTY | NO_DEATH
+F:FILL_METHOD_3
+R:25:1
+M:ANIMAL
+R:75:0
+
+
+# For the Ring of Phasing's activation:
+#
+# levels 1-2
+N:31:The Shores of Valinor
+D:SOV:Valinor, for retirement.
+B:104
+W:200:200:1:0:14:160
+L:89:1000:0:0:0:0:0:0:0:0
+A:101:1000:0:0:0:0:0:0:0:0:101:101
+O:0:0:0:0
+F:TOWER | EMPTY | NO_DEATH | SMALLEST
+F:FILL_METHOD_0 | NO_STREAMERS | NO_WALL_STREAMERS | NOT_WATERY | NO_RECALL_INTO
+F:NO_ENTRY_STAIR | NO_ENTRY_WOR | NO_ENTRY_PROB | NO_ENTRY_FLOAT
+#no monsters allowed (R:0)
+
+
+# Experimental post-king dungeon to close gap between Angband and Nether Realm:
+#
+# levels 130-149
+N:32:The Cloud Planes
+D:TCP:the planes in the skies.
+B:108
+W:130:149:40:0:14:160
+L:82:1000:0:0:0:0:0:0:0:0
+#A:106:1000:0:0:0:0:0:0:0:0:95:95
+A:107:1000:0:0:0:0:0:0:0:0:95:95
+O:0:0:0:0
+F:TOWER | FILL_METHOD_3 | FLAT | FINAL_GUARDIAN_1147 | NO_DESTROY
+F:NO_STREAMERS | NO_WALL_STREAMERS | NOT_WATERY | BIG | NOT_EMPTY
+F:NO_ENTRY_WOR | NO_ENTRY_PROB | NO_ENTRY_FLOAT | NO_RECALL_INTO | NO_DOORS
+#F:FEW_ROOMS
+R:100:1
+M:RES_ELEC | RES_COLD
+R:100:1
+M:CAN_FLY | RES_COLD
+R:100:4
+M:UNDEAD | DEMON | MULTIPLY | R_CHAR_j | R_CHAR_m
+#R:25:4
+R:100:4
+M:R_CHAR_Z
+
+
+# N:<index>:<name>
+# D:<3 letter short name>:<long name>
+# B:<boundary wall> [FEAT_PERM_SOLID]
+# W:<min depth>:<max depth>:<min player level>:<next dungeon>:<min alloc>:<max alloc chance>
+# L:<floor1>:<%1>:<floor2>:<%2>:<floor3>:<%3>
+# A:<wall1>:<%1>:<wall2>:<%2>:<wall3>:<%3>:<outer wall>:<inner wall>
+# O:<%treasure>:<%combat>:<%magic>:<%tools>
+# E:<dices>d<sides>:<frequency>:<attack type>
+# F:<flags>
+# R:<percent>:<flags mode>
+# M:<monster flags>
+# S:<monster spells>
+# 0 = No restriction
+# 1 = AND
+# 2 = NAND
+# 3 = OR
+# 4 = NOR

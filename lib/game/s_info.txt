@@ -1,0 +1,982 @@
+# $Id$
+# File: s_info.txt
+
+
+# This file is used to initialize the "lib/data/s_info.raw" file, which is
+# used to initialize the "skills" information for the PernAngband game.
+
+# Do not modify this file unless you know exactly what you are doing,
+# unless you wish to risk possible system crashes and broken savefiles.
+
+# After modifying this file, delete the "lib/data/s_info.raw" file.
+
+# The skill indexes are defined in "defines.h", and must not be changed.
+
+# N:idx:name
+# D:desc
+# A:action mkey:action desc
+# I:rate:tval
+
+# E:exclusive skill:exclusive skill
+# O:skill:opposing skill%percent
+# A:skill:friendly skill%percent
+# (NOTE: not A: but f: ?)
+
+# T:father:child
+
+# Version stamp (required)
+
+V:4.0.0
+
+
+#
+# Skill definitions (beware: hardcoded!)
+#
+
+N:1:Combat
+D:Improves fighting and allows wearing heavier armour (Martial Arts excepted).
+D:Pseudo-ID weapons/armour faster; more detailed at 11, ranged at 31, magic at 41.
+A:14:Check parry/block chance
+I:1000:0
+
+N:2:Weaponmastery
+D:Improves fighting abilities with melee weapons and increases parry chance.
+D:This skill is secondary to the specific weapon class mastery skills.
+#A:5:Fighting techniques
+I:1000:0
+#F:MKEY_HARDCODE
+
+N:3:Sword-mastery
+D:Allows more skillful use of sword-type weapons.
+D:This is a primary skill for melee fighters.
+I:1000:0
+
+N:4:Critical-strike
+D:Increases chance to land high-damage critical strikes.
+D:Only applies to sword-type weapons weighing up to 10.0 lbs.
+I:1000:0
+
+N:5:Polearm-mastery
+D:Allows more skillful use of polearm-type weapons.
+D:This is a primary skill for melee fighters.
+I:1000:0
+
+N:6:Blunt-mastery
+D:Allows more skillful use of weapons regarded as blunt.
+D:This is a primary skill for melee fighters.
+I:1000:0
+
+N:7:Archery
+D:Improves your skill with ranged weapons and provides special techniques.
+D:Pseudo-id ranged weapons and ammunition faster and (at 11+) in more detail.
+A:6:Shooting techniques
+I:1000:0
+F:MKEY_HARDCODE
+#A:9:Craft ammunition from bones or nearby rubble <- absorbed by 'Archer techniques'
+
+N:8:Sling-mastery
+D:Allows more skillful use of slings and reduces break chance of shots.
+D:Bullets can ricochet and harm more than just one foe.
+#A:4:Toggle fire-till-kill mode
+I:1000:0
+
+N:9:Bow-mastery
+D:Allows more skillful use of bows and reduces break chance of arrows.
+#A:4:Toggle fire-till-kill mode
+I:1000:0
+
+N:10:Crossbow-mastery
+D:Allows more skillful use of crossbows and reduces break chance of bolts.
+#A:4:Toggle fire-till-kill mode
+I:1000:0
+
+N:11:Backstabbing
+D:Ability to backstab sleeping and fleeing monsters.
+D:*** REQUIRES SWORD-TYPE WEAPONS OR MARTIAL ARTS***
+#D:*** REQUIRES SWORD-TYPE WEAPONS ***
+#D:Much more effective in the dark
+I:1000:0
+
+N:12:Magic
+D:Increases your max mana by +4 per point.
+#outdated (pre-lua): and spell-casting chance.
+D:Allows you to pseudo-id magical items faster and (at 11+) in more detail.
+#A:4:Toggle fire-till-kill mode
+I:1000:0
+
+#N:13:Casting-speed
+#D:Ability to cast sorcery spells faster than one turn
+#I:1000:0
+
+N:13:Fire-till-kill
+D:Hidden ability for all characters.
+A:4:Toggle fire-till-kill mode
+I:1000:0
+#F:MKEY_HARDCODE
+#F:HIDDEN
+
+# This is like that of ToME2 now
+N:14:Sorcery
+#D:Ability to cast sorcery spells, beware it reduces hp
+D:Ability to use all the wizardry schools as if their skill was sorcery,
+D:but you won't receive any bonus abilities/resistances of the schools.
+#D:But the price to channel that much magic is your health
+#A::Cast sorcery spell
+#I:1000:92
+#F:MKEY_SPELL | MKEY_TVAL
+I:1000:0
+
+#N:15:Magery
+#D:Ability to cast magery spells
+#A:2:Cast magery spell
+#I:1000:90
+#F:MKEY_SPELL | MKEY_TVAL
+#F:HIDDEN
+
+N:16:Mimicry
+D:Ability to polymorph into monster forms of a level of up to twice the skill.
+D:At 30+ it increases max mana by 5. At 35+ it speeds up polymorphing by 5%.
+A:3:Use innate power
+F:MKEY_HARDCODE
+I:1000:0
+
+N:17:Magic Device
+D:Increases chance to successfully use magic devices such as
+D:wands, rods, staves, artifacts. Also increases their power.
+I:1000:0
+
+#N:18:Shadow
+#D:Ability to cast shadow spells
+#A:4:Cast shadow spell
+#I:1000:94
+#F:MKEY_SPELL | MKEY_TVAL
+
+#N:19:Prayer
+#D:Ability to pray to your god(or use your own godly power if you are a god)
+#A:7:Recite a prayer
+#I:1000:91
+#F:MKEY_SPELL | MKEY_TVAL
+
+#N:20:Spell-duration
+#D:Increases the duration of your shadow spells
+#I:1000:0
+
+N:21:Sneakiness
+#D:General ability at your sneakiness skills, and improves perception
+#D:General ability at your sneakiness skills
+#D:It allows to act carefully and somewhat quickly
+D:Allows you to move faster and be more aware.
+D:Slightly reduces speed penalty while searching or being cloaked.
+I:1000:0
+
+N:22:Disarming
+D:Ability to disarm various traps and pick locks.
+#D:The trap lore also saves you from activating already-found traps
+I:1000:0
+
+N:23:Stealth
+D:Ability to move without waking up monsters.
+I:1000:0
+
+N:24:Stealing
+D:Ability to steal objects from stores, or objects and money from
+D:other people. This knowledge also protects you from robbery.
+I:1000:0
+
+N:25:Necromancy
+#D:General ability at necromantic skills. Provides life drain on monster death
+D:Drains spiritual energy from the death of your opponents, provided you
+D:can actually see them, replenishing your hit points and mana.
+I:1000:0
+
+N:26:Anti-magic
+D:A field surrounding you, preventing any creature from casting spells.
+D:Permanently renders you unable to use magic (including Blood) or magic devices!
+I:1000:0
+
+#N:27:Aura power
+#D:Increases you auras power
+#I:1000:0
+N:27:Traumaturgy
+D:Drains spiritual energy from visible opponents when you inflict damage,
+D:replenishing your mana. Requires living creatures who feel pain.
+I:1000:0
+
+N:28:Aura of Fear
+D:Aura that surrounds you and strikes fear in monsters that
+D:strike you in close combat, making them run away.
+A:15:Control your aura of fear
+I:1000:0
+
+N:29:Shivering Aura
+D:Aura that surrounds you and stuns monsters that strike you
+D:in close combat.
+A:16:Control your shivering aura
+I:1000:0
+
+N:30:Aura of Death
+D:Aura that surrounds you and creates alternating waves of plasma
+D:and ice when monsters strike you in close combat.
+A:17:Control your aura of death
+I:1000:0
+
+#now in Archery - C. Blue
+#N:31:Hunting Lore
+#D:Ability to cast hunting spells
+#A:6:Use an archery book
+#I:1000:95
+#F:MKEY_SPELL | MKEY_TVAL
+
+#now in Weaponmastery - C. Blue
+N:32:Fighting Technique
+D:Ability to perform special fighting techniques
+A:5:Fighting techniques
+I:1000:0
+F:MKEY_HARDCODE | HIDDEN
+#I:1000:93
+#F:MKEY_SPELL | MKEY_TVAL
+
+N:33:Miscellaneous
+D:Not a real skill, it is only used to regroup some skills
+I:1000:0
+F:HIDDEN
+
+N:34:Agility
+D:General ability to move on quickly
+I:1000:0
+F:HIDDEN
+
+N:35:Calmness
+D:Reduces chances of opponents to interfere with some of your actions
+D:most notably such as firing ranged weapons or entering void gates.
+I:1000:0
+
+N:36:Swimming
+D:Ability to cross water without drowning even under heavier load.
+D:Also reduces chance of items getting damaged by water while swimming.
+I:1000:0
+F:MAX_1
+
+N:37:Martial Arts
+D:Ability to fight bare-handed. Also provides some special abilities.
+D:You mustn't use weapons or heavy armour, or various penalties may apply.
+#D:This is a primary skill for melee fighters.
+I:1000:0
+
+## DELETEME
+#N:38:Ricochet
+#D:Ability to harm more than one opponents using ricochets
+#I:1000:0
+#F:HIDDEN
+
+N:39:Boomerang-mastery
+D:Allows more skillful use of boomerangs.
+D:Reduces chance of boomerangs to break or to not return.
+#A:4:Toggle fire-till-kill mode
+I:1000:0
+
+#N:40:Training
+#D:Ability to train yourself and overcome weak points
+#I:1000:0
+
+N:41:Interception
+D:Ability to interfere with certain actions of opponents next to you,
+D:such as casting spells or running away.
+I:1000:0
+
+N:42:Dodging
+D:Ability to dodge various types of attacks. Requires light armour. The
+D:less your equipment and especially backpack weighs, the better it works.
+A:8:Check dodge chance
+I:1000:0
+
+N:43:Health
+D:Increases base hit points by +2 per point, speeds regeneration and recovery
+D:from malicious effects. Shows more detailed SN (sanity) status at 10/20/40.
+I:1000:0
+
+N:44:Digging
+D:Allows you to tunnel through walls and obstacles faster.
+D:Also improves uncovering items, treasure, and special features by digging.
+I:1000:0
+
+## DELETEME
+#N:45:Revelation
+#D:Affects how broad a revelation your prayer will bring
+#I:1000:0
+#F:HIDDEN
+
+N:46:Trapping
+D:Ability to set monster traps and to disarm various traps and pick locks.
+D:Increases chance to not get hindered by monsters when trying to lay a trap.
+A:10:Set trap
+I:1000:46
+F:MKEY_HARDCODE
+
+N:47:Axe-mastery
+D:Allows more skillful use of axe-type weapons.
+D:This is a primary skill for melee fighters.
+I:1000:0
+
+N:48:Conveyance
+D:Ability to learn and use spells from the Conveyance school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:49:Spell-power
+#D:Further boosts most (learned) spells of the 'Wizardry' and 'Prayers' schools.
+D:Further boosts most (learned) spells of the 'Wizardry' schools.
+I:1000:0
+
+N:50:Mana
+D:Ability to learn and use spells from the Mana school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:51:Fire
+D:Ability to learn and use spells from the Fire school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:52:Air
+D:Ability to learn and use spells from the Air school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:53:Water
+D:Ability to learn and use spells from the Water school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:54:Nature
+D:Ability to learn and use spells from the Nature school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:55:Earth
+D:Ability to learn and use spells from the Earth school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:56:Divination
+D:Ability to learn and use spells from the Divination school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:57:Temporal
+D:Ability to learn and use spells from the Temporal school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:58:Meta
+D:Ability to learn and use spells from the Meta school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+#Meta school was removed, so hide this skill for transgression phase:
+F:HIDDEN
+
+N:59:Mind
+D:Ability to learn and use spells from the Mind school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+N:60:Udun
+D:Ability to learn and use spells from the Udun school.
+D:Spells use the intelligence stat.
+A:11:Cast a spell
+I:1000:111
+
+# priest
+
+N:70:Holy Offense
+D:Ability to learn and use holy prayers for attacking.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+N:71:Holy Defense
+D:Ability to learn and use holy prayers for defending.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+N:72:Holy Curing
+D:Ability to learn and use holy prayers for curing purpose.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+N:73:Holy Support
+D:Ability to learn and use miscellanous supporting prayers.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+# druid
+
+N:74:Arcane Lore
+D:Access to the Druid's Arcane Realm.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+N:75:Physical Lore
+D:Access to the Druid's Physical Realm.
+D:Spells use the wisdom stat.
+A:11:Cast a spell
+I:1000:111
+
+$ENABLE_MAIA$N:77:Astral Knowledge
+$ENABLE_MAIA$D:Access to the astral spells
+$ENABLE_MAIA$A:11:Cast a spell
+$ENABLE_MAIA$I:1000:111
+
+$DUAL_WIELD$N:78:Dual-wield
+$DUAL_WIELD$D:Ability to wield two one-handed weapons at once.
+$DUAL_WIELD$D:This won't work well if your armour is too heavy.
+$DUAL_WIELD$I:1000:0
+$DUAL_WIELD$F:MAX_1
+$DUAL_WIELD$A:1:Switch between main-hand and dual-hand
+
+$ENABLE_STANCES$N:79:Combat Stances
+$ENABLE_STANCES$D:Ability to use different stances in armed melee combat.
+$ENABLE_STANCES$A:13:Switch combat stance
+$ENABLE_STANCES$I:1000:0
+$ENABLE_STANCES$F:MKEY_HARDCODE | AUTO_MAX
+
+$ENABLE_MCRAFT$N:80:Psycho-power
+$ENABLE_MCRAFT$D:Access to psi-spells that create physical or energetical effects.
+$ENABLE_MCRAFT$A:11:Cast a spell
+$ENABLE_MCRAFT$I:1000:111
+
+$ENABLE_MCRAFT$N:81:Attunement
+$ENABLE_MCRAFT$D:Access to psi-spells that elevate and connect to mind and brain.
+$ENABLE_MCRAFT$A:11:Cast a spell
+$ENABLE_MCRAFT$I:1000:111
+
+$ENABLE_MCRAFT$N:82:Mental Intrusion
+$ENABLE_MCRAFT$D:Access to psi-spells that attack mind or physis of others.
+$ENABLE_MCRAFT$A:11:Cast a spell
+$ENABLE_MCRAFT$I:1000:111
+
+
+N:83:Wizardry
+D:
+I:1000:0
+F:DUMMY
+
+N:84:Prayers
+D:
+I:1000:0
+F:DUMMY
+
+N:85:Druidism
+D:
+I:1000:0
+F:DUMMY
+
+$ENABLE_MCRAFT$N:86:Mindcraft
+$ENABLE_MCRAFT$D:
+$ENABLE_MCRAFT$I:1000:0
+$ENABLE_MCRAFT$F:DUMMY
+
+$ENABLE_OCCULT$N:87:Shadow
+$ENABLE_OCCULT$D:Ability to learn and use spells from the Shadow school.
+$ENABLE_OCCULT$D:Most spells use the intelligence stat, some wisdom.
+$ENABLE_OCCULT$A:11:Cast a spell
+$ENABLE_OCCULT$I:1000:111
+
+$ENABLE_OCCULT$N:88:Spirit
+$ENABLE_OCCULT$D:Ability to learn and use spells from the Spirit school.
+$ENABLE_OCCULT$D:Most spells use the wisdom stat, some intelligence.
+$ENABLE_OCCULT$A:11:Cast a spell
+$ENABLE_OCCULT$I:1000:111
+
+$ENABLE_OCCULT$N:89:Occultism
+$ENABLE_OCCULT$D:
+$ENABLE_OCCULT$I:1000:0
+$ENABLE_OCCULT$F:DUMMY
+
+# additional ones
+
+N:90:Climbing
+D:Ability to climb highest mountains withouth problems (Requires 1.000).
+I:1000:0
+F:MAX_1
+
+#N:91:Levitation
+#D:Ability to hover over the ground
+#I:1000:0
+#F:MAX_1
+#
+#N:92:Free Action
+#D:Immunity to paralyzing attacks
+#I:1000:0
+#F:MAX_1
+#
+#N:93:Confusion Resistance
+#D:Resistance to confusion in general
+#I:1000:0
+#F:MAX_1
+
+$ENABLE_OHERETICISM$N:94:Hereticism
+$ENABLE_OHERETICISM$D:Ability to learn and use spells from the Hereticism school.
+$ENABLE_OHERETICISM$D:Most spells use the wisdom stat, very few use intelligence.
+$ENABLE_OHERETICISM$A:11:Cast a spell
+$ENABLE_OHERETICISM$I:1000:111
+
+N:95:Runecraft
+D:
+I:1000:0
+F:DUMMY
+
+N:96:Light
+D:Ability to evoke runes of light.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+N:97:Darkness
+D:Ability to evoke runes of darkness.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+N:98:Nexus
+D:Ability to evoke runes of nexus.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+N:99:Nether
+D:Ability to evoke runes of nether.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+N:100:Chaos
+D:Ability to evoke runes of chaos.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+N:101:Mana 
+D:Ability to evoke runes of mana.
+A:12:Draw a rune
+I:1000:105
+F:MKEY_HARDCODE
+
+$ENABLE_OUNLIFE$N:105:Unlife
+$ENABLE_OUNLIFE$D:Ability to learn and use spells from the Unlife school.
+$ENABLE_OUNLIFE$D:Spells use the wisdom stat.
+$ENABLE_OUNLIFE$A:11:Cast a spell
+$ENABLE_OUNLIFE$I:1000:111
+
+N:109:Blood Magic
+D:
+I:1000:0
+F:DUMMY
+
+N:110:Breathe element
+D:Ability to breathe an element.
+A:18:Breathe element
+I:1000:0
+F:MKEY_HARDCODE
+F:HIDDEN
+
+#
+# Skill interactions
+#
+
+# List of combat friendly skills
+
+# Melee: Specific masteries improve generic mastery
+f:Critical-strike:Sword-mastery%5
+#new feature: weaponmastery gives special abilities. -> reducing synergies
+#f:Sword-mastery:Weaponmastery%25
+#f:Axe-mastery:Weaponmastery%25
+#f:Polearm-mastery:Weaponmastery%25
+#f:Blunt-mastery:Weaponmastery%25
+f:Sword-mastery:Weaponmastery%15
+f:Axe-mastery:Weaponmastery%15
+f:Polearm-mastery:Weaponmastery%15
+f:Blunt-mastery:Weaponmastery%15
+
+
+# Ranged: Specific masteries improve generic mastery
+#new feature: archery gives special abilities. -> reducing synergies
+#f:Sling-mastery:Archery%25
+#f:Bow-mastery:Archery%25
+#f:Crossbow-mastery:Archery%25
+#f:Boomerang-mastery:Archery%25
+f:Sling-mastery:Archery%15
+f:Bow-mastery:Archery%15
+f:Crossbow-mastery:Archery%15
+#f:Boomerang-mastery:Archery%15
+#f:Hunting Lore:Archery%5
+#f:Ricochet:Archery%15
+#f:Sling-mastery:Ricochet%25
+
+
+# All combat skills improve Combat
+#f:Weaponmastery:Combat%50
+#f:Sword-mastery:Combat%15
+#f:Axe-mastery:Combat%15
+#f:Polearm-mastery:Combat%15
+#f:Blunt-mastery:Combat%15
+#f:Archery:Combat%50
+#f:Sling-mastery:Combat%10
+#f:Bow-mastery:Combat%10
+#f:Crossbow-mastery:Combat%10
+#f:Boomerang-mastery:Combat%10
+f:Weaponmastery:Combat%20
+f:Sword-mastery:Combat%20
+f:Axe-mastery:Combat%20
+f:Polearm-mastery:Combat%20
+f:Blunt-mastery:Combat%20
+f:Archery:Combat%15
+f:Sling-mastery:Combat%15
+f:Bow-mastery:Combat%15
+f:Crossbow-mastery:Combat%15
+f:Boomerang-mastery:Combat%15
+f:Martial Arts:Combat%20
+#f:Hunting Lore:Combat%7
+#f:Ricochet:Combat%7
+#f:Fighting Technique:Combat%25
+
+
+# Sorcery and Weaponmastery arent exactly friendly to each other
+O:Sorcery:Weaponmastery%100
+O:Sorcery:Archery%100
+O:Sorcery:Martial Arts%100
+O:Weaponmastery:Sorcery%100
+O:Archery:Sorcery%100
+O:Martial Arts:Sorcery%100
+
+
+# All magic skills affect magic skill
+f:Magic Device:Magic%7
+f:Spell-power:Magic%20
+f:Sorcery:Magic%20
+f:Mana:Magic%10
+f:Fire:Magic%10
+f:Air:Magic%10
+f:Water:Magic%10
+f:Earth:Magic%10
+f:Conveyance:Magic%10
+f:Divination:Magic%10
+f:Nature:Magic%10
+f:Temporal:Magic%10
+f:Meta:Magic%10
+f:Mind:Magic%10
+f:Udun:Magic%10
+
+f:Mimicry:Magic%7
+
+#f:Demonology:Magic%10
+#f:Necromancy:Magic%4
+#f:Thaumaturgy:Magic%6
+#f:Casting-speed:Sorcery%10
+#f:Casting-speed:Magic%7
+#f:Magery:Magic%10
+#f:Shadow:Magic%10
+#f:Spell-duration:Shadow%10
+#f:Prayer:Magic%7
+#f:Revelation:Prayer%10
+#f:Revelation:Magic%5
+
+
+# Anti-magic exclude all magic
+
+E:Magic:Anti-magic
+
+E:Wizardry:Anti-magic
+#E:Spell-learning:Anti-magic
+#E:Spell-power:Anti-magic
+E:Prayers:Anti-magic
+E:Druidism:Anti-magic
+$ENABLE_MCRAFT$E:Mindcraft:Anti-magic
+$ENABLE_OCCULT$E:Occultism:Anti-magic
+E:Runecraft:Anti-magic
+$ENABLE_MAIA$E:Astral Knowledge:Anti-magic
+E:Blood Magic:Anti-magic
+
+E:Sorcery:Anti-magic
+E:Mana:Anti-magic
+E:Fire:Anti-magic
+E:Water:Anti-magic
+E:Air:Anti-magic
+E:Earth:Anti-magic
+E:Nature:Anti-magic
+E:Conveyance:Anti-magic
+E:Divination:Anti-magic
+E:Temporal:Anti-magic
+E:Udun:Anti-magic
+E:Mind:Anti-magic
+E:Meta:Anti-magic
+E:Spell-power:Anti-magic
+
+#E:Demonology:Anti-magic
+#E:Necromancy:Anti-magic
+#E:Thaumaturgy:Anti-magic
+#E:Alchemy:Anti-magic
+
+E:Holy Offense:Anti-magic
+E:Holy Defense:Anti-magic
+E:Holy Curing:Anti-magic
+E:Holy Support:Anti-magic
+
+E:Arcane Lore:Anti-magic
+E:Physical Lore:Anti-magic
+
+$ENABLE_MCRAFT$E:Psycho-power:Anti-magic
+$ENABLE_MCRAFT$E:Attunement:Anti-magic
+$ENABLE_MCRAFT$E:Mental Intrusion:Anti-magic
+
+$ENABLE_OCCULT$E:Shadow:Anti-magic
+$ENABLE_OCCULT$E:Spirit:Anti-magic
+$ENABLE_OHERETICISM$E:Hereticism:Anti-magic
+$ENABLE_OUNLIFE$E:Unlife:Anti-magic
+
+E:Light:Anti-magic
+E:Darkness:Anti-magic
+E:Nexus:Anti-magic
+E:Nether:Anti-magic
+E:Chaos:Anti-magic
+E:Mana :Anti-magic
+
+#E:Spirituality:Anti-magic
+#E:Prayer:Anti-magic
+#E:Druidistic:Anti-magic
+#E:Mindcraft:Anti-magic
+#E:Music:Anti-magic
+
+#E:Aura power:Anti-magic
+E:Necromancy:Anti-magic
+E:Traumaturgy:Anti-magic
+E:Aura of Fear:Anti-magic
+E:Shivering Aura:Anti-magic
+E:Aura of Death:Anti-magic
+
+E:Magic Device:Anti-magic
+
+#Implications if Mimicry is disabled by anti-magic:
+#-cannot learn new forms
+#-doesn't gain extra mana from mimicry skill (which doesn't matter as he cannot use mana)
+#-cannot change preferred immunity anymore
+E:Mimicry:Anti-magic
+
+##E:Casting-speed:Anti-magic
+#E:Magery:Anti-magic
+#E:Shadow:Anti-magic
+##E:Spell-length:Anti-magic
+#E:Prayer:Anti-magic
+##E:Revelation:Anti-magic
+#E:Hunting Lore:Anti-magic
+
+
+f:Holy Offense:Magic%10
+f:Holy Defense:Magic%10
+f:Holy Curing:Magic%10
+f:Holy Support:Magic%10
+
+f:Arcane Lore:Magic%10
+f:Physical Lore:Magic%10
+
+$ENABLE_MAIA$f:Astral Knowledge:Magic%10
+
+#%5 wasn't enough, big lack of MP
+$ENABLE_MCRAFT$f:Psycho-power:Magic%10
+$ENABLE_MCRAFT$f:Attunement:Magic%10
+$ENABLE_MCRAFT$f:Mental Intrusion:Magic%10
+
+$ENABLE_OCCULT$f:Shadow:Magic%10
+$ENABLE_OCCULT$f:Spirit:Magic%10
+$ENABLE_OHERETICISM$f:Hereticism:Magic%10
+$ENABLE_OUNLIFE$f:Unlife:Magic%10
+
+f:Light:Magic%15
+f:Darkness:Magic%15
+f:Nexus:Magic%15
+f:Nether:Magic%15
+f:Chaos:Magic%15
+f:Mana :Magic%15
+
+f:Stealth:Sneakiness%15
+f:Disarming:Sneakiness%10
+f:Trapping:Sneakiness%15
+#f:Trapping:Disarming%15
+f:Backstabbing:Sneakiness%5
+f:Stealing:Sneakiness%20
+f:Dodging:Sneakiness%10
+
+#f:Calmness:Dodging%20
+#f:Interception:Dodging%20
+#f:Calmness:Sneakiness%7
+f:Calmness:Sneakiness%10
+#f:Interception:Sneakiness%7
+f:Interception:Combat%10
+
+
+# Auras increase Magic skill
+#f:Aura power:Necromancy%20
+f:Necromancy:Magic%5
+f:Traumaturgy:Magic%5
+f:Aura of Fear:Magic%5
+f:Shivering Aura:Magic%5
+f:Aura of Death:Magic%5
+
+# Exercises are good to your health :)
+#f:Training:Health%25
+f:Agility:Health%25
+f:Swimming:Health%25
+f:Digging:Health%25
+f:Climbing:Health%25
+#f:Levitation:Health%15
+#f:Free Action:Health%15
+#f:Confusion Resistance:Health%15
+
+#martial arts improves dodging! making up for low ac (important for NR)
+f:Martial Arts:Dodging%20
+
+
+################################## SKILL TREE ################################
+
+T:Main:Combat
+T:Combat:Weaponmastery
+T:Combat:Martial Arts
+T:Combat:Interception
+T:Weaponmastery:Sword-mastery
+T:Sword-mastery:Critical-strike
+T:Weaponmastery:Axe-mastery
+T:Weaponmastery:Blunt-mastery
+T:Weaponmastery:Polearm-mastery
+$ENABLE_STANCES$T:Weaponmastery:Combat Stances
+$DUAL_WIELD$T:Weaponmastery:Dual-wield
+T:Combat:Archery
+T:Archery:Sling-mastery
+T:Archery:Bow-mastery
+T:Archery:Crossbow-mastery
+#T:Archery:Boomerang-mastery
+T:Combat:Boomerang-mastery
+
+T:Main:Magic
+
+T:Magic:Wizardry
+#T:Magic:Spell-learning
+#T:Magic:Spell-power
+T:Magic:Prayers
+T:Magic:Druidism
+$ENABLE_MCRAFT$T:Magic:Mindcraft
+$ENABLE_OCCULT$T:Magic:Occultism
+T:Magic:Runecraft
+$ENABLE_MAIA$T:Magic:Astral Knowledge
+T:Magic:Blood Magic
+T:Magic:Mimicry
+T:Magic:Magic Device
+
+T:Wizardry:Sorcery
+T:Wizardry:Mana
+T:Wizardry:Fire
+T:Wizardry:Water
+T:Wizardry:Air
+T:Wizardry:Earth
+T:Wizardry:Nature
+T:Wizardry:Conveyance
+T:Wizardry:Divination
+T:Wizardry:Temporal
+T:Wizardry:Udun
+T:Wizardry:Mind
+T:Wizardry:Meta
+T:Wizardry:Spell-power
+
+#T:Magic:Demonology
+#T:Magic:Necromancy
+#T:Magic:Thaumaturgy
+#T:Magic:Alchemy
+
+T:Prayers:Holy Offense
+T:Prayers:Holy Defense
+T:Prayers:Holy Curing
+T:Prayers:Holy Support
+
+T:Druidism:Arcane Lore
+T:Druidism:Physical Lore
+
+$ENABLE_MCRAFT$T:Mindcraft:Psycho-power
+$ENABLE_MCRAFT$T:Mindcraft:Attunement
+$ENABLE_MCRAFT$T:Mindcraft:Mental Intrusion
+
+$ENABLE_OCCULT$T:Occultism:Shadow
+$ENABLE_OCCULT$T:Occultism:Spirit
+$ENABLE_OHERETICISM$T:Occultism:Hereticism
+$ENABLE_OUNLIFE$T:Occultism:Unlife
+
+T:Runecraft:Light
+T:Runecraft:Darkness
+T:Runecraft:Nexus
+T:Runecraft:Nether
+T:Runecraft:Chaos
+T:Runecraft:Mana 
+
+#T:Main:Spirituality
+#T:Spirituality:Prayer
+#T:Spirituality:Druidistic
+#T:Spirituality:Mindcraft
+#T:Spirituality:Music
+
+#T:Necromancy:Aura power
+T:Blood Magic:Necromancy
+T:Blood Magic:Traumaturgy
+T:Blood Magic:Aura of Fear
+T:Blood Magic:Shivering Aura
+T:Blood Magic:Aura of Death
+
+T:Main:Anti-magic
+
+#T:Main:Monster-lore
+#T:Monster-lore:Summoning
+#T:Monster-lore:Corpse-preservation
+#T:Monster-lore:Possession
+#T:Monster-lore:Symbiosis
+#T:Monster-lore:Mimicry
+
+T:Main:Sneakiness
+T:Sneakiness:Stealth
+T:Sneakiness:Stealing
+#T:Sneakiness:Trapping
+T:Sneakiness:Backstabbing
+T:Sneakiness:Dodging
+#T:Dodging:Calmness
+#T:Dodging:Interception
+T:Sneakiness:Calmness
+#T:Sneakiness:Interception
+
+#T:Sneakiness:Disarming
+#T:Disarming:Trapping
+T:Sneakiness:Trapping
+
+T:Main:Health
+#T:Health:Training
+T:Health:Agility
+T:Health:Swimming
+T:Health:Climbing
+T:Health:Digging
+#T:Health:Levitation
+#T:Health:Free Action
+#T:Health:Confusion Resistance
+
+#T:Main:Miscellaneous
+#T:Miscellaneous:Calmness
+#T:Miscellaneous:Interception

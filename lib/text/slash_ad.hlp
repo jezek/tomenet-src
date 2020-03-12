@@ -1,0 +1,213 @@
+<<Slash-commands reference manual for admins>>
+This help describes admin-limited slash commands(and LUA commands).
+For user-level commands, please use '/help user'.
+
+Admin Commands: art cfg cheeze clv cp en eq geno id kick lua purge respawn
+                shutdown sta trap unc unst wish
+
+[User-level commands] (only those different)
+
+/
+    If followed with strings, try to execute them as LUA command.
+    One space is needed after the slash.
+        / o_in(1,14)
+
+/extra
+    Along with ordinary sanity alart, it displays *exact* sanity value and
+    numbers of monsters/objects.
+    If the result is excessive (like 2000+), consider using /purge.
+
+/help
+    Displays this help - if you want to browse ordinary one, try '/help user'.
+
+/less [filename]
+    Displays specified file in lib/text directory.
+    If filename is omitted, tomenet.rfe is shown.
+        /less tomenet.log
+
+/pet
+    (not implemented yet) summon a pet??
+
+/quest reset
+    Namely.
+
+/recall
+    Recalls you immediately, without using items.
+
+/version blabla
+    Along with ordinary ones, it displays some hidden/administrative settings.
+
+
+[Admin-level commands]
+
+Only Dungeon Master(DM) and Wizard character can use these commands.
+Those commands are intended for administrative/debugging purpose -
+Now that an admin can do everything without using tomenetconsole.
+(Most of them should be replaced with LUA scripts, btw)
+
+Note: {worldpos} is interpreted in the following ways.
+
+(no arguments) 
+    Your current position will be used.
+
+(Z) 
+    X/Y of your current position will be used.
+    Please note that Z should be specified in feet.
+    eg: /geno -2250
+
+(X) (Y) 
+    Depth(Z) will be regarded as 0(zero).
+    eg: /clv 15 52
+
+(X) (Y) (Z) 
+    Full specification.
+    eg: /unst 48 2 250
+
+
+/art (id, or 'show', 'fix', 'ban!' and 'reset!') 
+    Toggle artifact status findable/unfindable.
+    Following commands are also available (but use with *CARE*!)
+        show  : make 'found but unknown' arts appear on the list
+        fix   : make 'found but unknown' arts findable once more
+        ban!  : make ALL the arts UNFINDABLE
+        reset!: make ALL the arts FINDABLE
+
+/cfg [configuration filename] 
+    Reload configuration file.
+    If filename is ommitted, the default one will be loaded again (which is
+    'tomenet.cfg', or a file specified with '-m' option when booting.)
+
+/cheeze
+    Scan all the houses to check suspicious cheeze, and display tomenet.log.
+    This check is also (usually) done automatically every 60 min.
+
+/clv {worldpos} 
+    Clear every monster and item on the level.
+    Items on the icky(eg. inside house/vault) won't be erased.
+    (Intended to clean the wilderness after hand-made quest.)
+    eg. '/clv 0' on town will make the town clean :)
+
+/cp
+    call party_check(Ind).
+
+/en [blabla]
+    Do 'Enlightenment'. If any arguments given, it also does self-knowledge.
+    
+/eq
+    Re-equip you with starting stuffs (eg.Amulets of Pure Cheeze).
+
+/geno {worldpos} 
+    Clear(genocide) every monster on the level.
+    Equivalent to '&37'.
+
+/id 
+    Identify everything in your pack.
+
+/kick (player name) [minutes]
+    Kicks the player out of the game.
+    The kicked player cannot log on for 5 (or [minutes]) minutes.
+
+/lua (lua command) 
+    Executes a LUA command.
+    eg. '/lua Players[2].chp=9999'
+
+/purge
+    Purge(erase) non-used monsters/objects/traps(mainly on wilderness).
+        monsters, traps: all
+        objects: all non-owned ones (it's to protect house-contents).
+    (cf. AUTO_PURGE in tomenet.cfg)
+
+/quit [runlevel] {alias: /shutdown} 
+    Set the server runlevel. If runlevel is omitted, toggle between 5/6.
+        runlevel 0: /* immediately shut the server down. */
+        runlevel 1: /* Logout all remaining players except admins */
+        runlevel 2: /* Force recalling of all players to town if configured */
+        runlevel 3: /* Hide from the meta - server socket still open */
+        runlevel 4: /* Dungeons are closed */
+        runlevel 5: /* Shutdown warning mode, automatic timer */
+        runlevel 6: /* Cancelled shutdown */
+        runlevel 1024: /* Hack -- character edit (possessor) mode */
+    If runlevel is set to 1024, every player is kicked out (cept admin) and
+    the server enters into 'possessor' mode in which you can log on as any
+    character with admin password (and normal password/new character
+    generation is disabled temporarily).
+    To leave possessor mode, type /quit again.
+
+/respawn
+    Respawns monsters on your current level.
+
+/static {worldpos} {shorthand: /sta} 
+    Makes the specified level static.
+
+/store ['owner'] {shorthand: /sto}
+    Force all the stores to change their inventory.
+    '/store owner' will change the shopkeepers.
+
+/unstatic {worldpos} {shorthand: /unst} 
+    Makes the specified level unstatic.
+
+/trap [trap id] {shorthand: /tr} 
+    Creates the specified trap under your feet.
+    If id is omitted, 'trap of filling' will be generated.
+
+/unc
+    Uncurse items in your inventory.
+
+/unique (unseen | nonkill) {shorthand: /uni}
+    It is aimed to cure the ugliness of unique list when using admin-chars.
+    (The uniques already killed by somebody will appear on the list again
+     when the killer logs on for the next time anyway.)
+        unseen : Set all the uniques to 'unseen' status (ie. r_sights = 0).
+        nonkill: Set all the uniques to 'not killed' status (r_tkills = 0).
+    ex) /uni unseen nonkill
+
+
+/wish * 
+    Creates specified items and put them in your inventory.
+    /wish (item-id)    *** NOT RECOMMENDED! ***
+    /wish (tval) (sval) 
+    /wish (tval) (sval) (discount) 
+    /wish (tval) (sval) (discount) (name1) 
+    name1 is ID of an artifact. If name1 is less than zero, ego item will be
+    generated instead. If 0, it'll be randarts.
+    (You cannot omit (discount) when wishing for arts/ego.)
+    eg. '/wish 242' or '/wish 75 37' for 99 potions of healing.
+        '/wish 23 30 0 -187' for 'Stormbringer'.
+
+
+[LUA scripts]
+You can manipulate/view a large part of internal variables via LUA scripts,
+like you do with debuggers.
+They are accessible from both slash-commands and '&' admin commands.
+
+To know the 'Ind' value of a player, use '@' key.
+If you manipulate values directly, please add '1' to Ind (b/c of definition
+difference between LUA and C). (or use players() instead)
+
+(examples of direct manipulation)
+/ Players[2].au = 999999
+/ Players[2].inventory[14].timeout = 0
+/ cfg.running_speed = 8
+
+
+(player.lua)
+/ players(ind)   refers to the Players[ind]. [eg. '/ players(1).au = 999999']
+
+
+(player-info.lua)
+
+/ p_in(Ind)      display player info.
+/ o_in(Ind, slot)    display object info in inventory.
+
+/ trap_k()       set all the traps as 'known'.
+/ id_all(state)  set objects' "known" states for you.
+/ id_all2()      trap_k() + id_all(1)
+/ res_uni(state) set uniques' "killed" No. for you.
+/ learn()        set all the skills to 50 (cept 'Antimagic')
+/ skill(skill,val)   set the skill value [eg. '/ skill(SKILL_PRAY, 3000)']
+/ antimagic(val) set 'Antimagic' skill to the specified value.
+
+/ adj_xp(Ind, amount)    adjust exp of specified player.(refresh needed)
+/ healup(Ind)    cures the player of all troubles.
+
+/ init()         reload LUA files.

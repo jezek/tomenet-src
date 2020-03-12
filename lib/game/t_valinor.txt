@@ -1,0 +1,41 @@
+#$Id$
+
+# Town Name: Shores of Valinor
+# Created for TomeNET by C. Blue
+#
+
+%:t_pref.txt
+
+F:~:84:3
+#F:~:103:3
+#F:-:1:3
+F:;:199:3
+
+###################### Buildings ########################
+
+
+# Town Layout
+D:mmmmmmmmmmmm^--^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+D:mmmmmmmmmmmm^--^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+D:mmmmmmmmmmmm^--^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+D:mmmmmmmmmmmm^--^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-----------mmmmmmm
+D:mmmmmmmmmmm^^--^mmmmmmmmmmmmmmmmmmmmmmmmm-----------------;-mmmmm
+D:mmmmmmmmmm^----^^mmmmmmmmmmmmmmmmmm-----------------------mmmmmmm
+D:mmmmmmm^^^------^^^^^mmmmmmmmmm---------------mmmmmmmmmmmmmmmmmmm
+D:mmmmmm----------------------;;------------------;-mmmmmmmmmmmmmmm
+D:mmm-----------------------------------------------------------mmm
+D:m--------;---------------------------------------;--------------m
+D:m---------------------------------------------------------------m
+D:m-------------------;-------------------------------------------m
+D:m---------------;-----------------------------------------------m
+D:m-;-------------------------------------------------------------m
+D:mmm;----------------------------------;-------------------------m
+D:mmmmmm----------------------------------->--------------;------mm
+D:mmmmmmmm------------------~~~~~~-----------------------------mmmm
+D:mmmmm---------------~~~~~~~~~~~~~~~~~---------~~~~~~~~~~~------mm
+D:mm~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~m
+D:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Default starting position
+P:14:15

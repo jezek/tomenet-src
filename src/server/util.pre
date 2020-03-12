@@ -1,0 +1,435 @@
+/* register server type for #if..#else..#endif structures with 'preproc' */
+#parse "../config.h"
+#parse "../common/defines-local.h"
+#parse "../common/defines-features.h"
+
+/* specific includes for util.pre file */
+#include "../common/defines-util.h"
+
+
+/* $Id$ */
+
+/* added this for consistency in some (unrelated) header-inclusion, it IS a server file, isn't it? */
+$#define SERVER
+
+$#include "angband.h"
+
+#define TRUE
+#define FALSE
+
+typedef char* cptr;
+typedef int errr;
+typedef unsigned char bool;
+typedef unsigned char byte;
+typedef signed short s16b;
+typedef unsigned short u16b;
+typedef signed int s32b;
+typedef unsigned int u32b;
+
+
+struct hash_entry
+{
+	int id;				/* The character ID */
+	u32b account;			/* account id */
+	cptr name;			/* Player name */
+
+	/* new in 3.4.2 */
+	byte level;			/* Player maximum level */
+	/* changed from byte to u16b - mikaelh */
+	u16b party;			/* Player party */
+	/* 3.5.0 */
+	byte guild;			/* Player guild */
+	s16b xorder;			/* Extermination order */
+
+	time_t laston;			/* Last on time */
+	struct hash_entry *next;	/* Next entry in the chain */
+
+	/* ..and more that has been added..*/
+};
+
+extern struct hash_entry *lookup_player(int id);
+extern int lookup_player_id(cptr name);
+extern int lookup_player_id_messy(cptr name);
+
+/* probably this shouldn't be here? */
+struct server_opts
+{
+	s16b runlevel;		/* Glorified shutdown mode */
+        time_t runtime;         /* Server start time */
+	time_t closetime;	/* Server closedown time */
+	char * meta_address;
+        s16b meta_port;
+
+	char * bind_name;
+	char * console_password;
+	char * admin_wizard;
+	char * dungeon_master;
+        char * wserver;
+
+        char * pass;
+	s32b preserve_death_level;
+	s32b unique_respawn_time;
+	s32b unique_max_respawn_time;
+	s32b level_unstatic_chance;
+
+	s32b min_unstatic_level;
+	s32b retire_timer;
+	s32b game_port;
+	s32b console_port;
+        s32b gw_port;
+
+	s32b spell_interfere;
+	s32b spell_stack_limit;
+	s16b fps;
+	bool players_never_expire;
+	s16b newbies_cannot_drop;
+	s16b running_speed;
+
+	s16b anti_scum;
+	s16b dun_unusual;
+	s16b town_x;
+	s16b town_y;
+	s16b town_base;
+
+	s16b dun_base;
+	s16b dun_max;
+	s16b store_turns;
+	s16b dun_store_turns;
+	char resting_rate;
+	char party_xp_boost;
+
+	char use_pk_rules;
+	char quit_ban_mode;
+	char zang_monsters;
+	char pern_monsters;
+	char cth_monsters;
+
+	char joke_monsters;
+	char cblue_monsters;
+	char vanilla_monsters;
+	char pet_monsters;
+	bool report_to_meta;
+	bool secret_dungeon_master;
+
+	bool anti_arts_hoard;
+	bool anti_arts_house;
+	bool anti_arts_wild;
+	bool anti_arts_shop;
+	bool anti_arts_pickup;
+	bool anti_arts_send;
+	bool persistent_artifacts;
+
+	bool anti_cheeze_pickup;
+	bool anti_cheeze_telekinesis;
+	s16b surface_item_removal; /* minutes before items are erased */
+	s16b dungeon_item_removal; /* minutes before items are erased */
+	s16b death_wild_item_removal; /* minutes before items are erased */
+	s16b long_wild_item_removal; /* minutes before items are erased */
+	s16b dungeon_shop_chance; /* chance in percent * 10 of generation */
+	s16b dungeon_shop_type; /* type of generation (999=random) */
+	s16b dungeon_shop_timeout; /* time until it can be generated again */
+
+	bool mage_hp_bonus;
+	char door_bump_open;
+	bool no_ghost;
+	int lifes;
+	int houses_per_player;
+	int castles_per_player;
+	bool castles_for_kings;
+	int acc_house_limit;
+	bool maximize;
+	bool kings_etiquette;
+	bool fallenkings_etiquette;
+	bool strict_etiquette;
+
+	bool public_rfe;
+	bool auto_purge;
+	bool log_u;
+	s16b replace_hiscore;	/* new entries replace old entries? rules? */
+	s16b unikill_format;	/* format of unique monster kill message */
+	char * server_notes;	/* comments to be displayed in meta server */
+	bool arts_disabled;	/* May artifacts be created? For maintenance reasons */
+	bool winners_find_randarts; /* Total winners cannot find true arts anymore */
+	s16b arts_level_req;	/* Do artifacts have normal level reqs, or level 0? */
+	bool surface_summoning;	/* May players summon in towns / on the worldmap? Very cheezy! */
+	s16b clone_summoning;	/* how many summons are not yet clones, from a summoner? */
+	s16b henc_strictness;	/* how easily monster adjust their exp to their highest player encounter */
+	s16b bonus_calc_type;	/* how HP are calculated */
+	s16b charmode_trading_restrictions; /* how trading between everlasting and non-everlasting players is restricted */
+	s16b item_awareness;
+	bool worldd_pubchat;
+	bool worldd_privchat;
+	bool worldd_broadcast;
+	bool worldd_lvlup;
+	bool worldd_unideath;
+	bool worldd_pwin;
+	bool worldd_pdeath;
+	bool worldd_pjoin;
+	bool worldd_pleave;
+	bool worldd_plist;
+/*	bool worldd_ircchat; */
+	bool worldd_events;
+};
+
+extern s32b turn;
+
+#ifdef ARCADE_SERVER
+extern char tron_speed;
+extern char tron_dark;
+extern char tron_forget;
+extern worldpos arcpos[100];
+#endif
+
+extern server_opts cfg;
+extern s32b player_exp[101];
+
+extern const u32b seed_flavor;		/* Hack -- consistent object colors */
+extern const u32b seed_town;		/* Hack -- consistent town layout */
+extern const u32b seed_wild_extra;	/* Hack -- random additional wilderness features (used in terrain_spot()) */
+
+$extern s32b intMod(s32b a, s32b b);
+$extern s32b intAnd(s32b a, s32b b);
+$extern s32b intOr(s32b a, s32b b);
+$extern s32b intXor(s32b a, s32b b);
+$extern s32b intShiftl(s32b a, s32b b);
+$extern s32b intShiftr(s32b a, s32b b);
+$extern s32b intBitNot(s32b b);
+
+extern s32b intMod @ mod(s32b a, s32b b);
+extern s32b intAnd @ band(s32b a, s32b b);
+extern s32b intOr @ bor(s32b a, s32b b);
+extern s32b intXor @ bxor(s32b a, s32b b);
+extern s32b intShiftl @ bshl(s32b a, s32b b);
+extern s32b intShiftr @ bshr(s32b a, s32b b);
+extern s32b intBitNot @ bnot(s32b b);
+
+extern bool pern_dofile(int Ind, char *file);
+extern bool exec_lua(int Ind, char *file);
+extern void cat_script(int Ind, char *name);
+
+extern void msg_print(int Ind, cptr msg);
+extern void msg_broadcast(int Ind, cptr msg);
+extern void msg_print_near(int Ind, cptr msg);
+extern void msg_admins(int Ind, cptr msg);
+
+$static int lua_level_speed(worldpos *wpos) { return level_speed(wpos); }
+static int lua_level_speed@level_speed(worldpos *wpos);
+
+void remote_update_lua(int Ind, cptr file);
+
+/* maintain hooks with LUA, not with server code */
+extern void wipe_hooks(void);
+extern void dump_hooks(void);
+extern hooks_chain* add_hook(int h_idx, cptr script, cptr name);
+
+
+extern s32b dungeon_store_timer;	/* Keeps track of its generation */
+extern s32b dungeon_store2_timer;	/* Keeps track of its generation */
+extern s32b great_pumpkin_timer;	/* Keeps track of its generation (timeout), for HALLOWEEN */
+extern char great_pumpkin_killer1[NAME_LEN];
+extern char great_pumpkin_killer2[NAME_LEN];
+extern s32b great_pumpkin_duration;
+extern s32b santa_claus_timer;
+extern bool night_surface;		/* Is it night outside? */
+extern u16b max_s_idx;
+extern u16b max_r_idx;
+extern u16b max_re_idx;
+extern u16b max_k_idx;
+extern u16b max_v_idx;
+extern u16b max_f_idx;
+extern u16b max_a_idx;
+extern u16b max_e_idx;
+extern u16b max_d_idx;
+extern u16b max_o_idx;
+extern u16b max_m_idx;
+extern u16b max_t_idx;
+extern u16b max_st_idx;
+extern u16b max_ow_idx;
+extern u16b max_q_idx;
+
+/*
+ * The monster race arrays
+  */
+////extern monster_race *r_info;
+//extern monster_race *r_info[0xFFFFF] @ Monsters_real;
+////extern player_type Players[2] @ Players_real;
+
+extern int global_luck;
+extern void lua_intrusion(int Ind, char *problem_diz);
+/* extern char serverStartupTime[40]; */
+extern char *sST;
+/* Watch if someone enters Nether Realm or challenges Morgoth - C. Blue
+   Dungeon masters will be paged if they're not AFK or if they have
+   'watch' as AFK reason! */
+extern bool watch_morgoth;
+extern bool watch_cp;
+extern bool watch_nr;
+extern int regen_boost_stamina;
+
+/* default 'updated_savegame' value for newly created chars [0]
+   usually modified by lua (server_startup()) instead of here. */
+extern int updated_savegame_birth;
+/* like 'updated_savegame' is for players, this is for (lua) server state [0]
+   usually modified by lua (server_startup()) instead of here. */
+extern int updated_server;
+
+/* for lua-controlled/automatically scheduled artifact resets */
+extern int artifact_reset;
+struct artifact_type
+{
+        u16b name;                /* Name (offset) */
+        u16b text;                /* Text (offset) */
+        byte tval;                /* Artifact type */
+        byte sval;                /* Artifact sub type */
+        s16b pval;                /* Artifact extra info */
+        s16b to_h;                /* Bonus to hit */
+        s16b to_d;                /* Bonus to damage */
+        s16b to_a;                /* Bonus to armor */
+        s16b ac;                        /* Base armor */
+        byte dd;
+        byte ds;        /* Damage when hits */
+        s16b weight;        /* Weight */
+        s32b cost;                /* Artifact "cost" */
+        u32b flags1;        /* Artifact Flags, set 1 */
+        u32b flags2;        /* Artifact Flags, set 2 */
+        u32b flags3;        /* Artifact Flags, set 3 */
+	u32b flags4;            /* Artifact Flags, set 4 */
+	u32b flags5;            /* Artifact Flags, set 5 */
+	u32b flags6;            /* Artifact Flags, set 6 */
+        byte level;                /* Artifact level */
+        byte rarity;        /* Artifact rarity */
+        byte cur_num;        /* Number created (0 or 1) */
+        byte max_num;        /* Unused (should be "1") */
+	u32b esp;                       /* ESP flags */
+        bool known;                /* Is this artifact already IDed? */
+        s32b carrier;
+        s32b timeout;
+        byte iddc;
+        byte winner;
+};
+artifact_type a_info[MAX_A_IDX];
+
+/* Stuff for global events */
+/* extern global_event_type global_event[MAX_GLOBAL_EVENTS];   see types.h - C. Blue */
+extern int sector00separation;
+extern int ge_special_sector;
+extern u32b ge_contender_buffer_ID[MAX_CONTENDER_BUFFERS];
+extern int ge_contender_buffer_deed[MAX_ACHIEVEMENT_BUFFERS];
+
+/* The party information */
+struct party_type
+{
+	const char *name; /* name[MAX_CHARS]; */
+	char owner[NAME_LEN];	/* Owner's name */
+	s32b members;		/* Number of people in the party */
+	s32b created;		/* Creation (or disband-tion) time */
+        byte cmode;             /* Guild creator's character mode */
+	byte mode;		/* 'Iron Team' or normal party? (C. Blue) */
+	s32b experience;	/* For 'Iron Teams': Max experienc of members. */
+	u32b flags;		/* Party rules flags */
+};
+party_type parties[MAX_PARTIES];
+struct guild_type
+{
+	const char *name; /* [MAX_CHARS]; */
+	s32b master;		/* Guildmaster unique player ID */
+	s32b members;		/* Number of guild members */
+        byte cmode;             /* Guild creator's character mode */
+	u32b flags;		/* Guild rules flags */
+	s16b minlev;		/* minimum level to join */
+};
+guild_type guilds[MAX_GUILDS];
+
+/* the four seasons */
+extern void lua_season_change(int s, int force);
+extern void lively_wild(u32b flags);
+extern int season;
+/* for snowfall during WINTER_SEASON mainly */
+extern int weather;
+extern int weather_duration;
+extern byte weather_frequency;
+extern int wind_gust;
+extern int wind_gust_delay;
+/* for CLIENT_SIDE_WEATHER debugging */
+extern int clouds;
+/* (no purpose) */
+extern int max_clouds_seasonal;
+
+/* special seasons */
+extern int season_halloween;
+extern int season_xmas;
+extern int season_newyearseve;
+extern void handle_seasonal_music(void);
+
+/* for controlling fireworks on NEW_YEARS_EVE */
+extern int fireworks;
+extern int fireworks_delay;
+
+extern int firework_dungeon;
+extern int firework_dungeon_chance;
+
+extern cptr *ANGBAND_DIR;
+
+
+/* timers for special events */
+extern int timer_pvparena1;
+extern int timer_pvparena2;
+
+/* for fun with client-side weather */
+extern int Send_weather(int ind, int weather_type, int weather_wind, int weather_gen_speed, int weather_intensity, int weather_speed, bool update_clouds, bool revoke_clouds);
+
+/* Allow LUA scripts to restart the server (seasonal events) */
+extern void timed_shutdown(int k, bool terminate);
+extern void geno_towns(void);
+
+#ifdef ENABLE_GO_GAME
+//extern bool go_engine_up;
+extern bool go_game_up;
+extern u32b go_engine_player_id;
+extern int go_engine_init(void);	/* Starts up the engine */
+extern void go_engine_terminate(void);	/* Terminates the engine */
+extern void go_challenge_cancel(void);	/* Aborts currently running game, if any */
+#endif
+
+extern u16b numtowns;
+extern s16b quark__num;
+
+extern void swear_add(char *word, int level);
+extern char *swear_get_word(int i);
+extern int swear_get_level(int i);
+extern void nonswear_add(char *word, int affix);
+extern char *nonswear_get(int i);
+extern int nonswear_affix_get(int i);
+extern void init_swearing(void);
+#ifdef IRONDEEPDIVE_MIXED_TYPES
+extern int scan_iddc(void);
+#endif
+
+#ifdef DUNGEON_VISIT_BONUS
+/* 128 = MAX_D_IDX * 2 */
+extern u16b dungeon_visit_frequency[128];
+extern int dungeon_bonus[128];
+extern int dungeon_id_max;
+#endif
+
+bool censor_swearing;
+bool censor_swearing_identity;
+bool jails_enabled;
+bool allow_requesting_estate;
+int netherrealm_wpos_x;
+int netherrealm_wpos_y;
+int netherrealm_wpos_z;
+int netherrealm_start;
+int netherrealm_end;
+int valinor_wpos_x;
+int valinor_wpos_y;
+int valinor_wpos_z;
+
+extern void fix_max_depth_towerdungeon(int Ind);
+
+extern int __audio_sfx_max;
+extern int __audio_mus_max;
+
+extern bool allow_similar_names;
+
+extern bool pvp_disabled;

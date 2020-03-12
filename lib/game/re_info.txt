@@ -1,0 +1,802 @@
+# $Id$
+# File: re_info.txt
+
+# This file is used to initialize the "lib/raw/re_info.raw" file, which is
+# used to initialize the "monster ego race" information for the Angband game.
+
+# Do not modify this file unless you know exactly what you are doing,
+# unless you wish to risk possible system crashes and broken savefiles.
+
+# Version stamp (required)
+
+V:4.0.0
+# Most values can be used with the +, -, % and = operators, = will set the
+# monster value, + and - will modify it based on the normal monster
+# % will apply that percentage to the monster value
+# defaults : NO DEFAULT, MUST precise one
+
+# N:x:ego name
+# G:x:y (x=monster letter, y=colour, use * to use the same as the standard monster)
+# I:speed:(dice)d(side):aaf:ac:sleep
+# W:lev:rarity:weight:xp:place('B'efore or 'A'fter)
+# E:weapon:torso:arms:finger:head:legs
+# B:method:effect:(dice)d(side) (up to x4 lines)
+# F:flags that the standard monster MUST have - at least ONE of the R_CHAR_x
+#    flags (if present, to determine which monster letters can have this ego
+#    type), plus ALL of the rest
+# H:flags that the standard monster MUST NOT have
+# M:monster flags to add for the ego-type
+# O:monster flags to remove, use MF_ALL for all
+# S:monster spells to add for the ego-type
+# T:monster spells to remove, use MF_ALL for all
+
+# A few undeads, to be created by the ANIM_DEAD spell
+# (of course, no such spells for now :p)
+
+# XXX Blow dice modifier is 'byte' type (0-255)!
+
+
+N:1:Skeleton
+G:s:*
+I:%100:+1d+1:+0:+5:=0
+W:+5:13:%30:%95:B
+F:DROP_SKELETON
+H:UNDEAD | NONLIVING | R_CHAR_Z | R_CHAR_A | R_CHAR_E | R_CHAR_g
+M:DROP_SKELETON | UNDEAD | IM_COLD | IM_POIS | NO_FEAR | NO_CONF
+M:NO_SLEEP | EMPTY_MIND | COLD_BLOOD | STUPID | EVIL
+M:RES_DARK | RES_TIME | RES_NETH
+O:GOOD | DROP_CORPSE | FRIEND | FRIENDS | ESCORT | ESCORTS | SMART |
+O:DROP_GREAT | DROP_GOOD | RAND_25 | RAND_50 | MORTAL | MULTIPLY
+T:MF_ALL
+
+N:2:Zombie
+G:z:*
+I:%95:%110d%100:%90:+10:=0
+W:+10:14:%70:%100:B
+F:DROP_CORPSE
+H:UNDEAD | NONLIVING | DEMON | R_CHAR_Z | R_CHAR_A | R_CHAR_E | R_CHAR_g | R_CHAR_e | R_CHAR_,
+M:DROP_CORPSE | UNDEAD | IM_COLD | IM_POIS | NO_FEAR | NO_CONF
+M:NO_SLEEP | EVIL | EMPTY_MIND | COLD_BLOOD | STUPID | EVIL | NO_BLOCK
+M:RES_DARK | RES_TIME | RES_NETH
+O:GOOD | DROP_SKELETON | FRIEND | FRIENDS | ESCORT | ESCORTS | SMART
+O:DROP_GREAT | DROP_GOOD | RAND_25 | RAND_50 | MORTAL | MULTIPLY
+T:MF_ALL
+
+N:3:Lich
+G:L:*
+I:%100:+0d+1:+10:+20:=0
+W:+30:22:+0:%200:B
+B:TOUCH:LOSE_DEX:+0d+0
+B:TOUCH:LOSE_DEX:+0d+0
+B:TOUCH:UN_POWER:+0d+0
+B:TOUCH:EXP_40:+0d+0
+F:DROP_SKELETON | SMART | R_CHAR_h | R_CHAR_p | R_CHAR_P | R_CHAR_O
+H:UNDEAD | NONLIVING | R_CHAR_Z | R_CHAR_A | R_CHAR_E | R_CHAR_g
+M:DROP_SKELETON | UNDEAD | IM_COLD | IM_POIS | NO_FEAR | NO_CONF
+M:NO_SLEEP | SMART | EVIL | COLD_BLOOD | RES_DARK | RES_TIME | RES_NETH
+O:GOOD | DROP_CORPSE | FRIEND | FRIENDS | ESCORT | ESCORTS |
+O:DROP_GREAT | RAND_25 | RAND_50 | MORTAL | MULTIPLY
+S:1_IN_4 |
+S:BLINK | TELE_TO | TELE_AWAY | BRAIN_SMASH | DRAIN_MANA | CURSE |
+S:BLIND | HOLD | SLOW | SCARE
+
+N:4:Spectral
+G:G:*
+I:+10:%80d%100:+10:+20:=0
+W:+20:20:%10:%110:B
+B:*:EXP_20:+0d+0
+B:*:EXP_20:+0d+0
+F:DROP_CORPSE
+H:UNDEAD | NONLIVING | R_CHAR_Z | R_CHAR_A | R_CHAR_E | R_CHAR_g
+M:DROP_CORPSE | UNDEAD | IM_COLD | IM_POIS | NO_FEAR | NO_CONF
+M:NO_SLEEP | PASS_WALL | EVIL | COLD_BLOOD | RES_DARK | RES_TIME | RES_NETH
+O:GOOD | DROP_CORPSE | FRIEND | FRIENDS | ESCORT | ESCORTS |
+O:DROP_GREAT | EMPTY_MIND | RAND_50 | MORTAL | KILL_WALL | MULTIPLY
+S:1_IN_5 | BLIND | HOLD | SCARE
+T:MF_ALL
+
+N:5:Captain
+G:*:v
+I:+5:%150d%100:+5:%120:=0
+W:+5:4:%120:%150:A
+B:*:*:+0d+1
+B:*:*:+0d+1
+B:*:*:+0d+1
+B:*:*:+0d+1
+F:R_CHAR_o | R_CHAR_y | R_CHAR_k | BASEANGBAND
+M:FORCE_MAXHP | FRIENDS | SMART | DROP_1D2
+
+N:6:Chieftain
+G:*:*
+I:+10:%200d%100:+10:%120:=0
+W:+5:4:%120:%200:A
+B:*:*:+1d+2
+B:*:*:+1d+2
+B:*:*:+1d+2
+B:*:*:+1d+2
+F:R_CHAR_T | R_CHAR_P | R_CHAR_O | BASEANGBAND
+M:FORCE_MAXHP | FRIENDS | SMART | DROP_1D2
+
+N:7:Shaman
+G:*:R
+I:+0:%90d%100:+10:%90:=0
+W:+2:1:%90:%120:A
+F:R_CHAR_o | R_CHAR_k | R_CHAR_n | BASEANGBAND
+M:SMART | FORCE_MAXHP | DROP_1D2
+M:AI_ANNOY | NO_BLOCK
+O:FRIENDS
+S:1_IN_6 | MISSILE | CURSE | CONF | BLINK
+
+N:8:Priest
+G:*:g
+I:+0:%90d%100:+10:%90:=0
+W:+3:2:%90:%120:A
+F:R_CHAR_T | R_CHAR_P | R_CHAR_O | BASEANGBAND
+M:FRIENDS | SMART | FORCE_MAXHP | DROP_1D2
+M:AI_ANNOY
+S:1_IN_6 | CURSE | MISSILE | DARKNESS | CONF | SCARE | BLINK
+
+N:9:Mage
+G:*:r
+#I:+0:%150d%100:+10:%120:=0 //maybe they are overpowered -C. Blue
+I:+0:%100d%100:+10:%120:=0
+W:+5:4:%120:%150:A
+B:*:*:+0d+0
+B:*:*:+0d+0
+B:HIT:HURT:=2d=8
+B:HIT:HURT:=2d=8
+F:R_CHAR_O | BASEANGBAND
+M:SMART | FORCE_MAXHP | DROP_1D2
+M:AI_ANNOY | NO_BLOCK
+O:FRIENDS
+S:1_IN_6 | BA_COLD | BO_FIRE | HEAL | HOLD | S_MONSTER | TPORT
+#TRAPS |
+
+N:10:Archer
+G:*:o
+I:+0:+0d+0:+0:+0:=0
+W:+1:1:%100:%110:A
+F:R_CHAR_y | R_CHAR_k | R_CHAR_O | R_CHAR_o | R_CHAR_T | BASEANGBAND
+M:AI_ANNOY | NO_BLOCK
+S:1_IN_4 | ARROW_1
+
+N:11:Rogue
+G:*:b
+I:+2:+0d+0:+0:+10:=0
+W:+1:2:%90:%100:A
+B:*:EAT_GOLD:+0d+0
+F:R_CHAR_y | R_CHAR_k | R_CHAR_o
+M:TAKE_ITEM | NO_BLOCK
+O:HAS_LITE
+
+
+#
+# PernMangband original egos
+#
+# Please note that not all the features are available for now,
+# such as weight, E: and some new flags.	- Jir -
+#
+# use M:FORCE_DEPTH if OoD is not preferable at all.
+# up to 10 R_CHAR_? are allowed for F:/H:
+
+
+#N:12:(ridden)
+#G:*:*
+#I:+0:%120d%100:%120:+10:=0
+#W:+5:2:+100:%150:A
+## hack - no Wyrm
+#H:POWERFUL | DRAGONRIDER
+#B:HIT:HURT:%120d%100
+#F:R_CHAR_d | R_CHAR_D
+#M:FORCE_MAXHP | DROP_1D2 | MOVE_BODY
+#S:1_IN_5 | HEAL |
+
+N:13:Veteran Archer
+G:*:o
+I:+10:+0d+0:+0:+0:=0
+W:+12:4:%100:%140:A
+F:R_CHAR_y | R_CHAR_k | R_CHAR_O | R_CHAR_o | R_CHAR_T
+# hack - no Titan V.Archer
+H:SMART
+M:DROP_1D2
+M:FORCE_DEPTH
+M:AI_ANNOY | NO_BLOCK
+O:HAS_LITE
+S:1_IN_1 | ARROW_1 | ARROW_2 | BLINK
+T:MF_ALL
+
+#N:14:(ridden)
+#G:*:*
+#I:+0:%120d%120:%120:+20:=0
+#W:+15:4:+100:%180:A
+#B:HIT:HURT:%120d%150
+#F:R_CHAR_R | POWERFUL | BLUEBAND
+#M:FORCE_MAXHP | MOVE_BODY | DROP_1D2
+#S:1_IN_5 | HEAL
+
+N:15:Drunk
+G:*:*
+I:+0:+0d+0:+0:+0:+10
+W:+1:6:+0:%80:A
+F:R_CHAR_y | R_CHAR_k | R_CHAR_o | R_CHAR_p | R_CHAR_h
+H:NO_CONF
+M:RAND_25 | NO_BLOCK
+
+N:16:Possessed
+G:*:*
+I:+30:+0d+0:+20:+0:=0
+W:+10:3:+0:%150:B
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+F:ANIMAL
+H:WEIRD_MIND | EMPTY_MIND | EVIL | R_CHAR_Z
+M:NO_FEAR | NO_SLEEP
+
+N:17:Projector
+G:*:*
+I:+30:+0d+0:+20:+0:=0
+W:+15:3:+0:%400:B
+F:R_CHAR_m | R_CHAR_j | NEVER_MOVE
+H:MIMIC
+M:FORCE_DEPTH
+S:1_IN_2 | ARROW_4
+T:MF_ALL
+
+N:18:Mana-charged
+G:*:*
+I:+0:+0d+0:+20:+0:=0
+W:+20:3:+0:%800:B
+F:R_CHAR_m | R_CHAR_j
+H:MIMIC
+M:FORCE_DEPTH
+M:HAS_LITE
+H:DISBELIEVE
+S:1_IN_3 | BA_COLD | BA_FIRE | BA_ACID | BO_ELEC | DARKNESS | HEAL | HOLD
+S:HASTE | TELE_AWAY
+#T:MF_ALL
+
+#Note: We don't have 'l' monsters in the game currently ^^. That's probably from when lice were 'l' instead of 'I'.
+N:19:Sparkling
+G:*:*
+I:+0:+0d+0:+20:+0:=0
+W:+10:3:+0:%130:B
+F:R_CHAR_l | R_CHAR_I | R_CHAR_w | R_CHAR_, | R_CHAR_b
+F:R_CHAR_i
+H:EVIL
+H:DISBELIEVE
+M:HAS_LITE
+O:MULTIPLY
+S:1_IN_6 | MISSILE
+
+N:20:Fallen
+G:*:*
+I:+10:+0d+0:+20:+0:+0
+W:+10:3:+0:%120:B
+F:R_CHAR_A
+M:EVIL | FORCE_MAXHP
+# no 'Fallen Fallen Angel' :)
+H:EVIL
+O:RES_LITE | GOOD
+S:1_IN_3 | BO_NETH
+T:S_ANGEL | HEAL
+
+N:21:Corrupted
+G:*:*
+I:+15:%120d%120:+20:+0:=0
+W:+20:5:+0:%180:B
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+F:R_CHAR_A
+M:EVIL | FORCE_MAXHP | FORCE_DEPTH
+# no 'Corrupted Fallen Angel either'..
+H:EVIL
+O:RES_LITE | GOOD
+S:1_IN_3 | BO_NETH | BA_NETH | S_DEMON
+T:S_ANGEL | HEAL
+
+N:22:Blink
+G:*:B
+I:+0:+0d+0:+0:+0:+0
+W:+10:50:+0:%200:B
+F:ANIMAL
+H:WEIRD_MIND | EMPTY_MIND | EVIL | R_CHAR_C | R_CHAR_S
+# | R_CHAR_Z
+M:NO_FEAR | NO_SLEEP
+S:1_IN_5 | BLINK | TELE_TO
+#T:MF_ALL
+
+
+N:23:Master Archer
+G:*:o
+I:+15:%200d%200:+20:+50:=0
+W:+30:4:%100:%500:A
+F:R_CHAR_y | R_CHAR_k | R_CHAR_O | R_CHAR_o | R_CHAR_T
+# hack - no Titan M.Archer
+H:SMART
+M:DROP_2D2
+M:FORCE_DEPTH | FORCE_MAXHP
+M:AI_ANNOY | NO_BLOCK
+O:HAS_LITE
+S:1_IN_1 | ARROW_1 | ARROW_2 | BLINK | TPORT | HEAL
+T:MF_ALL
+
+
+N:24:Tactical
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+10:20:+0:%200:B
+F:R_CHAR_Z | R_CHAR_D | R_CHAR_d
+# Hack -- avoid Tactical Clear Hound
+#H:ATTR_CLEAR
+M:AI_ANNOY
+
+
+N:25:Holy
+#G:*:v M_EGO_NEW_FLICKER
+G:*:*
+I:+30:%200d%200:+20:+50:=0
+W:+20:12:+0:%400:B
+B:*:*:%100d%200
+B:*:*:%100d%200
+B:*:*:%100d%200
+B:GAZE:TERRIFY:+8d+8
+F:ANIMAL
+H:WEIRD_MIND | EMPTY_MIND | EVIL | R_CHAR_Z | R_CHAR_r
+M:SMART | BASH_DOOR | MOVE_BODY | REGENERATE
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | IM_POIS | NO_CONF | NO_SLEEP
+M:NO_FEAR | RES_NETH | RES_NEXU | RES_SOUND | RES_DISE
+M:FORCE_MAXHP | ATTR_MULTI | ATTR_ANY
+M:FORCE_DEPTH | HAS_LITE | GOOD
+S:1_IN_12 | HEAL
+
+# (T)
+N:26:Archpriest
+G:*:g
+I:+10:%120d%100:+10:%90:=0
+W:+20:4:%90:%200:A
+F:R_CHAR_T | R_CHAR_P | R_CHAR_O | BASEANGBAND
+M:FRIENDS | SMART | FORCE_MAXHP | DROP_2D2
+M:AI_ANNOY
+S:1_IN_2 | CURSE | MISSILE | DARKNESS | CONF | SCARE | BLINK
+S:S_MONSTER | S_UNDEAD | HEAL | HOLD
+
+N:27:Warrior
+G:*:u
+I:+10:%200d%150:+10:%120:=0
+W:+10:4:%120:%250:A
+B:*:*:%200d%200
+B:*:*:%200d%200
+B:*:*:%200d%200
+B:*:*:%200d%200
+F:R_CHAR_T | R_CHAR_P | R_CHAR_O | R_CHAR_y | BASEANGBAND
+M:FORCE_MAXHP | FRIENDS | DROP_1D2 | BASH_DOOR
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | NO_FEAR
+T:MF_ALL
+
+N:28:Thief
+G:*:b
+I:+20:%120d%120:+0:+10:=0
+W:+15:6:%90:%150:A
+B:*:EAT_ITEM:+2d+2
+B:*:EAT_GOLD:+2d+2
+B:*:POISON:+2d+2
+F:R_CHAR_y | R_CHAR_k | R_CHAR_o | R_CHAR_T | R_CHAR_O
+H:DROP_90 | DROP_1D2
+M:TAKE_ITEM | DROP_1D2 | INVISIBLE | NO_BLOCK
+O:HAS_LITE
+S:1_IN_10 | CONF | DARKNESS | TRAPS
+T:MF_ALL
+
+N:29:(mimic)
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+0:120:+0:+0:A
+H:R_CHAR_! | R_CHAR_? | R_CHAR_= | R_CHAR_> | R_CHAR_< | R_CHAR_+
+H:MIMIC
+O:MULTIPLY
+
+N:30:Sorcerer
+G:*:v
+I:+0:%150d%150:+10:%120:=0
+W:+30:20:%120:%500:A
+B:*:*:+0d+0
+B:*:*:+0d+0
+B:HIT:HURT:=2d=8
+B:HIT:HURT:=2d=8
+F:R_CHAR_P | R_CHAR_O | R_CHAR_y | BASEANGBAND
+M:SMART | FORCE_MAXHP | FORCE_DEPTH | DROP_2D2 | DROP_GOOD
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | IM_POIS | NO_CONF | NO_SLEEP
+M:AI_ANNOY | NO_BLOCK
+H:DISBELIEVE
+O:FRIENDS
+S:1_IN_2 | BA_POIS | BO_NETH | BO_PLAS | SLOW | HEAL | HOLD | HASTE
+#TRAPS |
+S:TPORT | BLINK | S_MONSTER | S_UNDEAD | S_DRAGON
+
+N:31:Telepath
+G:*:w
+I:+10:%150d%150:+10:%120:=0
+W:+18:10:%120:%300:A
+F:R_CHAR_P | R_CHAR_O | R_CHAR_y | BASEANGBAND
+M:SMART | FORCE_MAXHP | FORCE_DEPTH | DROP_1D2 | DROP_GOOD |
+M:REGENERATE | RES_TELE | NO_ESP | AI_ANNOY
+O:FRIENDS
+S:1_IN_2 | BRAIN_SMASH | MIND_BLAST | HEAL | HOLD | TPORT | BLINK
+S:TELE_AWAY | TELE_LEVEL | FORGET | SCARE | CONF
+
+N:32:Purified
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+0:10:+0:%120:B
+F:EVIL
+O:EVIL
+
+N:33:Master Thief
+G:*:b
+I:+20:%150d%150:+0:+50:=0
+W:+15:8:%90:%250:A
+B:*:EAT_ITEM:+2d+2
+B:*:EAT_ITEM:+2d+2
+B:*:EAT_GOLD:+2d+2
+B:*:POISON:+5d+5
+F:R_CHAR_y | R_CHAR_k | R_CHAR_o
+H:DROP_90 | DROP_1D2
+M:TAKE_ITEM | DROP_2D2 | INVISIBLE | FORCE_MAXHP |
+M:IM_ACID | IM_FIRE | IM_COLD | IM_POIS | NO_CONF | NO_SLEEP | NO_FEAR
+M:CHAR_CLEAR | ATTR_CLEAR | NO_BLOCK
+O:HAS_LITE
+S:1_IN_5 | CONF | DARKNESS | TRAPS | BLINK
+#| BA_DARK
+T:MF_ALL
+
+N:34:Sentinel
+G:*:B
+I:+0:+0d+0:+50:+0:+0
+W:+10:6:+0:%120:B
+F:ANIMAL | FRIENDS
+H:EMPTY_MIND | EVIL | R_CHAR_Z
+M:NO_FEAR | NO_SLEEP
+M:AI_ANNOY
+S:1_IN_2 | SHRIEK
+#T:MF_ALL
+
+# 23,24
+
+N:35:Unbeliever
+G:*:u
+I:+10:%200d%150:+10:%120:=0
+W:+10:20:%120:%250:A
+B:*:*:%160d%160
+B:*:*:%160d%160
+B:*:*:%160d%160
+B:*:*:%160d%160
+F:R_CHAR_T | R_CHAR_O | R_CHAR_y | R_CHAR_o
+F:BASEANGBAND
+M:FORCE_MAXHP | FRIENDS | DROP_1D2
+M:DISBELIEVE | BASH_DOOR
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | NO_FEAR
+T:MF_ALL
+
+N:36:Tactical
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+5:20:+0:%150:B
+F:ANIMAL
+H:EMPTY_MIND | WEIRD_MIND
+M:AI_ANNOY
+
+N:37:Demented
+G:*:v
+I:+10:%100d%100:+10:%100:=0
+W:+10:15:%80:%180:B
+B:BITE:INSANITY:%50d%50
+B:*:*:+0d+0
+B:WAIL:TERRIFY:+0d+0
+B:*:*:+0d+0
+F:R_CHAR_P | R_CHAR_h | R_CHAR_y | R_CHAR_o | R_CHAR_p
+F:R_CHAR_k
+F:BASEANGBAND
+#H:AI_ANNOY
+M:NO_FEAR | RAND_25 | NO_BLOCK
+
+# double entry for rarity control
+N:38:Holy
+#G:*:v M_EGO_NEW_FLICKER
+G:*:*
+I:+30:%200d%200:+20:+50:=0
+W:+20:60:+0:%400:B
+B:*:*:%100d%200
+B:*:*:%100d%200
+B:*:*:%100d%200
+B:GAZE:TERRIFY:+8d+8
+F:ANIMAL
+H:WEIRD_MIND | EMPTY_MIND | EVIL | R_CHAR_Z | R_CHAR_r
+M:SMART | BASH_DOOR | MOVE_BODY | REGENERATE
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | IM_POIS | NO_CONF | NO_SLEEP
+M:NO_FEAR | RES_NETH | RES_NEXU | RES_SOUND | RES_DISE
+M:FORCE_MAXHP | ATTR_MULTI | ATTR_ANY
+M:FORCE_DEPTH | HAS_LITE | GOOD
+S:1_IN_12 | HEAL
+
+
+
+N:39:Master Unbeliever
+G:*:u
+I:+10:%200d%150:+10:%120:=0
+W:+15:50:%120:%350:A
+B:*:*:%200d%200
+B:*:*:%200d%200
+B:*:*:%200d%200
+B:*:*:%200d%200
+F:R_CHAR_T | R_CHAR_O | R_CHAR_y | R_CHAR_o
+F:BASEANGBAND
+M:FORCE_MAXHP | DROP_1D2
+M:DISBELIEVE | FORCE_DEPTH | BASH_DOOR
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | NO_FEAR
+S:1_IN_15 | UNMAGIC
+T:MF_ALL
+
+N:40:Monk
+G:*:u
+I:+10:%200d%200:+10:%200:%20
+W:+12:25:%120:%300:A
+B:PUNCH:HURT:%200d%200
+B:KICK:HURT:%200d%200
+B:CRUSH:HURT:%200d%200
+B:*:*:%200d%200
+F:R_CHAR_T | R_CHAR_O | R_CHAR_y | R_CHAR_P | R_CHAR_k
+F:BASEANGBAND
+M:FORCE_MAXHP | DROP_1D2
+M:IM_ACID | IM_FIRE | IM_COLD | IM_ELEC | NO_FEAR
+M:HAS_LITE | NO_BLOCK
+T:MF_ALL
+
+# Joke megos for Joke monsters
+N:41:Serious
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+0:50:+0:+0:B
+F:JOKEANGBAND
+
+N:42:Solemn
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+0:60:+0:+0:B
+F:JOKEANGBAND
+
+N:43:Tolkien-based
+G:*:*
+I:+0:+0d+0:+0:+0:+0
+W:+0:120:+0:+0:B
+F:JOKEANGBAND
+#F:BASEANGBAND
+
+N:44:Vigorous
+G:*:*
+I:+0:%120d%120:%120:+10:=0
+W:+5:3:+100:%150:B
+# hack - no Wyrm
+H:POWERFUL
+M:POWERFUL | BASH_DOOR
+F:R_CHAR_d | R_CHAR_Z
+M:FORCE_MAXHP
+
+N:45:Shadowed
+G:*:*
+I:+5:%110d%110:%120:+10:+0
+W:+8:25:+0:%120:B
+F:R_CHAR_p | R_CHAR_h
+H:INVISIBLE
+M:INVISIBLE
+M:CHAR_CLEAR | ATTR_CLEAR | RAND_25
+
+# let's see if it works..
+N:46:Mutant
+G:*:*
+I:+0:%110d%100:%100:+10:+0
+W:+5:100:+0:%150:A
+#F:R_CHAR_p | R_CHAR_h
+H:MULTIPLY | UNDEAD | NONLIVING
+M:MULTIPLY
+
+N:47:Druid
+G:*:G
+I:+0:%90d%100:+10:%90:%50
+W:+10:8:%90:%140:A
+F:R_CHAR_y | R_CHAR_k | R_CHAR_n | R_CHAR_o | BASEANGBAND
+M:FRIENDS | SMART | FORCE_MAXHP | DROP_1D2
+M:AI_ANNOY | NO_BLOCK
+S:1_IN_5 |
+S:HASTE | BLINK | BLIND | SLOW | BO_FIRE | BO_ELEC | S_ANIMAL
+#S:HASTE | BLINK | BLIND | HOLD | SLOW | BO_FIRE | BO_ELEC | S_ANIMAL
+
+#Lightman's additions:
+
+#Rabid animals; extra HP
+N:48:Rabid
+G:*:*
+B:BITE:DISEASE:+2d+2
+I:+0:%120d+0:+0:+0:=0
+W:+0:35:+0:%110:B
+F:ANIMAL
+H:UNDEAD
+#H:R_CHAR_Z
+F:R_CHAR_C | R_CHAR_f | R_CHAR_r | R_CHAR_q
+O:MULTIPLY
+
+#Various cats can be made out of living stone. Statue-like. You can't cut them or poison them. 3x AC with lots more hp.
+N:49:of Living Stone
+G:*:w
+I:+0:%200d+0:+0:%300:=0
+W:+10:35:+0:%300:A
+F:R_CHAR_f
+H:AQUATIC | CAN_FLY
+O:CAN_SWIM | MULTIPLY
+M:RES_SHARDS | NO_CUT | IM_POIS | FORCE_MAXHP | HURT_ROCK | NO_FEAR | NO_STUN | NO_SLEEP
+M:RES_FIRE | RES_COLD | RES_ELEC | RES_ACID | RES_LITE | RES_DARK
+
+#Birds can sometimes be spirit guardians. They hit a lot harder and summon other animals. More hp.
+N:50:Spirit Guardian
+G:*:*
+I:+0:%200d+0:+0:+100:=0
+W:+15:35:+0:%300:A
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+F:R_CHAR_B
+M:FORCE_MAXHP | DROP_1D2 | RES_LITE | RES_DARK
+S:1_IN_5 | S_ANIMAL
+O:MULTIPLY
+
+#Dog and hound pack leaders hit much harder with more hp.
+N:51:Pack Leader
+G:*:*
+I:+0:%150d+0:+0:+200:=0
+W:+5:25:+0:%300:A
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+B:*:*:%150d%150
+F:R_CHAR_C | R_CHAR_Z | R_CHAR_f | FRIENDS
+#H:UNDEAD
+M:FORCE_MAXHP
+O:MULTIPLY
+
+#Eyes that are under devilry. They do extra spells. All the big ones are EVIL and excluded.
+#Tested 25/09/2014
+N:52:of Devilry
+G:*:*
+I:+0:+0d+0:+0:+0:=0
+W:+0:25:+0:%50:A
+F:R_CHAR_e
+H:AQUATIC | EVIL
+S:1_IN_5 | BLINK | BLIND | SLOW | HOLD | SCARE | CURSE | DARKNESS
+
+#Heroic halflings, dark elves, lizard men etc. are faster and hit harder and have more hp.
+#N:53:Hero
+#G:*:*
+#I:+10:%150d+10:+0:+0:=0
+#W:+10:25:+0:%300:A
+#B:*:*:%200d%200
+#B:*:*:%150d%150
+#F:R_CHAR_h
+#M:NO_FEAR | DROP_1D2
+#disabled for now, since it only works well for a few h:
+#Nibelung, Dark-elf, Lizard Man, Nightblade, Bullywug (already has some r-versions), Aquatic elf (grammar!)
+#and maybe (could be silyl):
+#Sirene, Mermaid, Zog, Gnome mage, Mind flayer, Halfling slinger
+
+#Bats, shaman, mages, priests etc. that are reckless don't keep their distance in a fight.
+#Tested 21/09/2014
+N:54:Reckless
+G:*:*
+I:+0:+0d+0:+0:+0:=0
+W:+0:20:+0:%50:B
+F:AI_ANNOY
+M:NO_FEAR
+O:AI_ANNOY
+
+#Blazing golems. Some special golems are ever burning and immune to fire but can be cooled.
+N:55:Everburning
+G:*:f
+I:+0:+0d+0:+0:+0:=0
+W:+0:30:+0:%100:B
+F:R_CHAR_g
+H:IM_FIRE
+M:IM_FIRE | HAS_LITE | AURA_FIRE | SUSCEP_COLD
+O:SUSCEP_FIRE
+
+#There are some vortexes that are more fierce than others. They are much faster and harder to defeat.
+N:56:Fierce
+G:*:*
+I:+20:%200d+0:+0:+0:=0
+W:+5:20:+0:%200:B
+F:R_CHAR_v
+M:FORCE_MAXHP
+
+#Elemental princes. Rare. Good drop.
+N:57:Prince
+G:*:*
+I:+20:%200d%200:+0:+0:=0
+W:+5:35:+0:%300:A
+F:R_CHAR_E
+# no unmakers/death orbs/shambler/invisible stalker/Will o' the wisp:
+H:MULTIPLY | DEATH_ORB | RES_TELE | SMART
+M:DROP_2D2 | DROP_GOOD
+
+#Demonised skeletons and flying skulls etc.
+N:58:Demonic
+G:*:r
+I:+5:%200d%200:+0:+0:=0
+W:+4:20:+0:%300:B
+F:R_CHAR_s
+M:FORCE_MAXHP | DROP_2D2 | DROP_GOOD | RES_POIS | RES_TIME
+S:1_IN_10 | BR_FIRE
+
+#Orcs and the like sometimes ride wolves, making them faster and more dangerous
+N:59:Wolf Rider
+G:C:*
+I:+15:%150d%150:+0:+0:=0
+W:+10:10:+0:%200:A
+F:R_CHAR_o
+
+#Various types of troll king, pretty rare.
+N:60:King
+G:T:*
+I:+10:%200d%200:+0:+0:=0
+W:+15:50:+0:%500:A
+F:R_CHAR_T
+M:FORCE_MAXHP | DROP_1D2 | DROP_GREAT
+
+#They really are big spiders when described as "monstrous"
+#N:61:(monstrous)
+N:61:Queen
+G:*:*
+I:%100:%200d%200:+0:+0:=0
+W:+15:25:+0:%200:A
+F:SPIDER
+M:FORCE_MAXHP
+
+#New additions:
+
+N:62:Runemaster
+G:*:B
+I:+10:%100d%100:+10:%100:=0
+W:+11:10:%100:%220:A
+F:R_CHAR_O | R_CHAR_o | R_CHAR_k | R_CHAR_n | R_CHAR_y
+M:SMART | DROP_1D2 | RES_FIRE | RES_ELEC | AI_ANNOY
+H:DISBELIEVE
+O:FRIENDS
+S:1_IN_3 | BO_FIRE | BO_COLD | BO_ACID | BO_ELEC | TPORT
+
+N:63:Ranger
+G:*:U
+I:+5:%120d%100:+10:%120:=0
+W:+8:6:%110:%150:A
+B:HIT:HURT:+1d+0
+F:R_CHAR_k | R_CHAR_y
+M:SMART | FORCE_MAXHP | DROP_1D2 | NO_BLOCK
+H:DISBELIEVE
+O:FRIENDS
+S:1_IN_4 | ARROW_1 | ARROW_2 | BO_FIRE | BO_COLD | BLINK | HEAL | TRAPS
+
+
+# N:x:ego name
+# G:x:y (x=monster letter, y=colour, use * to use the same as the standard monster)
+# I:speed:(dice)d(side):aaf:ac:sleep
+# W:lev:rarity:weight:xp:place('B'efore or 'A'fter)
+# E:weapon:torso:arms:finger:head:legs
+# B:method:effect:(dice)d(side) (up to x4 lines)
+# F:flags that the standard monster MUST have - at least ONE of the R_CHAR_x
+#    flags (if present, to determine which monster letters can have this ego
+#    type), plus ALL of the rest
+# H:flags that the standard monster MUST NOT have
+# M:monster flags to add for the ego-type
+# O:monster flags to remove, use MF_ALL for all
+# S:monster spells to add for the ego-type
+# T:monster spells to remove, use MF_ALL for all

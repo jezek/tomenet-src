@@ -1,0 +1,2979 @@
+# $Id$
+
+# Keys: I = Interface, M = Monster, O = Objectf, G = Gameplay(spell,power..)
+# m = Misc(internal), P = Player, D = Dungeon, B = Bug, V = version
+# N = Network(client)
+# if you need others tell me
+# (well, then, what for town/wilderness?)
+#
+# date is always this format
+# 02/1/2002
+#
+# tags are always this form: '[x]- ' this is 5 chars, so if the line must
+# continue on a new line it is alsio 5 spaces that are needed
+# [m]- blahalhjaljkalkjlajazkljklqjsd qslkdjqs lkdjqsl
+#      qmlfkmzkk qskdjfmqslfk mlqzemfj qmlj mldf
+#
+# date start with a number and can then include anything, they are like comments
+# 23/07/2002 - T.o.M.E 2.0.0 aka "Point of No Return"
+
+# bug.txt should follow the exact same format
+
+# special tag to specify the current version
+[V]  TomeNET 4.0.0 aka "The Gathering"
+
+05/09/2005
+[B]- Compare wpos when killing a house after it's been sold
+[m]- Private messages can only match parties that have players online
+[m]- /findarts command for admins
+
+30/08/2005
+[MGm]- !X added
+       Trapping/Disarming skills
+       Backstab new formula
+       [RPG]: prob trav disabled
+       The Pint's effect change
+       Colours added/changed
+       Charge drain reduced
+       Monsters' stun-recovery fixed
+       Trap stacking bug fixed
+       Chests enabled again
+       Aura/Necro skill multipliers for adventurers increased to 1.0
+       Mimics are now orange
+       Removed SPR cap for the RPG server
+       MA changes implemented for both server
+
+24/07/2005
+[m]- Lots of cleanups
+[m]- Replace bunch of sprintf's with snprintf
+[m]- Limit the length of player's name on server side
+[B]- Fixed a bug preventing targetting players
+
+03/07/2005
+[m]- Prevent invalid players from picking up gold/items owned by other players
+
+27/06/2005
+[B]- Fixed a gold duplication exploit.
+
+26/06/2005
+[m]- Fixed 'snow' effect from casting noxious cloud 33 times.
+
+22/06/2005
+[G]- Fixed digging sandwalls with spells.
+
+15/06/2005
+[P]- Removed 4 spr limit from rangers.
+
+13/06/2005
+[m]- Changed /val to tell if an account doesn't exists.
+[P]- @Ox now works on any equipment item.
+
+11/06/2005
+[G]- Added a price cap for trap of ale.
+[m]- Fixed kings getting the message "You can't gain more levels until you
+     defeat Morgoth, Lord of Darkness!" when they reach level 50.
+[m]- Fixed suicide message for kings.
+[m]- Added a check for full inventory in telekinesis.
+
+08/06/2005
+[B]- Disintegration and rockets won't destroy house doors anymore.
+[B]- Don't allow trees on house doors.
+
+06/06/2005
+[D]- Added more Potions of Restore Mana in Bordertravel Supplies shop.
+
+04/06/2005
+[G]- Rugby ball carrier has orange flickering.
+[m]- Added /game stop.
+[G]- Players below level 5 can throw the rugby ball now.
+
+03/06/2005
+[m]- Changed party id to use u16b instead of byte.
+[m]- Increased MAX_PARTIES to 512 from 256.
+[G]- Added /play commad for joining a mini-game and putting the player
+     automatically in a team. Quitting players will be automatically
+     removed from their team.
+
+11/05/2003
+[IMOGPDBV]- C. Blue
+    Fixed miscellaneous abilities display, saving throw was inaccurate.
+    Added several message types to CTRL+O scrollback.
+    Fixed colour tables on some operating systems (Linux/DOS).
+    Added additional skills and priest schools.
+    Added colour animations for mana shield and invulnerability.
+    Auto-cleanup code tweaked so towns won't stay littered.
+    Implemented 'Luck', improving the quality of found items.
+    Fixed maxroll and damroll overflows, since they are also used
+    to calculate monsters' HP.
+    Maximum number of resurrections definable via tomenet.cfg.
+    Morgoth becomes stronger/weaker if he encounters more/less players.
+    Killing Sauron is obligatory before killing Morgoth.
+    Kings can't cheezily help non-Kings to defeat Morgoth.
+    Night time graphics added for the world surface.
+    Critical hits adjusted/fixed.
+    Anti artefact transfer cheeze/item transfer cheeze measurements,
+    definable in tomenet.cfg. Also adjusted telekinesis.
+    Items on piles are more often visible now if top object is
+    removed. Not always though, needs fixing!
+    Darkswords resist Nazguls, Stormbringer resists like arts do.
+    Probability travel forbidden in no-tele vaults.
+    Disturbance added for entering houses/shops.
+    Disturbances removed for several minor events (was very annoying).
+    'Air is still' messages added for recalling/using stairs into
+    no-tele vault.
+    Fixed exploding silver ammo. Added randart ammo. Adjusted artifact
+    creation scrolls.
+    Added damage messages for ranged enemy/player attacks; greatly
+    increased verbosity in PvP.
+    Removed annoying 'lose wraithform' spam if using a perma WRAITH item.
+    Damage from using Morgoth crown bypasses invulnerability now.
+    Fixed randomized mimic abilities via randomizer seed.
+    Lowered mana ball damage to approx. 80-85% of its original value.
+    Added *restore mana* potions and changed restore mana potions.
+    Adjusted mana shield a lot, also gave forms without proper hands
+    mana penalty of 50% to stop the Istari-D-form cheeze.
+    Adjusted some potions, adjusted insanity potions.
+    Made several rods, staves and wands more useful, especially
+    drain life, annihilation, havoc. Made some more items useful,
+    like scrolls of dispelling.
+    Added extended death messages, telling literally about how
+    powerful the enemy was (killed,annihilated,vaporized).
+    Added /empty potion command, but commented it out to avoid cheeze.
+    Added /dice command to play dice.
+    Adjusted several message colours for better readability.
+    Adjusted sense_inventory feelings respectively values for feelings.
+    Added Mana Shield & GOI warnings on running out.
+    Mana Shield behaviour greatly changed.
+    Secret dungeon shops added, configurable in tomenet.cfg.
+    Expensive black market added in Minas Anor.
+    Added lots of store flags to specify store behaviour, making
+    stealing harder, items more expensive, more ego items, rarer items,
+    more powerful items, etc.
+    Fixed overflow in high score calculation.
+    Adjusted fountains, made them useful again, removed cheezing.
+    Added global logging function to the server, slightly 1984, but
+    good to keep track of PKing and reasons for it.
+    Golem movement fixed.
+    Monster strengthening on levelup greatly balanced, concerning
+    monsters that have boosted levels in very deep dungeons.
+    Anti-magic calculation fixed and on randarts adjusted.
+    More verbose output about antimagic on *id*.
+    Artefacts completely fixed, no more duplicates.
+    ESP item price calculations adjusted.
+    ESP amulets fixed and adjusted.
+    Polymorph ring forms fixed, prohibiting some forms according to
+    monster definitions in tomenet.cfg.
+    Some amulets, speeds, ego boots, mage staves adjusted/fixed.
+    Removed house creation scrolls since they were totally broken
+    and would only cause problems anyways.
+    Admin can add guild members too.
+    All party members can add players to the party.
+    Fixed a very nasty experience points overflow when playing
+    in a large party of several high level characters, resulting
+    in negative exp gain.
+    Fixed several item rarities. Adjusted some monsters.
+    Adjusted some messages that sounded wrong.
+    Monsters within no-tele vaults can't teleport either now.
+    Adjusted rocket damage resistance (combined).
+    Ajusted NONLIVING flag regarding mimics.
+    Adjusted life draining from demons/nonliving things.
+    Adjusted time resistance and gave stat sustaining a chance vs time.
+    Randarts can't be enchanted anymore, increased AC bonus of
+    randart armour items.
+    Slightly adjusted skill tables, stat tables; exp penalty for
+    half-orc is now 100%!
+    Added admin command to empty a store.
+    Added more variables/server config options to util.pkg.
+    Morgoth killers get a specially colours msg;).
+    Insanity/No-ghost deaths drop items now too, and also cause
+    an automatic chardump finally!
+    Ranger mana fixed. Warriors/Archers don't receive mana anymore.
+    Added reflection for players again.
+    Added more abilties for Martial Arts career.
+    Fixed BLESS weapon calculation for priests.
+    Adjusted/fixed many spells; added verbose output for spellcasting
+    telling about missing mana/failing/succeeding in the specific
+    spells.
+    Adjusted and added lots of artefacts, adjusted some ego items,
+    adjusted several base items.
+    Adjusted service costs in some shops.
+    Adjusted some terrain features.
+    Adjusted ego monster 'Fallen'.
+13/02/2003
+[P]- Mimic AC & to-dam now averaged from player & form (similar to HP)
+     I hope this will balance mimics well compared to the other classes.
+[G]- Class-specific exp penalty is now applied correctly.
+     Level cap changed to exp cap so weaker classes make sense again.
+     Cap is exactly sufficient for the worst choice in terms of penalty
+     to become level 50, the Thunderlord Ranger :)
+     Adjusted critical strikes.
+[M]- Some dragons and all nazguls couldn't fly.
+     Animals can cross woods (trees).
+[O]- Adjusted some rarities in k_info.txt.
+
+12/02/2003
+[O]- Admins can destroy/unequip anything
+     Fixed COULD_2H encumberment penalty (now 2/3 for player-stat-based
+     and for player-mastery-skill-based to-hit/to-dam boni. Penalty does
+     not apply to the weapon's boni!)
+[P]- Hopefully fixed mimic-sorc-adventurer's HP bug.
+[D]- Features like TREE and SMALL_TREE now allow CAN_FLY and WILD_WOOD
+     monsters to cross.
+
+11/02/2003
+[O]- Changed silly 'Amulet of ESP' to something more cooler and less ooc.
+     (Amulets of Telepathic Awareness featuring insta-ego code and random ESP)
+     CAN/MUST_2H displayed correctly on examining a weapon.
+
+10/02/2003
+[G]- Martial Arts give more abilities than just FA.
+
+08/02/2003
+[M]- Toned down boosts if monsters were 50+ levels ood.
+     New algorithm for boosting.
+     Reduced INDIRECT_SUMMONING_RADIUS from 3 to 2.
+     Reduced radius for ball spells/breathes from 3/2 to 2/1 (smart/stupid mob).
+
+30/01/2003
+[I]- Fixed character dumps on windows
+
+12/01/2003
+[O]- Minor adjustments.
+
+11/01/2003
+[O]- Added amulet of immortality for dungeon masters.
+
+10/01/2003
+[O]- Adjusted weapon prices.
+     Greatly improved polearms. Adjusted 1-h weapons slightly.
+
+09/01/2003
+[M]- Minor adjustments.
+
+08/01/2003
+[O]- Adjusted Black Market (less pots). Improved x / I display. Especially
+     allows you to read very long item names in stores to see all boni.
+     Tweaked overburdened-message for FA from MA.
+[O]- Traps below items on the floor are now indicated at looking at them,
+     in case the player already detected them before.
+[O]- Adjusted items/monsters.
+[D]- Limited newbie tower to 400 ft.
+
+07/01/2003
+[P]- First entry 2003, ahaha.. Sorry, Rangers & Paladins brought back.
+     Still experimental! Forum feedback from players needed.
+
+22/12/2002
+[M]- Ancient Dragons got 1,5x the HP. Mature Dragons got 1,25x the HP.
+     Pure mages get AI_ANNOY again. Boldor get's AI_ANNOY too (DROP_GREAT).
+
+21/12/2002
+[m]- Client/server now do version check on development versions.
+     That number starts at 0, raises with each client and is never
+     used for any other purpose. (c-init.c and nserver.c)
+     Client displays a link to documentation.
+[M]- Toned down townspeople (more newbie-friendly)
+[G]- Fixed aiming for mimic powers
+
+17/12/2002
+[m]- New metaserver scheme, using xml feeds for ease of parsing
+
+12/12/2002
+[M]- S_LOWEXP and S_NOEXP flags added to prevent summon certain farming.
+
+25/11/2002
+[I]- No more color information in the message dump in character dumps
+
+20/11/2002
+[I]- Unkown skills(no mod, no value) arent displayed in the list
+[I]- Removed a *LOT* of AI_ANNOY
+[P]- Mind, Nature, Divination, Meta and Udun schools are bound to Wisdom
+     instead of Intelligence. Priests are tweaked accordingly
+[P]- Max skill level = player level + 2
+[P]- Impossible to gain exp after level 50 until Morgoth is dead
+[m]- Windows server nearly works, but there is a problem with player speed
+
+13/11/2002
+[O]- Adjusted 2h-only weapons.
+     Artefacts now sell for the intended values.
+     Changed former Amulet Of Suspicion into Amulet Of Rage.
+     Adjusted ego lights' prices.
+[G]- *ID* services cost more now, making *ID* scrolls an alternative again.
+[P]- Adjusted adj_con_mhp so that 18/200..18/220 makes a slight difference.
+
+12/11/2002
+[O]- Adjusted 2h-only weapons. Added Thunder Axe to axe class weapons.
+[G]- Fixed resisting GF_PLASMA.
+
+11/11/2002
+[O]- Greatly reworked 2h-only weapons.
+     Adjusted missile launchers.
+     Adjusted polymorph ring costs.
+     Adjusted artefacts.
+[M]- Changed REFLECT to RES_MANA for monsters.
+     Removed HAND_DOOM. Adjusted Holy prefix.
+[P]- Admins won't receive Grond anymore.
+
+09/11/2002
+[O]- Only darkswords can give antimagic
+
+07/11/2002
+[O]- Adjusted polymorph rings. Weapon classes are now displayed on examining.
+
+06/11/2002
+[G]- Highscore is now calculated in a more sensible way (I hope).
+
+05/11/2002
+[I]- Enhanced account/character-overview screen.
+[P]- Adjusted Ents & Thunderlord due to forum thread.
+[O]- Uncheezed polymorph rings. They can break now. Poly-player rings
+     can also be traded now.
+
+01/11/2002
+[I]- Display maxed out stats in L_UMBER for better control.
+
+30/10/2002
+[P]- Added resist_tele against foreign attempts to teleport the player.
+     Fixed Polymorphing if DSMs are equipped/taken off.
+     Adjusted mimics' paralyze-spell. Adjusted mimic spell costs/fail chances.
+[O]- Adjusted influence of AC on anti-magic. Adjusted Pseudo DSM.
+
+27/10/2002
+[P]- Adjusted brands, damage-messages, descriptions.
+
+24/10/2002
+[P]- +Hit/+Dam from masteries is now applied correctly.
+     Backstabbing message is displayed correctly.
+     Ghosts/Undead players get further properties.
+     Fixed NO_CUT. Fixed Berserk potions.
+     Ghosts don't starve.
+[O]- Adjusted some rings. Added Artefacts from Jacko. Adjusted Travak.
+
+23/10/2002
+[O]- Adjusted missile launchers.
+[P]- Enhanced mimics.
+[G]- Split ANTI_ARTS_HORDE into _HOARD, _HOUSE, _SHOP.
+
+22/10/2002
+[P]- Mimics can polymorph self into a specific form.
+[G]- Fixed inscribing .. to suppress teleportation.
+
+21/10/2002
+[O]- Adjusted artefact ammo.
+[M]- Adjusted MIND_BLAST & BRAIN_SMASH.
+[P]- Added missing hit-messages. Added message whether FA from MA is applied.
+[G]- Fixed brands.
+
+20/10/2002
+[B]- Fixed brands/slay getting applied at all in certain situations.
+[G]- Added branding messages. Adjusted monsters' blow-fx.
+[O]- Adjusted DSMs.
+
+19/10/2002
+[O]- Brought Pseudo DSMs back to live.
+[G]- Enhanced mimics, applied the
+     monsters' blow-fx to mimics when they melee in a form.
+
+17/10/2002
+[o]- Artefacts reworked. Lightsources changed. DSMs made useful.
+     Uncursed items can be inscribed .. to suppress teleportation. Minor item changes.
+[P]- Added several resistances and real immunities for monsters and
+     players (mimics) who take their forms. Added player susceptibilities
+     for the base elements & poison, added NO_CUT for players who are
+     in a form that cannot bleed. Fixed ESP_DRAGON to show Dragonriders
+     (who ride on the Dragons that the player can see).
+
+28/09/2002
+[P]- Probability travel spell in Conveyance school
+
+21/09/2002
+[B]- Cleaned the horrible code mess in store.c that was created accidentally.
+
+17/09/2002
+[G]- Discarded the highly cheezy Steal-From-Shop algorithm, made a
+     balanced one.
+
+11/09/2002
+[D]- Adjusted some traps
+
+10/09/2002
+[O]- Added IGNORE_WATER to game and to several objects (Leather clothes etc).
+
+09/09/2002
+[P]- Casting spells cost a turn ;)
+[m]- New news.txt
+
+07/09/2002
+[G]- Added further immunities and resistances for players.
+
+06/09/2002
+[I]- Spells can ask for items client side directly
+[P]- Telekinesis spell, Mind/Conveyance school
+[O]- Artefacts reworked completely.
+     Improved Smeagol's Ring-Drop. Raised money ghosts get from temple.
+[P]- Added water resistance for players. Added Ocean Soul artefact.
+
+05/09/2002
+[O]- Artifact ammo returns just like magci arrows, thanks to Cblue
+[m]- Savefile version independant of game version
+[P]- New spell system nearly done
+[P]- New Meta spell: Project Spell, it is a toggle, cast it and
+     quite a few of yoru utility spells will affect a zone around you.
+     (Which spells are affected is writen in their desc). And when you
+     cast a spell, for example healing, all players nearby will be
+     healed
+
+05/09/2002 (Jir)
+[G]- EFF_WAVE and EFF_STORM implemented (still some bugs inside)
+[G]- Firewall (Fire) implemented and fixed.
+[G]- item owner check for Spellbooks ( {Olorin, 25} )
+[G]- Calmness/Intercept are made cheaper (b/c of new spell system)
+[I]- admin can build terrains of any kind (but CS is not assigned!)
+[P]- Adventurer/Bard receives one semi-random starting item
+[P]- class skills touched, esp. Priests
+[m]- Bard class is renamed to "Libertine" (still not satisfactory)
+[m]- Thunderlords.
+[m]- niceties for admin char.
+[B]- Health recovery was useless with high Con.
+[B]- some attacking spells worked wrong (project_m)
+
+03/09/2002
+[O]- Admins not affected by perma_curse
+
+02/09/2002 (Jir)
+[m]- '#ifdef TOMENET_WORLDS' added (so that I can compile it :)
+[O]- randart ego items can no longer be created.
+[I]- school spellbooks are browsable in stores.
+[I]- '/'(cmd_all_in_one) can handle schooled books.
+[I]- always_show_list option works for school books too
+[P]- HP penalty of Sorcery skill is 50% now
+[B]- a trap under chest couldn't be disarmed (XXX not fixed well tho -
+     do_cmd_disarm needs rewriting)
+[B]- /shutdown was shadowed by /shout. (now shorthand for /shout is /sho)
+[B]- wiz_lite (eg. Potion of Enlightenment) didn't work well
+[B]- a bad line is removed from .tomenetrc
+
+01/09/2002 (Jir)
+[D]- FEAT_WAY_LESS/FEAT_WAY_MORE for DF1_FLAT dungeons.
+[D]- tree/water/lava streamers (build_streamer2)
+[B]- cavern was buried by walls
+[B]- Barrow-Downs floor was white
+[B]- store owners never changed (ie. no bargain)
+
+01/09/2002
+[m]- BIND_NAME works in tomenet.cfg
+
+31/08/2002 (Jir)
+[D]- CS_MIMIC allows FEAT_SECRET to mimic the surroundings.
+[G]- high archery+mastery yields *ID* on ammo made.
+[I]- 'Identify possessions' uses 'I' key in place of 'i' (same with Inventory)
+[O]- Orchast activation (detect_monsters_xxx)
+[M]- monster AI is tuned for new terrains.
+[O]- store buys (*Defender*) as if it's (+0, +0)
+[O]- Mummy Wrapping (tool
+[B]- some store owners didn't have 'cost(C:)' entry. (same with ToME)
+[B]- build_room_vault crashed.
+[B]- wrong death reason was shown when killed by a trap.
+
+30/08/2002 (Jir)
+# 'rm lib/save/*; cd src; make clean; make' (as usual)
+[D]- wilderness houses have smaller chance of having 'non-enterable doors'.
+     (dwelling_check_entrance)
+[D]- town walls are FEAT_PERM_EXTRA (and not FEAT_PERM_SOLID) now
+[D]- d_info.txt is backported (dungeons are merely scattered in the wilderness)
+[D]- dungeon_type refers to dungeon_info_type.
+[G]- player can extend V-house for a price.
+[G]- player is affected when (s)he makes a potion shatter.
+[G]- wilderness travel with WoR is limited by radius (RECALL_MAX_RANGE)
+[I]- 'known' towns display (~7)
+[I]- player can view wilderness map in town via '~8'
+[I]- 'New Character' is always 'N)'
+[O]- scroll of wilderness mapping.
+[O]- 'Scourge' added from RFE
+[P]- Player shimmers (get_monster_color)
+[m]- legality check for store commands. (store_attest_command)
+[m]- removed a number of compiler warnings
+[B]- wild_add_uhouse was called with wpos instead of h_ptr(rd_server_savefile)
+[B]- black market was shovel store (oops)
+[B]- DSM activation required mimicry skill.
+[B]- wipe_spell was broken (tho I don't know how this function was used)
+[B]- pet/golem creation could cause crash when there's no space around her
+[B]- p_ptr->town_x/town_y weren't updated if recalled/level-teleported
+
+28/08/2002 (Jir)
+[D]- most of DF1_* flags in generate.c are implemented.
+[D]- 'newbie tower' in Bree (with DF2_NO_DEATH)
+[D]- d_info.txt (parser only)
+[M]- better monster filtering in dungeon (ToME backport)
+[G]- player can try to steal from stores.
+[G]- more store actions (mimic/casino).  gambling.txt.
+[I]- detailed weapon/ammo damage report backported.
+[I]- town name is shown on the bottom of screen.
+[O]- Ent can 'eat' pint of ale/wine
+[P]- warning upon entering 'too-dangerous' area
+[P]- some more p_ptr->inval limitations (house, gaining lv{25})
+[m]- removed some compiler warnings from nserver.c
+[m]- created space around Gondolin, so that player won't be buried in the wall
+[m]- using player_can_enter for wall-dmg checks
+[B]- ranger's guild could enchant magic arrows.
+[B]- RF8_WILD_TOO flag kludge was broken (ToME bug? - init_r_info_txt)
+     It (should have) caused extra towns w/o any monsters.
+[B]- Sandwalls were handled as Granite when digging.
+
+26/08/2002 (Jir)
+[G]- ba_info.txt and bldg.c backported.
+[G]- merchants' guild. (some stores are not fully functional yet)
+[G]- black market uses item list in st_info.txt too
+[G]- multiple pre-defined towns are implemented.
+[G]- WILD_MOUNTAIN and WILD_LAVA.
+[G]- mangband-style house resurrected(MANG_HOUSE_RATE).
+[D]- cheeze_trad_house for abuse check
+[P]- Sneakiness reduces speed penalty in 'searching mode' (-10 => -3)
+[m]- /cheeze for manual cheeze check (calls cheeze() and cheeze_trad_house())
+[m]- /respawn
+[m]- DUNGEON_* flags are changed to DF2_*
+
+25/08/2002 (Jir)
+[G]- st_info.txt touched (Hope C.B will be happy with it :).
+[G]- store shuffle
+[G]- spiked door is tunnerable.
+[B]- do_cmd_tunnel handled FEAT_WALL_HOUSE as door.
+[P]- Ricochet/Agility/Revelation skills are removed.
+[P]- Sling-mastery yields bullet ricochets
+[P]- Sneakiness yields great searching if in searching mode
+[I]- player_desc()
+[O]- randart weapons no longer have TR1_TUNNEL
+[O]- magic arrows are generated in smaller bundle (6d7 => 6d2)
+[m]- muffled some compiler warnings
+[B]- Fireproof books merged with non-proof ones (object_similar)
+[B]- Dodge didn't work for bolts/arrows (project_p)
+[B]- Interception skill was badly broken.
+[B]- trapped floor didn't 'shimmer'
+[B]- could 'backstab' more than once / with martial arts (py_attack_mon)
+[B]- trapkits were priced wrong
+[B]- flying over trees damaged the player
+[B]- 'Trifurcate Spear' had wrong depth/rarity info
+[B]- HP/SP/SN displays weren't updated when restoring stats
+
+25/08/2002 (evileye)
+[m]- server for php/perl added
+
+24/08/2002 (evileye)
+[B]- fixed house creation, bug in guildhall saving fixed.
+[m]- new cs activate method. (please be careful ;( )
+[m]- cs save/load key doors.
+[m]- old key door code in "open" left in.
+[m]- guildhall key doors will be saved twice in rare cases
+      known, do not change
+# do not delete/modify any of the above changes please
+[m]- inscriptions moved to csfunc
+#- known problem: wall blocking way etc ignore this
+#  there are nice ways round this. there are some nasty
+#  ways round it too.
+
+# consider moving traps activation to this.
+# they are incompatible now though. i will have
+# to change activation method again first.
+# it still needs work remember. if you would
+# rather wait until it is finished that is ok
+# it will probably fail just now.
+# do not delete
+
+22/08/2002 (evileye)
+[m]- deletion of old spell stuff
+[m]- work on new spell stuff
+[B]- fixed the get_school_spell problem (skills.c)
+
+20/08/2002 (Jir)
+[O]- some 'Rogue' tributes
+[m]- more changes for store code.
+[m]- max_k_idx
+[G]- stores allow players to stay as long as no one else is waiting.
+[P]- player won't receive any damages when in a store/house.
+
+20/08/2002 (evileye)
+[m]- changed file transfers so that they use lists.
+[P]- non valid accounts have more restrictions added.
+
+19/08/2002 (evileye)
+[m]- delete tempfiles when used (/tmp won't fill up)
+     windows mkstemp allows for this by filling string.
+[B]- fixed problem with new savefile creation (again?)
+[m]- made file transfer point to lib.
+[B]- weak security (starting '/', presence of '..')
+[m]- corrected the buffer that file transfer uses for acks/errs
+     so it does not sit waiting for action.
+[m]- Added client file sending (TEMP..) move it if you want....
+     I realise that a LIST of files would be better, rather than
+     having to mess with the srcs.
+
+18/08/2002 (evileye)
+[m]- File transfer changes. I have changed script upload in client to
+     use the file transfer system which I wrote. Server replies with
+     suitable messages regarding success/permission. My intent is to
+     change the system so that it will upload/download into a
+     predefined set of directories (and check for illegal characters in
+     filenames which pose a security threat).
+     Currently it will send/receive from/in the current working directory.
+     I require more information regarding WHERE we need file transfer
+     access before I can complete.
+
+18/08/2002 (Jir)
+[G]- ow_info.txt and st_info.txt backported.
+     (st_info.txt will come; other fixes needed)
+[m]- testing max_*_idx (to replace MAX_*_IDX)
+[m]- load2.c cleanup.
+
+17/08/2002 (Jir)
+# remove savedata (character is ok) and make clean pls
+[G]- Vanilla-style (storelike) houses resurrected.
+[G]- Stealth mode is *MUCH* useful with high Stealth point.
+[P]- player is safe from attacks/spells when in stores/houses.
+[I]- speed-down from stealth mode is shown to the player now.
+
+16/08/2002 (Jir)
+[m]- monsters run in random direction when in bad effect(poison cloud).
+[B]- wraith couldn't access polygon house(FEAT_PERM_EXTRA => FEAT_WALL_HOUSE)
+[G]- removed wilderness exceptions in run_init and run_test
+[P]- Sneakiness yields small bonus to speed (max +5)
+
+15/08/2002 (Jir)
+# more on new terrain code / new ToME town code :)
+[D]- predefined town code is backported. (process_dungeon_file)
+[D]- FEAT_WALL_HOUSE introduced.
+[D]- (slightly) better shop illumination
+[P]- ghost/wraith can only pass through house walls of their own.
+[m]- admin-DM can no longer use always_pickup ('g' is still usable)
+[B]- Player could stack on another player when logging on. (player_setup)
+[B]- Scroll of House Creation caused crash (by trying to add DNADOOR twice,
+     poly_build and wild_add_uhouse..  pls check if it's done right, Evileye)
+[B]- wraith_access tried to check wrong grid when called from move_player.
+     (player's location in place of destination)
+
+14/08/2002 (Jir)
+[m]- monsters no longer move 'zigzag' if not within LOS.
+[G]- skills interaction.  s_info.txt backported.  skillpoints reduced (6=>5)
+[G]- Stealing skill saves you from theft.
+[G]- Digging skill allows you to find more treasures(Mining).
+[I]- cause of death is printed in chardump.
+[I]- one less key strokes for stat-order.
+[I]- linear_stats (18/200 => 38) / exp_need (for the asking)
+[O]- 'permission denied' item is shown in L_DARK (display_inven)
+[O]- arts ammo becomes {+,0} when shot (anticheeze).
+[P]- 'bash' command can 'kick' object on the floor.
+[P]- player can bash house doors (though they never opens ;)
+[P]- Ent can no longer eat food.  Elves have Lembas when generated.
+
+12/08/2002 (Jir)
+[D]- less empty fountain/more 'water' fountain
+[I]- Warnings concerning 'development' version.
+[I]- You can activate empty bottle to fill it with fountain content.
+[I]- target_history: this should make 'look' command more useful.
+[M]- monsters can interfere with jumping into Void Jumpgates.
+[O]- {on sale} tag no longer hinders stacking.
+[P]- Bard never lose race-oriented skills.
+
+11/08/2002 (Jir)
+[D]- more on terrain features. (most of obvious problems are fixed I hope)
+[D]- Void Jumpgates(between gates), between vaults, fountains (/sip)
+
+10/08/2002 (Jir)
+# dangerous version!
+[D]- basement for ToME terrain feature code is backported.
+[m]- more on client-side LUA stuff (but it is becoming to be out of my hands)
+[P]- 'Bard' class (random skills).
+[G]- Fletchery never produces cursed ammos (minus mods are still possible)
+[G]- Aura of shiver reinforced (since stunning doesn't always mean paralysis)
+[G]- Aura of Fear no longer scares RF3_NO_FEAR monsters. (is it right, DG?)
+[G]- Auras have *small* effect even when SKILL_AURA_POWER is 0.
+[I]- some msgs added for monsters' special attacks (insanity/disarm).
+[I]- alert_hitpoint reimplemented (but far from useful)
+
+09/08/2002 (Jir)
+[m]- basements for schooled spells (not working at all :p)
+[m]- client-side LUA scripting.
+[I]- Message/chat dump.
+[B]- Magic ammos didn't stack well.
+[B]- BR_DISI didn't have any colours (breath_to_attr)
+
+07/08/2002 (Jir)
+[O]- Amulet of Life Saving helps from sanity death.
+[O]- (Hack) Morgul is 4 times rarer now.
+[O]- generation of exploding arrows is depth dependant.
+[m]- aggravation can no longer be 'shadowed' by other player(process_monster)
+[m]- new megos: Mutant, Druid.  Rogue can pick items up now.
+[I]- wpos on character dump.
+[I]- items that a unique drops have inscription (idea from EyAngband)
+[G]- monster trap can handle exploding/magic ammons right.
+[D]- doors on corridor junctions (very kludgy - FIXME)
+[B]- Silent Switching Trap made players to wield potions.
+[B]- ball() in evil.lua still caused crash.
+
+06/08/2002 (Jir)
+[O]- randart/ego rings/amus/lites needs ID now.
+[G]- SKILL_DISARM grants small chance of IDing traps when disarming.
+[G]- examine('I') command tells how many blows that wep gives(EyAngband idea)
+[B]- "destroyed" msg was shown when no-ghost player died.
+
+05/08/2002 (Jir)
+[m]- DM afk no longer is broadcasted (DM doesn't need AFK mode anyway)
+[m]- part of gold stolen from player can be retrieved.
+[O]- wands are stackable even with different charges.
+[P]- SKILL_PRAY allows to pseudo-ID cursed items.
+[B]- do_player_drop_items dropped (nothing).
+
+04/08/2002 (Jir)
+[I]- character name(cname) is used in place of nick in misc. situations.
+[I]- random name picker.
+[I]- 'mind' is removed from chat-history keyword list.
+[G]- ammos made with Archery get discount to prevent abuse.
+[P]- hobbit receives DEX bonus for NOT wearing shoes.
+[B]- disarming monster trap inside a town house crashed
+[B]- ball() in evil.lua caused crash. (project)
+[B]- Morgoth can no longer destroy house doors (in case bad admin does it ;)
+
+03/08/2002 (Jir)
+# sorry, I cannot help fixing bugs ;)
+[B]- CS saving was broken
+[B]- oops, yet another apartment crash
+[B]- client died of SIGPIPE when quitting (Destroy_connection)
+[m]- apartment door displacer resurrected.
+[m]- csfunc touched a little
+[m]- block comment in LUA script
+[O]- new artifact 'Pint of Ale of Dwarves' :)
+
+02/08/2002 (Jir)
+[G]- one needs at least 1 kill count to mimic that form (namely townies)
+[G]- darkness, traps, hold mimic spells implemented.
+[G]- unavailable mimic spells are removed from the list.
+[D]- more traps for empty(arena) level (it was too sparse)
+[I]- chardump omits empty inventory slot.
+[I]- killed monster list improved for mimicry
+[B]- msg history in chardump was garbled if contains '%'
+[B]- store buying limit display was wrong.
+
+01/08/2002 (Jir)
+[m]- m_ptr->ai_state handles what a monster is doing.
+[m]- fleeing monster no longer teleports if out of sight.
+[m]- aquatic monster out of water runs for water.
+[m]- monster has learnt to avoid grids tainted by a player.
+[m]- aquatics resist water attack
+[B]- teleport when dying caused crash (in_bounds4)
+
+31/07/2002 (Jir)
+# take refuse to branch while Evileye is doing account stuffs.
+[G]- lasting-effect spell backported.
+     you can test it with Rogue's "Stinking Cloud" spell.
+     TODO: backport the spells themselves. AI to run from this.
+[I]- always_show_lists client option (from EyAngband)
+[P]- DRIDER receives ESP_DRAGON and Flying;  ESP is reduced instead.
+[G]- slow-digestion works better for those who need a lot of food.
+[B]- slow-digestion caused satiation if player is slow ( < -5).
+
+29/07/2002 (Jir)
+# comfortable death set :)
+[m]- timefun.txt/timenorm.txt.
+[I]- message history is added to the character dump.
+[I]- mimic form is shown in the character screen('C').
+[I]- auto char-dump when died. (screenshot would be nifty..)
+[I]- at last! tombscreen implemented.
+[O]- cure critical pot no longer cures poison. (EyAngband influence)
+[O]- some items were not on 'good' list (kind_is_good).
+[B]- effects of traps of aging/growing/feminity etc didn't reflected at once.
+[B]- skill filedump had wrong indents.
+[B]- sanity display was broken in character screen.
+
+28/07/2002 (Jir)
+[P]- sanity display depends on Health skill.
+[I]- 'Target selected.' is less annoying.
+[G]- Scroll of Lottery touched. (I want colosseum, tbh)
+[m]- apartment door displaceing is disabled (it caused crashes - FIXME)
+[m]- wraithes can no longer pass through permawalls on the surface, sry
+     (otherwise they can enter apartments of someone else)
+[B]- received dmg by walking through the house door.
+
+27/07/2002 (Jir)
+[G]- monster traps backported from ToME.
+[G]- backstabbing reinforced (double dmg was way too small to be meaningful)
+[G]- GF_HOLY_FIRE/GF_HELL_FIRE. Mimic in evil form takes double dmg.
+[G]- genocide monster traps implemented. (genocide_aux)
+[O]- digger to_d/to_h are added to skill_dig.
+[P]- food comsumption is faster with invis/wraithform etc.
+[P]- HP damage for staying inside a wall w/o wraithform.
+[P]- high Swimming (30) allows to 'run' in the water.
+[P]- Axe-mastery.
+[m]- removed the mangband hack in client which swaps sval/xtra1
+[m]- cheezelog for item-transaction.
+[m]- colourful spell display from ToME (spell_color)
+[B]- 'leveled' monster didn't give boosted exp when killing.
+[B]- apartment caused wrong houses[] (build_store)
+[B]- ammo/pick To-Dam/To-Hit were computed in.
+[B]- (nothing) bug is fixed (I hope - compact_monsters)
+[B]- admin couldn't summon 't's in town. (specification by Level still not)
+[B]- random vault crashed. (build_type11)
+[B]- to_h_ranged did nothing!!
+[B]- pfft, Polearm-mastery was as broken as that of ToME
+
+24/07/2002 (Jir)
+# changelog format changed.
+[B]- *ID* shown wrong anti-magic power if with minus modifiers.
+[B]- arrows had strange svals. (k_info.txt)
+[M]- boulder from Vanilla.
+[m]- calendar. (/ex - do_cmd_time)
+[G]- SKILL_FLETCHERY. (do_cmd_fletchery)
+[G]- destruction cannot affect vaults(CAVE_ICKY).
+[G]- meditation takes 2 turns.
+
+25/07/2002 (Jir)
+[I]- 'look' command can tell a little more about monsters.
+[I]- fail_no_melee. item-retaliation stops when low-sp/no-ammo
+[M]- awakened monster always get move if has los.
+[M]- Quylthulgs can cast as much as before. (Q_ENERGY_EXCEPTION)
+[M]- Quylthulgs can no longer summon from out of sight.
+[M]- Summoners can use tactic spells well.
+[M]- Cloned ego monster can be of the same ego type. (CLONE_EGO_CHANCE)
+[D]- Arena levels backported.
+[B]- new player was sometimes generated on the north-west of town.
+[B]- player didn't teleport when died on NO_TELE floor.
+[B]- command repetition wasn't disturbed when attacked.
+
+
+
+
+# below this line are old changelogs under old format
+
+Change list and TODO list for ToME-NET(PernMangband)
+TODO: the newest should appear the first!
+To find the latest change quickly, search ==== :)
+
+- Added random artifacts from DrAngband
+- Mage damaging spells upgraded in destructive power
+- Sleep Monsters II is gone, replaced by Tidal Wave
+- Acid Bolt is gone, replaced by Mana Strike(a powerfull spell but only a bolt)
+- Reduced the spell cost and failure rate of some mage spells to make them more
+  usefull
+- GoI is stackable but 1/2 will only reduce the damage instead of ignoring it
+- Added Gloves of Magic, that reduce fighting but increase mana(from 10 to 100%)
+  Now Mages will hopefully play in a more "mage-like" way
+- Added the Yeek race, -5 to all stats, bad HP, but very few experience
+  needed to gain a level.
+- Add the Sorceror class
+- Ball spells from party members dont hurt anymore
+- Sorcerors can project wraithfrom, speed, shield on other players
+- Got a permanent server(198.252.166.41) thanks a lot Crimson !
+- Rings & lights artifacts
+...
+
+14/12/2000
+- Damn I always forgot to make this up to date ... ok so lots of
+  things changed ...
+- Mimic class that can polymorph at will into any monster they have
+  "studied"(killed :) enough
+- Much more things I cant remeber .. ok I promise I'll TRY to get this
+  uptodate ... mhh ...
+
+16/12/2000
+- Mimics can now use the powers of the monster they are polymorphed into
+- Old clients no more works with new server(3.0.7)
+
+...
+
+28/03/2001
+- Telepath Class, uses crystals, can fusion with otehr people
+- Grond inscribed with !E wont earthquake
+- Mage Staffs of Power wont increase casting speed
+- Grond WILL increase casting speed by 4
+- DragonRiders get a ESP radius of (lvl/2)
+- DragonRiders lost resist poison
+- DragonRiders resistancess comes at lvl 10 15 20 25
+
+01/04/2001
+- Telepaths can now cast their spells with their energy instead of the
+  controlled guy energy
+- Telepaths got 3 new Telekinesis spells
+- Mind links needs 20 + d15 turns to be ended
+- Telepaths got 1 new Psychoportation spell
+
+16/04/2001
+- Fixed a bug in the polymorph ring generation that could hang the game
+- Mimics polymorph will cycle throught the possible forms instead of
+  randomly selecting them
+
+...
+
+24/07/2001 (evileye)
+- Fixed a bug in server (common/types.h) which has player_type.dun_depth as s16b,
+  but uses pointer to s32b in load/save routines. Likewise with object_type.
+  This does not manifest in some machines.
+- Fixed lack of null termination in self knowledge and *identification*.
+- Fixed the "psi-powers" bug with rods.
+- Fixed wand bug which could reduce the pval of other items.
+- tot_dam_aux_player was getting resistances the wrong way round (and redefining
+  arg p_ptr).
+- uncommented 744/745 of server/xtra1.c
+- made king code multi-king friendly (made movement hook for each player)
+
+25/07/2001 (evileye)
+- Fixed up target_set_friendly so that it works with non party players
+  and respects hostilities.
+- Fixed "the (nothing) you are wearing is cursed" problem which annoys
+  recently deceased players.
+- Blood bond should not crash now.
+- Added curse item spell for rogues (not fully implemented).
+- Cleaned up various code and added protos for some funcs
+
+25/07/2001 (darkgod)
+- Fury, Dig, Spin warrior technics
+- Fixed DSM being dopepd without unpolying
+- Fixed morphing and not lossing eq wit eq is inscribed !
+- /me works in chat
+
+26/07/2001 (evileye)
+- Fixed password prompt in client
+- Bug in netserver which could result in bus fault fixed.
+- Added Player menu to wizard commands (framework mainly)
+- Added wizard level genocide
+
+27/07/2001 (evileye)
+- Fixed double experience bug on priests and sorcerors.
+
+28/07/2001 (darkgod)
+- Ghost cant gain experience
+- Diving as a ghost dont affect recall depth
+
+28/07/2001 (evileye)
+- Cloned monsters do not drop anymore, and yield no experience
+  Mimic count is no longer updated either.
+
+30/07/2007
+- Telepaths dont share hp anymore, it was:
+  1) silyl given the idea of only the spirit of the telepath moving
+  2) cheezy
+- Telepaths only share half their mana
+- Player levels now goes up to 100
+- Monster can ain levels up to 500
+
+02/08/2001
+- Randarts rarer
+- Randart power reduced
+- Max 2 EA on randarts
+- Max +7 mana on randarts
+- Tidal Wave mana/level increased
+- Healing in hellish mode is now only 3/4 instead of 1/2
+- Player Golems! One can find pieces of golem and make a powerfull ally
+- Level requirement for objects, exepct for the char that found it
+- Level requirments on objects
+- One can inscribe an object #of the Fool to get the object to display:
+  "The Dager of the Fool"
+- Races get different mana
+- race restrict class
+- Mana penality for armor increased
+- Increased speed effect at high levels
+
+04/08/2001
+- New houses ready for testing prior to potential server reset
+- Extended dungeon. After level 100(5000') it loops to pseudo level 1
+  but with all monsters gaining +100 level
+- No lev restriction on parties, but only opeople in the +/-7 level range will
+  gain xp
+
+05/08/2001
+- Finished Archers books
+- 90 day player timeout added.
+
+05/08/2001 - PernMangband 3.2.0
+
+10/08/2001
+- Golems works
+- Fixed Fury warrior technic
+
+11/08/2001 - evileye
+- New polygonal houses work ok now. Checks for moving off depth
+  work. Player disconnect is handled ok.
+  Optimisation for houses which are rectangular is needed before
+  inclusion into the game properly.
+  Scroll limits need to be discussed and set accordingly.
+
+11/08/2001 - evileye
+- Rectangular optimisation of houses complete.
+- House creation is now compatible with the dynamic houses array.
+
+13/08/2001 - evileye
+- Added courtyards - houses with no floor (inscribe FIRST scroll @F)
+- Houses were not killed on player suicide. Fixed
+- Made start on a delete_house function (For DM)
+- Houses may now be created within larger houses.
+
+25/08/2001
+- Rings of Flames, Acid and Ice now reduce the corresponding element damage
+  by (AC * 5)%
+
+28/08/2001
+- Slowing effect of monks doubled in effectiveness
+
+30/08/2001
+- Updated commands.txt thanks to jir
+
+10/09/2001
+- When someone dies stuff only gets dropped if he/she was >= lvl5.
+  Thats to prevent cheezing
+
+27/09/2001
+- Server bugfix, object description string was too small [80] for including
+  the fake artifact inscriptions. I made every instance [160]. This will
+  never be necessary, certainly not in all cases, but efficiency may be
+  worked upon later.
+
+28/09/2001
+- Client bug fixed (peruse file overlay) Usually caused by lag.
+  Common symptom, the player list appears on game screen.
+
+
+28/09/2001 - Client changes (Zz)
+- Now you can specify an argument in Windows and client will connect
+  directly bypassing meta server (previously this only worked for Unix clients)
+- Multiple colors for different types of messages in recall window
+  (death, kill, private messages, etc.)
+- CTRL-O works like CTRL-P except only shows important messages - good
+  for review after a long fight or long AFK
+
+29/09/2001
+- Target friendly bug fixed - player in own party was used ;)
+- Colour messaging added - should work with all message types.
+
+01/10/2001
+- Golem following/guard bug fixed. Golem will now follow down/up
+  stairs regardless of guard.
+- Other bugs identified (unfixed) Target friendly with golem causes
+  chaos. The golem attacks nearest player, kills then homes in on the ghost.
+  Also, swapping places with the golem causes problems. (Urgent fix)
+
+02/10/2001
+- Object ownership made invalid now after player ghost death. It was
+  recycling ownership. It is set to MAX_ID+1.
+- Annoying level 1 suicides are no longer shown.
+
+03/10/2001
+- A couple of bug fixes, and some debug stuff removed (mine)
+- Fixed golem change places with owner.
+- Life scroll now shows life returning (lite_spot)
+
+04/10/2001
+- Console password request fixed (in line with client)
+- Male/female differentiation in public chat.
+
+05/10/2001
+- Server admin messages fixed (in yellow, after I broke them)
+- Removed the male/female colours. Admin still yellow
+
+08/10/2001
+- Minor bug fixed in house creation
+
+23/10/2001
+- Confusion brand PvP bug fixed ;)
+- Wraith in own houses added. Tested, no bugs seen.
+
+24/10/2001
+- Fixed MAJOR house security bug.
+- Fixed bug in savefile delete - party, houses were not reset.
+
+25/10/2001
+- The previous bugfix (timeout player) now works.
+
+27/10/2001
+- Fixed the archer spells bugs
+
+28/10/2001
+- Added multi player simultaneous building. Seems to work.
+  MAX_BUILDERS allows a limit to be set on builders.
+
+18/11/2001 (Jir)
+[Applied all the past patches.. http://www.ctt.ne.jp/~sap/mang/patches.html]
+- Inscription '!=' forces to pick it up. (nice for arrows etc)
+- YOU LOSE YOUR ARTIFACT IF YOU DROP IT! (randarts are ok)
+  [This prevents arts-exhaustion which occurs everywhere - fixed version]
+- You can no longer use/sell equipments of other new characters.
+- Smarter stacking codes for level-reqs
+- You can see other players' equipment with "'" (need a patched client)
+  [original code written by Yakina.. thx!]
+- Some detection spells gives off message "You sense the absence of..".
+- You can set 'Maximization' in mangband.cfg.
+- 'Potion of Invisibility' is added.
+- If an item's owner disappears, tag will look like {-,5} and not {5}.
+- Cursed magic arrows won't return nor get (+0,+0) when are shot.
+- Coloured message headers of chat if king(v)/hellish(D)/ghost(r).
+- You can specify the colour of chat header([Jir]) by '}' tag.
+- Spellbooks will be automatically inscribed in the proper way.
+- Antimagic of DS(-n,-n) are limited somewhat save unbelievers.
+- You can walk through your house door w/o opening it.
+- Wizard will be born with all the appropriate books.
+- 'Mushroom of Unmagic' is added (tho useless nowadays..)
+- You become 'furious' when you notice someone stealing from you.
+- You won't become 'hostile' when higher-xp player steals from you.
+- Respawning chance of townie is halved.
+- Console command 'get unique list' won't crash the server any more.
+- Client uses IP-address in place of hostname for metaserver.
+- Everyone can see his/her score with '#' command.
+- Priest gives you some gold to restart when resurrect in temple.
+- A ghost cannot go so deeper(250ft margin) than his best-depth.
+- More chance of success when digging.
+- You can open the door with tunnel command also.
+- A torch will disappear when burnt out.
+- Fixes a bug where archer branding spell lasts forever.
+- 25 new vaults borrowed from PernAngband(2 of them are w/o entrance).
+- Slight changes in ?_info.txt files
+- You can change your party's name with 'Create A Party' command.
+- You'll be protected by GoI for 2 turns after recall/stairs.
+- Pack overflow will take inscription {!d} into consideration.
+- Overflows while polymorphing are handled in a better way now.
+- Maximum radius of teleport is reduced for high-leveled magicusers.
+- Chat-line user commands: /afk, /ignore
+- Chat-line admin commands: /art, /cfg, /clv, /kick, /shutdown
+- Name abbreviations are available in most situations.
+- New command line option -m, which specify configuration file to load.
+- Client will receive final score when ghost is destroyed.
+- Added 'FreeBSD 4.3R' in makefile
+- Fixed a bug where Morgoth summoned townies etc.
+- If one kills the same unique more than once, it'll be handled as 'cloned'.
+- DM can specify monsters to summon by ID number.
+- Fixed: Store command when sunrise/sunset crashed. (Yakina)
+- Port numbers are now changeable with configuration file. (Yakina)
+- Other small bug-fixes, typos and ameliorations(deteriorations?)
+[client changes]
+- You can type, for example, '15k' for 15000au and '3m' for 3,000,000au.
+- You can see your gold as soon as you enter a store.
+- You can see other players' equipment.(*)
+- You can choose to be a bat(wo)man when creating new character.(*)
+- 'no-direction cancels' bug is fixed.
+- New command '/', which can handle miscellaneous types of items.
+- You can scroll chat-history with ctrl-o.
+- "'" command is supported(see above).
+- Graphics bug in win-client is fixed (by Asclep)
+
+19/11/2001 (Jir)
+- Some xp bonus to encourage partying (C.Blue's idea)
+- Revised conditions to check equipments.
+- Bugfix on /ignore command code.
+
+20/11/2001 (Jir)
+- You get stunned, confused and also drop some items when theft fails.
+- I have put a bug where OOD monsters are summoned; now fixed (thx Asclep)
+
+22/11/2001 (Jir)
+- You can use {@O} inscription to control auto-retaliator.
+- Neighboring monsters will try to interfere your attempt to fire.
+
+23/11/2001 (Jir)
+- Items with too long names are displayed with abbreviated names.
+- New admin commands: /lua, /recall
+- Multiple-melee attacks are efficiently handled now.
+
+23/11/2001 (Asclep [Jir wrote this log])
+- Recall/stair GoI message is removed.
+
+24/11/2001
+- Lua scripting
+
+25/11/2001 (Jir)
+- Uniques can resurrect after beating Morgoth.
+- Kings/Queens will be alarmed of retire_timer.
+- Players under lv-5 cannot throw items (anti-cheeze).
+
+25/11/2001 (Asclep [log by Jir])
+- Shallow dungeon levels won't be static (configurable).
+- NO_GHOST / PRESERVE_DEATH_LEVEL options
+
+27/11/2001 (Jir)
+- Optimization in auto_retaliate (observable :)
+
+29/11/2001 (Jir)
+- Admin commands: /static-level, /unstatic-level (/sta, /unst)
+- Client suppresses repeated messages.
+- 12 more vaults borrowed from ZAngband (thx, the creators!)
+- 3 original vaults. Also, 2 'Between Vaults' are now normal vaults.
+- DM can now specify vault 128-255 by number.
+
+30/11/2001 (Jir)
+- lv-req can handle {0} stuffs from stores.
+- 4 'Pattern vaults' are commented out. 5 more original vaults.
+- Bug in new auto-retaliator code is fixed(thx Moltor for report).
+
+01/12/2001 (Jir)
+- lv-req is now based on both item's quality and depth.
+- User commands: /dispose(dis), /tag  Admin commands: /id, /geno
+- Shopkeepers beat down prices for items with high lv-req.
+- Fixed bug in steal-fury ('neutral' was handled as a party).
+- You can no longer know the lv-req of unknown items.
+
+02/12/2001 (Jir)
+- Fortune cookie ported from PernA (by Mihi).
+- Bugfix on /dis. Added /untag.
+- Newbie(lv5-) no longer drops items when stealing fails.(thx Asclep)
+- 138 new cookies added.
+
+03/12/2001 (Jir)
+- hibernation/annoucement/auto-off for AFK-mode.
+- 't' won't disturb players' running (but still cannot start running).
+
+05/12/2001 (Jir)
+- Coloured cookie.
+- Allow URL on chat (eg. http://www.pernmangband.net/)
+- Admin command /wish
+- Client tries to use META_ADDRESS_2 in case.
+
+06/12/2001 (Jir)
+- Ego monsters. [version no. is 3.2.2 now]
+
+07/12/2001 (Jir)
+- Trap Detection won't reveal all the traps.
+- Bugfixes for ego monsters.
+- Total of 22+2 ego-monster types.
+
+08/12/2001 (Jir)
+- More megos and bugfixes.
+- wizard/DM should use console password from now on.
+- SPELL_INTERFERE option in *.cfg.
+- Failing to cast a spell takes a turn now.
+- wizard/DM can view all the players' inventory via "'".
+- Repeated messages are shown in more decent way.(client)
+
+09/12/2001 (Jir)
+- Bugfixes. Megos.
+- rewritten chat-line commands' code using that of Asclep(thx).
+
+09/12/2001 (written by Asclep/modified by Jir)
+- chat-line command /cast.
+
+10/12/2001 (evileye)
+- 3d base code committed.
+- Multiple towns possible.
+- Multiple dungeons / Add dungeon in dm level menu.
+
+11/12/2001 (evileye)
+- Anti spamming code added
+
+11/12/2001 (Jir)
+- Vertical recall supported.
+
+12/12/2001 (Jir)
+- Horizontal recall ({@RW17,22}) supported?
+- 'Cannot run' / 'Delayed run' bug fixed.
+- World-coodination display for '@' screen.
+- Player-location is shown on 'M'(Map) screen. (wilderness map is disabled)
+- Ghost never bleeds.
+
+13/12/2001 (Jir)
+- NEWBIES_CANNOT_DROP specifies the minimum level for item/au dropping.
+- ANTI_ARTS_HORDE configure option added.
+- all the admin-level slash-commands are available again now.
+
+13/12/2001 (Evileye)
+- Fixed bugs in teleport_player_level
+- Added town generation for Dungeon Master (limited)
+- Monster generation in town/near town houses suppressed.
+- Made unstatic_level function (was duplicated)
+- Fixed bug in unstatic_level (space/time anchor wasnt killed for all)
+- Fixed bug where new towns would not have objects/monsters attached
+- Added some support for ironman dungeons - not recall
+- Added support for hellish dungeons.
+- Dungeons may not be generated in towns (must generate with town)
+
+14/12/2001 (Evileye)
+- Forced net code to recheck IP/port when asked
+- Non mapping dungeons added. Player does not remember the map.
+- Fixed bug which caused towns to be cloned in wild generator.
+- Baselevel for new towns is set correctly for getlevel()
+- Fixed bug which prevented towers having new_level_up_* set
+  if they were maxdepth 1. (Caused endless loop in scatter)
+
+16/12/2001 (Evileye)
+- Added multiple store code, so towns have their own stores.
+- Server/client changed to display worldpos (messy still)
+- Monster filter added to dungeon code
+- Fixed compilation problem with control.c
+- Houses added to 24 hour maintenance cycle
+- Logging added to maintenance (keep logs???)
+
+16/12/2001 (Jir)
+- PernA traps (about 160 kinds) and trap system ported.
+- Given version number v3.3.0alpha (it'll be v4.0.0 soon :)
+- Version warnings for older(/newer) initialize files.
+
+17/12/2001 (Evileye/Jir)
+- Fixed a bug where vault didn't contain monsters/objects.
+- Fixed a bug where creating a tower caused crash.
+
+17/12/2001 (Jir)
+- Fixed a bug where selling an item to a store caused crash.
+- Detected traps will interrupt running.
+- Fixed a grave bug concerning memory in traps.c.
+- Temporary stats drain(mainly for traps).
+
+18/12/2001 (Jir)
+- Bugfixes on traps.
+- Bugfix: Immobile monsters beneath 5000'
+
+18/12/2001 (Evileye)
+- More bugfixes on traps which were causing memory corruption
+- Edge of world bug fixed
+- Fixed bug in wiz_lite.
+- Added signposts - all special info structs need to be stored.
+
+19/12/2001 (Evileye)
+- Got rid of dropping 0 gold pieces
+- Added c_ptr->special calling design.
+- Bug fixed in project_f (bounds check)
+
+19/12/2001 (Jir)
+- Magic mapping disallowed inside NOMAP dungeons.
+- Traps can be generated under items.
+- 3 new traps.
+- a bug in trap disarming fixed.
+
+20/12/2001 (Jir)
+- '/dis' can destroy items with pseudo-id tags ({good} or below).
+- 3 more traps(Voluminous cuisine/Unmagic/Vermin).
+- small bugfix on msg of set_biofeedback.
+- Bugfix on Morgoth summoning.
+
+21/12/2001 (Jir)
+- Still bugfixes on traps.
+- Some traps have chance of disappearence.
+- 3 more traps(Random/Wasting wand/Amnesia).
+- "You are too afraid to attack .." msgs flood less.
+- admin command: /trap [t_idx]
+
+20/12/2001 (Evileye) pfft use GMT/UTC dates jir...
+- Bugfix in ghost powers.
+
+25/12/2001 (Jir)
+# Unstable, bug-filled, far-from-fully-implemented version!!
+# Bugfixes and implementations urgently needed.
+  - New ego-item system, which is a mixture of PernA-ego and PernM-randarts.
+    (ego-items will use random-seeds[name3] just like randarts.)
+  - Item flags are now compatible with PernA [tho many of them are not in yet.]
+  - k_idx is automatically calculated from tval and sval.
+  - bunch of new items/artifacts/ego-items ported from PernAngband.
+- 3 more traps(Silliness/Goodbye-Charlie/Present-Exchange).
+
+26/12/2001 (Jir)
+- Item activations for some of new items are implemented.
+- Added a hack to make insta-killing traps appear in deeper levels.
+- Thrown randarts never break.
+- "Drop 1au to get Great Scimitar" bug fixed.
+- Different kind of "gold" when dropping money.
+- "Torch of infravision (+2500 to infravision)" bug is fixed.
+- "Leather Jacket/Sickle" bug fixed.
+- Exploding ammos/boomerangs/Ricochet
+- Ammo inscribed {!g} never drops(=never litter the floor).
+- Other bugfixes.
+
+27/12/2001 (Jir)
+** [C] stands for Client changes.
+- Sector info on '@'.
+- Some small scripts.
+- Chatline commands: /bed, /dress, /quaff
+- pval/bpval bug is fixed(but still needing ameliorations).
+[C] Random attribute-picker.
+- Some of ported items are implemented(cmd6.c).
+- Poison branding.
+- added some articles on self-knowledge.
+- Nazgul powers are ported (except Black-Breath).
+
+28/12/2001 (Jir)
+# MORE Unstable, bug-filled, far-from-fully-implemented version!!
+# Bugfixes and implementations URGENTLY needed. (almost not tested at all)
+  - PernAngband monster system is ported.
+  - replaced 550 mangband monsters with 1042 PernA monsters.
+  - Generation flags are not used for now(eg. Shark in dungeon, pfft)
+  - Most of new flags are not implemented yet.
+- Black-Breath is implemented.
+- Specific ESP (eg. slay-orc weapon gives orc-only ESP)
+- Fixed a bug that allowed to generate breeders on the wilderness.
+- Some mangband-origined ego-items are back again.
+- Fixed a bug where some ego-items could never be generated.
+
+29/12/2001 (Jir)
+- Black-Breath works slower/is contagious now.
+- Fixed a bug that caused breeders not to breed.
+- Randarts/egos can have specific-esp.
+- Some fun features for pints of ale :)
+- DSM activation fixed.
+- Added some flags on player_type.
+- Fixed a bug that caused Smeagol to drop Grond/Crown (mdr.. thx Mihi!)
+- monster_death ported.
+
+30/12/2001 (Jir)
+- new RBM/RBEs implemented.
+- fixed a bug that allowed ego-torches to burn forever.
+- some special attacking effect (like Chaos/Vorpal/Vampiric) implemented.
+  (but they don't work in pvp yet!)
+- Items with high bonus get *higher* prices.
+- Config options (cfg_blabla) are bundled in one structure (cfg.blabla).
+- New config option SPELL_STACK_LIMIT.
+- Wraith-Form is harder to stack(just like Haste-Self).
+- Reflection. Some traps.
+
+31/12/2001 (Jir)
+- Boomerang/Axe/MageStaff randarts.
+- New monster spells are implemented(flags4-6).
+- (Slightly) easy-to-read unique list.
+
+1/1/2001 (Jir)
+- A happy new year.
+- Merged the changes/files necessary to compile in win32(by Yakina).
+- LUA error messages are displayed only to DM/wizard.
+- bandled CAUSE_1~4 into CURSE, ARROW_1~4 into ARROW_1~2.
+- Insanity/Eldritch-horror(partially) implemented.
+- Original monsters/mego/items/egos/artifacts.
+- Drain life/mana
+
+2/1/2001 (Yakina [note by Jir])
+- some fixes on win32-client.
+- bugfixes, and extern.h cleanup.
+- win32-server runs *confortably* now.
+
+2/1/2001 (Jir)
+- 'cleverer' monster spells. (set STUPID_MONSTERS if it's too slow)
+- monster category filter (eg. to eliminate Joke-monsters).
+- better store-price calculator (rebalancement needed).
+- dying hellish could cause unfindable arts.
+
+3/1/2001 (Jir)
+- new(?) traps: pit, chasm
+- Shopkeepers always benefit from transaction(STORE_BENEFIT).
+- Store can merge items in a reasonable way.
+- LIFE/MANA item flags implemented.
+- Fixed a bug that allowed multiple artifacts(like Galadriel).
+- chatline command: /ex(tra), /ref(resh)
+- slain a lot of warnings.
+- "Kings' etiquette" is coded in. (optional)
+
+4/1/2001 (Jir)
+** [B] stands for Bugfix.
+- monster-move code ameliorated (!STUPID_MONSTERS)
+- some monsters will prefer to keep distance (even STUPID_MONSTER is on).
+- new monsters with DISBELIEVE power (eg. Unbeliever).
+- yaac(Yet Another Anti-Cheeze): lowbies' arrows won't drop on floor.
+- antimagic shield of party member disturbs spellcasting less.
+- use of magic-device is penalized according to the antimagic power(and not 0)
+[B] antimagic of weapon was not counted.
+
+5/1/2001 (Jir)
+- unique-list is slightly improved.
+- chatline command: /target  (Idea from Norcoth; thx)
+- auto-retaliator can handle a monster inside walls in a better way.
+- RES_TELE flag implemented.
+
+6/1/2001 (Jir)
+- some monsters can follow player's teleport.
+- *.cfg option: RUNNING_SPEED (it's HACK! ;)
+[B] pack of mages couldn't keep distance from a player correctly.
+- *.cfg option: ANTI_SCUM and DUN_UNUSUAL
+- dungeon unstaticer is optimized, along with anti-scum code.
+- shallow levels of cave contain many stairs.
+[B] "You bump into it." in the place where a king committed suicide.
+
+7/1/2001 (Jir)
+[B] "You bump into it." when in erratical form.
+[C][B] Random class-selecting sometimes failed.
+- STARTING_STAT_LIMIT compile option, which force the max to 18/40.
+- MULTI_HUED_PROPER compile option, which makes some monsters shimmer nicely.
+- uniques and ego monsters 'sometimes' glitter. (better if bold..)
+- compact_* functions are ameliorated.
+  This seems to lessen the load and memory consumption in a great way :)
+- adjusted teleport_player a little more.
+[H] larger tavern / shop lighting
+[B] some of holy animals didn't do any damage.
+
+12/01/2002 (Evileye)
+- Added a wilderness generator (test).
+- Reenabled and fixed the wild mapping function (still more fixes needed).
+- Configuration options for initial town/dungeon added.
+- Players' initial wilderness map includes town now.
+- Players have view of suburbs now.
+- Fixed a number of similar town radius omission bugs.
+
+13/01/2002 (Evileye)
+- Cleaned up new dungeon code, removing old
+- Fixed targetting bug in new code
+- Some compilation warnings fixed (cleanup)
+- Light bug fixed when changing wilderness area
+- Recalling up/down in wilderness fixed
+- Teleport level had same problem as recall (when new wz became 0)
+- Hacked up load2.c - backwards compatibility is only posssible
+  in the future. ;)
+- Players may not enter high level dungeons quite so easily.
+
+15/01/2002 (Evileye)
+- Fixed temple priest for dungeon master.
+- Fixed typo in "amulet shatters".
+- Base town no longer has wasteland or deep forest beside it.
+
+17/01/2002 (Evileye)
+- towndist made much faster for calculating radii.
+- recalling in wilderness defaults to last town visited, in the
+  absence of a dungeon.
+- filtered aquatic monsters suitably (i think) now to confine them ;)
+- aquatic monsters should not leave the water now.
+- aquatic monsters always start in water.
+
+18/01/2002 (Evileye)
+- Ironman recalling done (maximum level of tower or dungeon)
+
+19/01/2002 (Evileye)
+- Players below level 5 never get stuck in walls
+- Wilderness generated AFTER random generator is seeded ;)
+- Wilderness large map saved - saves time in startup.
+- Fixed bug where player changes wilderness level.
+- More cleaning up done.
+- Wilderness map fixed.
+- project() bug fixed where spell is bounced
+
+20/01/2002 (Evileye)
+- Islands in the sea for Olorin
+- removed old house code.
+- fixed bug in check_antimagic()
+- fixed client bug with store size
+- Burning trees is drawn now.
+
+21/01/2002 (Evileye)
+- Fixed admin/dungeon master house access.
+- Server broadcasts player levelling.
+
+23/01/2002 (Evileye)
+- Miscellaneous bugfixes, typos and cleanups.
+
+29/01/2002 (Evileye)
+- Fixed exploitable bug in server code. Client could crash server
+  if interrupted before play started.
+- Removed some of the extra stairs on comfortable levels.
+
+31/01/2002 (Evileye)
+- Mimic (server) bugfix.
+- Shop bugfix.
+- Mimic code moved, and fix applied to prevent bad townie forms.
+
+09/02/2002 (Evileye)
+- Unstaticer/anti scum changes.
+
+10/02/2002
+- Server/sched bug fix. Sockets closed when connection does not pass
+  the Contact() stage. The select mask was being set to the new mask!
+- Added automatic nice shutdown. No more angry players.
+- Mimic rings have no restriction on use now.
+
+26/02/2002 (Jir)
+- leftover typos and minor bugfixes.
+
+26/02/2002 (Yakina {note by Jir})
+- Resurrected command 'I' (examine Item)
+- Bugfixes and enhancements for windoze.
+  - cleanup makefile.bcc
+  - fix broken menu
+  - new menu item 'Save Preference'.
+    Fonts and Windows' positon are saved to .ini
+  - Windows font (logical font) support (experimental).
+    Define 'USE_LOGFONT' in makefile.bcc or appropriate place.
+  - `Slow server' bug fix. (Windows server can be compiled well,
+    but not work at least the HEAD)
+  - some minor fix
+
+26/02/2002 (Unknown {note by Jir})
+- Borrowed a *_info.txt renumbering script.
+  http://www.fragment.com/~jl8e/angband/
+
+01/03/2002 (Jir)
+- players can use /rec now (this applies item with {@R})
+- new monster: exploding coins
+- admin command: /en(light), /eq(uipment) ,/unc(urse)
+- SEVERE_GENO/RESIST_GENO compile-time option.
+- saving-throw is limited to 95 (4% fail) now.
+- door spiking (ctrl-s or '/')
+- /bug (/rfe), which leaves a message on server. {thx A.Dingle for idea}
+- admin can view log-file and rfe-file via client.
+- store buying-prices reflect *ID* states.
+- STORE_TURNS is moved to cfg struct.
+- mangband.cfg revised.
+- doors can be trapped.
+[C] option-setting screen accepts 'j','k','s','t','5' keys.
+[C] server-list can display the whole players when crowded
+[B] strange colouring in unique list
+[B] some traps create 'phial' (INSTA_ARTS)
+[B] breeders won't breed
+[B] stormbringer was way too powerful (+8 attacks!!)
+[B] indestructible rings didn't work
+[B] a leveled spellcasters could cast with DarkSword
+[B] artifact missiles could be bandled
+[B] store prices were confused with pval and bpval
+[B] Nazguls didn't drop the rings
+[B] some arts were handled in a wrong way when fighting Nazguls
+
+03/03/2002 (Jir)
+- the rest part of porting of monster-AI is done;
+  now monsters have learnt to hide behind obstacles.
+  if server gets slow by this, pls adjust SAFETY_RADIUS in melee2.c.
+- monsters also cast spells even when out of sight.
+- *ID*ed items are marked with '*'.
+- /unc(urse)
+- GoI can no longer prevent genocide's strain.
+[H] makeshift underground watery area added for exhibition.
+[B] client crushed when having 2 same books with different inscription.
+    (not really fixed; just hacked around)
+
+05/03/2002 (Jir)
+- some more traps.
+- exported cfg to LUA (eg. '/ cfg.store_turns=10')
+- low-sanity alart and 'flushback' hallucination
+- fixed watery levels (see generate.c)
+- randart light-source changed (revert it if some1 already has one)
+- player ghost 'fade' slowly, so that a player won't try to preserve
+  the floor for days. (also, resurrection penulty is reduced to 40% now)
+- DEBUG_LEVEL is defined (config.h)
+- LEVEL_UNSTATIC_CHANCE and ANTI_SCUM meaning had been changed. (mangband.cfg)
+- PUBLIC_RFE: allows all the players to see rfe-file sent by /rfe.
+- /purge: clear monsters/items/traps on the wilderness (save owned items)
+[B] unstaticer is (I hope) sane now.
+[B] lantern refilling
+[B] watery respawning crashed
+[B] a trap caused buggy screen like ^^^^^^^^^^^^^^^^^^^^^^^
+[B] food comsumption was too slow, you know
+
+06/03/2002 (Evileye)
+- Added guild system framework. Needs more work before it will be
+  useful.
+
+07/03/2002 (Jir)
+- optimizations on monster-AI etc.
+- tdy[],tdx[],tdi[] are introduced;
+  they should do some speed-up for radius-related things.
+- GF_DISINTEGRATION is back.
+- yellow light blinds(GF_BLIND).
+- INDIRECT_SUMMONING_RADIUS and STUPID_Q compile options, for the asking.
+  (I spent hours to find out why hounds stopped breathing from corner ;)
+- climbling up/down can fail when confused. (STAIR_FAIL_IF_CONFUSED)
+- version strings(code is from Vim6.1a).
+- client is very un*x/vi-user friendly now.
+- forgotten monster flag RF1_FRIEND is implemented (smaller pack, that is).
+[B] 'Stone to Mud' dug 2 blocks.
+
+07/03/2002 (Evileye)
+- Added more of the guild system functions - still incomplete, but
+  nearly done. Save/load to be done last (must remain compat.)
+
+08/03/2002 (Evileye)
+- Guild system load/save implemented. Converts old savefiles safely.
+
+08/03/2002 (Jir)
+### branching for convenience.
+- FRIEND_FIRE_CHANCE(spells1.c)
+- silly dying messages. (configurable with CHATTERBOX_LEVEL)
+- sanity pots can cure hallucinations too.
+- insanity hallucination slowed somewhat.
+- genocide penalty is halved now, compared with mass-geno.
+- RESTING_RATE(dungeon.c)
+- REPRO_RATE(melee.c), another check for breeding.
+- Nazgul rings are toned down a bit.
+- exp.drain strengthened a little.
+- black-breath exp.drain slowed a little.
+[C] command line options,like: mangclient -lName passwd TomeNET.net
+[C] .mangrc enhanced
+[C] search command improved a little.
+[B] client displayed csane/msane in place of chp/mhp!
+[B] ego magic arrows could be generated.
+[B] serious bug in radius spells(tdi).
+[B] spiking a trapped door didn't set it off.
+[B] 'Really destroy 0 of your blabla?'
+
+09/03/2002 (Jir)
+- PARTY_XP_BOOST
+- file-viewer ameliorated (voir self_knowledge)
+- 2-Handed weapons are handled correctly now.
+- base and arts flags are cumulative now (need checking)
+- NO_TARGET implemented (for goldfish in the ponds :)
+- monster filters. (no eagles in dungeon, etc)
+[H] extra check for monster summoning (SUPPRESS_SUMMON_RATE)
+[B] digging tools had bpval of 0.
+
+09/03/2002 (Jir)
+# basements for floor-flags.
+# version no. 3.4.2a
+  - smaller floors can be generated (SMALL_FLOOR_CHANCE).
+  - some floor flags implemented.
+  - Vermin Control scroll added.
+# vault extension
+  - generation flags
+  - forcing floor flags
+  - symmetric variations
+- AUTO_PURGE, RESTING_RATE are now runtime options.
+- POTION2 didn't have flavors
+- c_special uses union.
+[H] slowed multi-hue updating for efficiency.
+[C] client option '-P<path>' (also 'path' in .mangrc)
+[B] light spell in the wilderness could crash. (hope really gone..)
+[B] "You switch place to it." when disarming a trap.
+
+09/03/2002 (Jir)
+- file viewer can handle any existing text files.
+- slash-commands online manual: /help
+- /less
+- more efficiency codes.
+[B] /rec without parameter
+[B] summoner could summon 'behind' walls.
+-- fixes merged (Evileye)
+[B] 'I' or 'e' messes the screen inside stores (/* evil test */ stuff)
+[B] log-file viewer(&6) leaves messy screen when done.
+
+
+
+14/03/2002 (evileye)
+- IP banning filter added. (fixed at 5 mins just now.)
+
+16/03/2002 (evileye)
+- Litter removal added as part of a general object management
+  system.
+
+17/03/2002 (evileye)
+- House scanner checks player and party houses for suspect items.
+- Dungeon master can no longer be private messaged.
+- msg_print_near does not report the dungeon master's actions.
+- /kick now allows the user to specify a ban time (default 5 minutes)
+- Major bug fixed in /clv fixed.
+- Water is less common in some places
+
+18/03/2002 (evileye)
+- Dungeon master can now pick up items (no chown)
+- Bug fix in the look command where dungeon master could be seen.
+- Reflection bug should be fixed.
+
+23/03/2002 (evileye)
+- Simple monster quests added.
+
+03-05/2002 (things that were implemented by evileye)
+[B] [Bashing for beginners] contains 'Darkness Storm' etc.
+- simple quests
+- guild
+- invitation system
+
+
+01/06/2002 (Jir)
+# mere merge. (Many things seem to be added by evileye in my absence :)
+- admin char no longer starts with special equips (type /eq instead).
+- BRANCH_COMPATIBILITY_CLUDGE introduced to load2.c.
+- new slash-cmd documented in /help.
+- player-info.lua updated.
+- single-hued dragons are no longer 'ATTR_MULTI' (for speed's sake)
+  Dragonriders are 'ATTR_MULTI' instead now.
+
+02/06/2002 (Jir)
+- traps of moat.
+- landscape specifiable for destroy_area().
+- /feeling, which displays the feeling of current floor.
+- exp bonus for hard condition like NO_MAP, NO_TELE etc.
+- /shout
+- Black Breath induced by an item will be off when the item is removed.
+- wielding 'Stormbringer' make the wielder attack the others.
+- mon_allowed uses percent now. (see tomenet.cfg)
+[B] inscription {!w@A1} worked wrong.
+[B] WoR worked wrong if with {@R} and w/o depth specification.
+[B] Stormbringer didn't have the random seed.
+
+03/06/2002 (Jir)
+- NO_MAGIC floor cannot be generated beneath 5000' anymore (to help Morgie :)
+- Morgoth can dig through permawalls now.
+- out-of-sight spellcasting won't be reported (like 'It blinks away.')
+- finally, townies ceased to keep you from running.
+- POTION2 items won't appear in BM. Athelas rarer in BM too.
+- /quaff removed.
+- optimizations.
+[B] slash-command failed to handle wpos if all X/Y/Z are specified.
+## 3.5.3alpha
+- file-saving/loading via csfunc.c implemented.
+- t_list[] is obsolete; written using csfunc[]()
+
+04/06/2002 (Jir)
+- STUPID_MONSTERS flag is devided into more detailed flags.
+- use of missile is allowed even with 2H-weapon(since shield is restricted
+  already). Other thoughts?
+- chance of trap to vanish is ported to tr_info.txt.
+- chance of a monster digging a wall depends on its level.
+- damage induced by missile traps can be adjusted by MISSILE_TRAP_FACTOR.
+- 3 new traps using GF_DISINTEGRATION.
+[B] uniques from non-100% themes didn't always show up in kill list.
+
+08/06/2002 (Jir)
+- /monster: displays the No. of monsters killed (aide for mimics).
+- MONSTER_DIG_CHANCE in melee2.c.
+- pkilling penulty on non-town is paralysis(and not Wrath) now.
+- Stormbringer sets pk flags now.
+
+09/06/2002 (Jir)
+- mimics in aquatic form suffer from anoxia if out of water.
+- drowning is slow with high STR/DEX.
+- saving throw for curse weapon/armor traps.
+- aquatic-formed mimic can 'run' (let's say swim :) under the water.
+[B] door trap remained on the screen when disarmed.
+[B] '... teleports away' msg even when teleportation failed.
+[B] Maggot and his dogs resurrected for kings/queens.
+
+10/06/2002 (Jir)
+- event msgs on monsters(like waking up) are shown to everyone within sight.
+- Staff of *Perception*.
+- PROJECTION_FLUSH_LIMIT prevents some uncontrollable situation where many
+  monsters fire a volley at a player and the client gets stuck.
+- Monks can disturb adjacent monsters' attempt to teleport. (grabbing)
+[C] chat-line editor/history implemented. (askfor_aux) (^P, ^N, ^U, ^W, ^X)
+[B] Amulet of Speed always was +0
+
+11/06/2002 (Jir)
+# client incompatible with previous ones
+- NO_ENCHANT flag, mainly for Mage Staves.
+- quiver and tool slot implemented.
+- Picklock.
+[B] Store '3' wouldn't buy Mage Staves.
+[B] broken admin inventory.
+[B] /dr couldn't handle rings well.
+[C] total weight displayed for 'i' and 'e' commands.
+
+12/06/2002 (Jir)
+- 2 anti-stealing tools.
+- conf/stun etc. affect stealing.
+- not-invited player will receive the reason why (s)he's rejected.
+- 'guest' accout: a player with the name 'guest' can log on to the server w/o
+  password and w/o his/her name on the allowlist.
+- SENS_FIRE implemented (to notice it's used nowhere.. cept Ent)
+[P] some rule-changes in elemental damages.
+[H] digging tool randarts no longer are available
+[B] Ophiuchus trap didn't worked on the players.
+[B] 'grabbing' worked for non-monks.
+
+13/06/2002 (Jir)
+- suppressed 'antimagic' messages when the monster is out of sight.
+- no disturb when antimagic succeeded.
+- /dr, /bed, /dis disturbs running etc.
+- item damaging by water.
+[B] ghost could be buried in permawalls when teleporting.
+[B] ghost could lose all its exp due to overflow (tho not imaginable)
+[B] boomerang randarts could have extra attacks.
+[B] branded/slaying boomerang didn't work.
+[B] screen messed after using some party commands.
+[B] shadow/hunt books were fireproof.
+[H] TELEPORT_MIN_LIMIT, for more useful 'teleportation'.
+[H] /ex shows max_dlv.
+
+14/06/2002 (Jir)
+# version 3.5.4a, for item stacking.
+  - item can stack on the floor, except within houses.
+  - player can only access to the top of a pile.
+- neutral players have chance to harm each other via missiles/balls(anticheeze)
+- swordsmasters can disarm players' weapon.
+- cleanup concerning EVIL_TEST (still needs to be defined)
+- DEATH_ITEM_LOST to balance death drops
+[P] potion_smash_effect() imported.
+[B] clone status weren't saved.
+[B] reflection couldn't harm monsters.
+[B] pack_overflow() was broken.
+[B] artifact 'known' status wasn't fixed when loading savedata.
+[B] rebooting server always made floors disappear (Yeah, FIXED!!!);
+
+15/06/2002 (Jir)
+# all changes in jir-EXP are merged to the trunk now, along with the
+# ToME skill system basements.
+# (provisonal version 3.5.5a, for backward compatibility)
+- Some monsters have learnt to head for treasures.
+- Monsters can pick up gold.
+- digging is harder if w/o proper tool.
+- intelligent monsters' digging speed differs according to the wall type.
+- quits if '-m' is specified but cannot actually read the file.
+[B] house(dna) data was broken if bedtown was static when saving.
+    (hand-made dungeon/tower still causes infinite loop prolly.)
+[B] p_ptr->total_weight went wrong when adding ammo to the quiver.
+[B] TOOL_EQUIPPED ignored tval.
+[B] TV_POTION2 was white when in the inventory/0au when non-id-ed.
+
+16/06/2002 (Jir)
+- /news, displays news.txt
+- you can no longer drop items on stairs/store-entrances.
+- monster drops stack on the floor too.
+- extra info in unique/arts list available for admin-chars.
+- /arts [show,fix,ban!,reset!], /unique [unseen,nonkill]
+- unique r_sight mending code. (maybe we'll need whole savedata checker..)
+[H] you can go into a store with '>' key.
+[B] TV_POTION2 didn't shatter when thrown.
+[B] you couldn't fire missiles, doh!
+[B] was trying to read 'mangband.rfe' while rfe file was 'tomenet.rfe'.
+[B] floors got unstaticed prematually sometimes (prolly my enbug).
+[B] STR damage by swimming exertion could be prevented by sustain_str.
+[B] excise_object_idx crashed if unstaticed.
+[B] server shutdown caused ever-unfindable arts.
+[B] 2 'if();' potential bugs in new_wr_dungeons() fixed.
+
+16/06/2002
+[P]- Backporting the ToME skill system !
+[P]- Detect traps can NOT fail
+
+17/06/2002 (Jir)
+# 'pfft, my sorc cannot cast!' version ;)
+- monsters drop what they've picked up before.
+[H] roguelike-keys support in do_cmd_skill()
+
+18/06/2002 (Jir)
+- Test code for transmitting races/classes when logging on.
+  we should separate types.h into two(server-client) or add some hack to
+  actually be able to change # of races/classes on the fly.
+- obj_theme implemented (for monster drops).
+- MONSTER_ITEM_CONSUME to keep monsters from dropping too much.
+[B] wipeout_needless_objects() did nasties. commented out.
+
+19/06/2002 (Jir)
+- cloned monsters drop what they had picked up.
+- object code optimized somewhat.
+- death mold trap
+[B] a lv1 sorc could cast 30 magic missles each turn
+
+20/06/2002 (Jir)
+- trap_creation() is radius-based now.
+- player cannot gain more than 1 level at a time.
+[P] detection magics are radius-based now. (affected by skill and level)
+[P] Parchment.
+[B] player could infinitely gain skill points by losing and gaining levels.
+[B] invisibility and aggravation caused spamming.
+[H] wands/staves of plenty get double from recharging.
+
+21/06/2002 (Jir)
+- item-enchanting spells can add to 'discount' (after Zz's proposal)
+- Receive_spell selects the function to call by the book (and not class).
+- Nexus/Gravity breath teleports items away.
+- Indestructible rings/Fireproof scrolls can stack.
+[B] admin char caused 'write error'.
+[H] 'p' key to scroll back when perusing a file.
+
+22/06/2002 (Jir)
+- spell interference is affected by corresponding skills.
+- some parchments.
+- auto-inscriber reimplemented.
+- changes in skill reflect to the spells list at once.
+- chest dies nicely.
+- Hunting and Technic skills.
+[B] some spells are shown as 'unknown' even when castable
+[B] Ghost powers were broken
+[B] get_spell was messed due to sval/xtra1 hack :(
+[B] 'directional' spells didn't work if not of original realm.
+[B] inventory wasn't refreshed after some scrolls(eg. id,enchant) are used.
+[B] 'A  on broken door'. (do_cmd_look)
+
+22/06/2002 (Yakina)
+- updates needed for bcc.  Thanks Yakina for courtesy.
+
+23/06/2002 (Jir)
+- login is done according to the informations sent by the server.
+  (race/class addition still needs client update, tho)
+- SKILL_MISC, SKILL_AGILITY, SKILL_CALMNESS, SKILL_SWIM, SKILL_RICOCHET,
+  SKILL_BOOMERANG, SKILL_MARTIAL_ARTS, SKILL_TRAINING, SKILL_INTERCEPT
+- bow/xbow/sling/boomerang skills can prevent ammos from breaking.
+- MKEY_PRAY is valid now.
+- /autotag, auto-inscribe manually.
+[H] Goodbye-Charlie trap toned down.
+[B] potion of learning.
+[B] MHIT +2632, MDAM +1318
+[B] master_generate was broken.
+[B] 'n' and 'p' didn't work well in the skill screen (common with ToME)
+[C] 'c' and 'o' key available in skill screen (for quick browsing)
+
+24/06/2002 (Jir)
+- SKILL_DISARM can help players from hitting already-found traps.
+- SKILL_HEALTH, SKILL_DIG
+[P] SKILL_DODGE
+[H] Hardness of walls are reverted to the original.
+[B] anti_magic and antimagic :)
+[B] 'Travak' was sling-shot and mass-produced.
+
+24/06/2002
+[C]- .mangrc changed to .tomenetrc
+[C]- Chardump ability in the char screen
+
+25/06/2002 (Jir)
+- SKILL_SPELLRAD('Revelation') (oh, sry DG, it's last one :)
+- race/class additions/deletions can be done without client update.
+- p_ptr->skill_last_level removed.
+[B] classname.prf file wasn't read correctly.
+
+26/06/2002 (Jir)
+- skill-requirements for spells revised.
+- 'Master Unbeliever'(GoI-killer) and 'Monk' mego.
+- GoI can no longer prevents damages from cut, poison etc.
+- mana-regeneration is separated from HP-regeneration.
+[B] choose_race/choose_class still used MAX_* (and not Setup.max_*)
+[B] '%' skill modifications by race weren't reflected.
+[B] p_ptr->u_attr[] was broken (Something should be wrong in Net_setup!)
+[C] '-f' option added (use specified file in place of '.tomenet')
+[H] Speed bonus for Martial-arts is reduced by total_weight.
+[H] SUPPRESS_MONSTER_STUN and NORMAL_HIT_NO_STUN flags, for DG's HERESY :)
+[H] SKILL_INTERCEPT and SKILL_DODGE rebalanced somewhat.
+
+27/06/2002 (Jir)
+- NO_TELE is radius-based(12).
+- anti_tele and resist_continuum is different now.
+- monster stunning effect is more realistic.
+- HAS_LITE implemented as 'radius 0' light.
+- RBE_FAMINE
+- Scroll of Nothing implemented ;)
+[B] player couldn't teleport monsters away!
+[B] icky_wield was broken
+[B][C] GCU client flickered like hell. (fix_player)
+[B][C] classname.prf was still broken
+[B][C] mkey couldn't handle duplicated {@m1} well
+
+28/06/2002 (Jir)
+- mkeys can be added w/o client update (unless special handling is needed).
+- MKEY_DODGE implemented (to make sure the above modification works).
+- 'n', 'N', 'p' command obsoleted.
+- '/' can handle mkey-items well now.
+- PKT_RAW_KEY transmits non-defined key to the server directly.
+- '!='(force pickup) inscription only works for the owner.
+[H] allowed teleportation under NO_TELE when died.
+[H] thresholds for screen scrolling changed. (they should be client-option)
+[H] wraithform is lv.20 spell now (for the balance's sake)
+[B] Green/Blue etc. Dragonriders were all red.
+[B] Shattering potions of Healing didn't heal the players.
+[B] when logging in, the player was slightly displaced.
+[B] Receive_activate_skill did nasties when out of energy.
+
+29/06/2002 (Jir)
+[B] prayer realm level check was broken.
+[B] sanity_blast did nothing.
+[B] some monsters became 'immune' to spell attacks. (project_m)
+[H] added a filter for RF7_PET/RF7_NEUTRAL monsters.
+[H] sleeping monsters don't emit light any more.
+    (it's strange with monsters like yellow light, but forget it for now :)
+[H] ')' command (clear buffer) works in a better way.
+
+30/06/2002 (Jir)
+- Flint.
+- USE_PK_RULES
+- light code optimized somewhat.
+- digging walls next to water results in new water. (twall_erosion)
+[B] reversing curse worked for normal 'remove curse' scroll.
+
+01/07/2002 (Jir)
+- RBM_WHISPER and RBE_SEDUCE.
+- NEVER_MOVE monsters consume a turn by *NOT* casting a spell.
+- base AC/dodging cannot avoid gaze/wail etc any more.
+- wpos is shown in orange if recalling (for Charlie :)
+- a death inside walls no longer causes item lost.
+[H] Hand of Doom bypasses GoI/ManaShield.
+
+01/07/2002 (Jir)
+- protection code against DoS
+[B] arrows did no damage, pfft
+[B] townies could enter the tavern.
+[B] 'Ring of Polymorphing of'.
+
+02/07/2002 (Jir)
+- protection code against DoS/roller (QUIT_BAN_MODE)
+- GoI/Manashield ends when the player attacks/fires/casts etc.
+[H][C] spell_info array is enlarged to allow future expansion.
+[B] +To RDam was displayed wrong when using =dam
+[B] pet/golem left m_idx when changing the wpos.
+[B] pet attacked its master.
+[B] couldn't establish a connection due to too large packet size.
+
+06/07/2002 (Jir)
+- user command: /house
+- house door colouring
+[H] order of death msgs rearranged ("You're full!" no longer is last word)
+
+07/07/2002 (Jir)
+- cave_valid_bold is function now (it was broken).
+- only SPECIAL_GENE arts are protected from destruction spell.
+  (it prevents 'scum and destroy' cheeze)
+- destruction/earthquake erase the traps buried in walls.
+- KILL_DEMON and KILL_UNDEAD implemented (they weren't!)
+- monsters avoid to stand just N/E/S/W to the player
+- player can try to disarm already-found traps by stepping onto it.
+- DOOR_BUMP_OPEN is more detailed now. (better client option, of course)
+- garbled monster names when hallucinating.
+- 'No Ghost', 'Hard' game modes added.
+[P] yummy nests and pits (generate.c)
+[C] sexual parity
+[H] Potion of Infravision gives +50ft infravision in place of +10ft
+[H] cheapest items (like spike) won't be {on sale}. {10% off} added.
+[H] all-star dragon pit / mankind pit (experimental)
+
+08/07/2002 (Jir)
+# most part of ToME generate.c imported.
+- faster choose_attack_spell imported from Angband3.0.0.
+- user command: /object
+- *ID* activation msg for mimic rings
+- firestones implemented (at least somewhat useful, that is)
+[P] dungeon generator (generate.c) .. d_info and f_info needed!!
+[H] 'Health' skill is a little more useful now (x1.5 regen)
+[H] GoI when changing floor is somewhat longer (due to the rule change of GoI)
+[H] skill table somewhat adjusted (Fighting Technic moved to Combat)
+[B] Cleaning trap was (maybe) broken.
+
+09/07/2002 (Jir)
+- '~' key can show misc. stuffs(/mo, /obj, /house etc. are integrated).
+  ('#', '|', '@', '\'' keys can be obsolete now.)
+- mangband.hlp is renamed to tomenet.hlp
+- monster mimic (lazily) implemented.
+- player drops her/his bones when dying :)
+- equipment slots are restricted according to the player form (mimic).
+  (maybe rebalancement is needed)
+- admin command: /store
+- scroll of Cancellation added (you know for what)
+[B] cheap items still had {on sale} tags even they are {0% off}.
+
+10/07/2002 (Jir)
+- mimic in dragon form can eat firestone.
+- p_ptr->options[] is obsoleted.
+- client option saving/loading.
+- new client options: easy_open, easy_disarm, easy_tunnel, auto_inscribe
+- monster spells rearranged.
+- ang_sort hooks; object/unique lists are displayed sorted.
+- uniques from themes with low percentage won't appear on the unique list.
+[H] underground lakes can have various size/shape.
+[B] monster pit often had 'holes' (build_type6 - still sometimes)
+[B] monster mimics could be (mimic), mana-charged, projector ego types.
+[B] '\"' didn't transmit option changes to the server.
+
+11/07/2002 (Jir)
+# mimic!
+- polymorphing into headless form won't allow to take Crown off.
+- replaced some hacks in p_ptr->invis/tim_wraith
+- mimic in armless forms can get extra blows / bodyless extra ac.
+- PKT_MIMIC obsoleted. (PKT_GHOST should be, too)
+- some mimic innate spells implemeted and updated.
+- more mimic flags implemented (like DISBELIEVE, OPEN_DOOR, KILL_WALL)
+- client options: taciturn_messages(see below), last_words, limit_chat
+    /* Hack -- suppress messages */
+    if (p_ptr->taciturn_messages) suppress_message = TRUE;
+    suppress_message = FALSE;
+- /broadcast - send msg ignoring limit_chat
+- mangconsole options: -P<pass>, -s (shutdown at once)
+- mangconsole and client option: -c (force to use GCU)
+- depth_in_feet reimplemented. (not sure which is better, Lev -5 or Lev 5..)
+- 3 ego torches/1 monster race added.
+[B] Infinite loop when a mimic used /dr under no-equip form.
+[B] ego items with different powers sometimes merged!
+[B][C] GCU client couldn't handle the cursor very well.
+  (most of GCU client problems are fixed now :)
+[H] mimic's stats are affected by race modifiers now. (yeek mimic..)
+[H] mimic innate spells (like breath) aren't hindered by antimagic any more.
+
+12/07/2002 (Jir)
+# anti-freeze and efficiency codes. (over-the-net test needed)
+# server is ... 3 times faster than yesterday (if we believe 'top' :)
+# dragon pit won't hinder player's movement any more.
+- /dress ignores unidentified or cursed items.
+- look('x') can tell the form of mimic.
+- MONSTER_TURNS, Ring of Speed (+20) for the server ;)
+- PROJECTION_FLUSH_LIMIT(_TURNS) should work better now.
+- thin_down_flush, client side anti-freeze option.
+  (with it, one can use Elemental Blasts for auto-retaliation w/o troubles)
+- monster level gaining changed:
+  if a monter is too weak(2500ft mergin - MONSTER_TOO_WEAK), give some level.
+[B] oops, tim_invisibility lasted forever
+[B] crashed when exploding potion harmed another items.
+[H] Book of the Dead can be activated (WoR).
+[H] owners[][].max_cost touched.
+
+13/07/2002 (Jir)
+- auto_target: cast spell to the nearest enemy.
+- 'Archery' skill affects pseudo-id of missiles.
+- thin_down_flush is activated only when too busy.
+- {@OM} inscription to use mimics' innate powers for auto-retaliation.
+- MOVE_BODY applicable to the player too.
+- missile anti-cheeze is done by level-req(and not breakage) now.
+[P] double ego items.
+[B] daily/hourly retire-timer alarm didn't work
+[B] chest traps and contents were determined wrong
+[B] floor size was lost when saving/loading.
+[B] los check sometimes went wrong on small floor(southwest - update_view?)
+    (not really fixed, but suppressed..)
+[H] racial skill modifiers added.
+
+14/07/2002 (Jir)
+- Ent learns ESP gradually now.
+- Backstabbing dmg is tripled if done in the dark.
+- invisibility rule changed - monster staggers in place of freezing
+- carrying light lessens the effect of invisibility.
+  (In short - Rogue is 'Class of Darkness' :)
+- {!=} inscription works better for artifact missiles.
+- /dis improved somewhat.
+[H] Ent can pass through trees.
+[H] cursed-item reversion is only done by scrolls (and not spells).
+[B] NO_MAGIC banned innate spells
+[B] Added Infinite loop breaker at alloc_object
+[B] spell_info was wrong for Prayer realm.
+[B] SKILL_STEALTH and SKILL_SNEAKINESS did nothing!! (calc_bonuses)
+
+15/07/2002 (Jir)
+# beware -- savedata could be destroyed due to the apartments
+- apartments to supply more residence (town_gen_hack - but it's ugly)
+[B] wilderness lighting was wrong if logged off/entered a store in day and
+    on/leave in night (player_birth / Receive_store_leave)
+[B] books become unbrowsable when logged on in the dark. (fix_spell)
+    (not really fixed - this allows to browse even when in the dark)
+[B] town still could be generated in the midst of the ocean (wild_bulldoze)
+[B] stairs/doors tended to disappear on NO_MAP floors (update_view)
+[B] arrows never broke (my bug - do_cmd_fire)
+[B] couldn't 'run' near the outer permawall (run_test)
+
+16/07/2002 (Jir)
+- 'aware' magic items no longer are pseudo-IDed. (sense_inventory)
+- player can dodge other players' arrow. (do_cmd_fire)
+- player can eXamine items in the stores. All items in stores are *ID*ed.
+- fix_spell is basically called only when logging on. (further work needed)
+- cmd_raw_key is called even when in a store.
+[P] water effect to the terrain (project_f)
+[B] players could shoot the DM
+
+17/07/2002 (Jir)
+- Tiamat resurrected (not in ToME)
+- 'power'('Z:') ego items are removed temporally.
+- player is forced to leave a store when turnover or town is crowded.
+- client options: autooff_retaliator, wide_scroll_margin
+[B] ball traps couldn't affect floors.
+[B] demon/undead could pick up KILL_DEMON/KILL_UNDEAD weps.
+[H] general store('1') doesn't sell so much Amans and *Brightness*es
+
+18/07/2002 (Jir)
+- client option variables are bandled in a struct (c_opt)
+- CHEEZELOG_LEVEL (better runtime-option?)
+- take a log when money is transfered between players.
+- mangconsole => tomenet.console
+- version_build()
+- player forgets of seen objects on NOMAP floor.
+- makeshift 'character edit mode' (/quit 1024)
+[B] option '-r' put the server into infinite-loop (genwild)
+[B] xtra_might from Archery-tree skills didn't work correctly.
+[H] RF5_CURSE toned down in low lv and toned up in high lv
+[H] ego rarity control in stores (STORE_EGO_CHANCE)
+[H] arrow range is limited by MAX_RANGE to prevent 'long-corridor cheeze'
+
+19/07/2002 (Jir)
+- /dress can be used with tag specification.
+- monsters farther than MAX_RANGE can still cast non-player spells.
+- monsters with BR_DISI make better use of this.
+- Wand of Teleport To, aka AI_ANNOY killer (Tengu mimic can, of course)
+- query for mimic form changing if other_query_flag.
+- mimic receives more adjustment from its form. (spell, searching etc.)
+- mimic can cast the Hand of Doom!
+- always_repeat resurrected for digging, disarming etc. (')' to cancel)
+[B] monster zigzag chasing was broken (get_moves)
+[B] NEVER_MOVE form mimics could climb the stairs.
+[B] p_ptr->furry typo.
+[H] arrow range limitation is removed again, due to monster AI improvements
+[H] r_killed is halved in place of becoming 0 when forging a mimic ring.
+
+
+(valid till 19/07/2002)
+** [B] stands for Bugfix.
+** [C] stands for Client changes.
+** [H] stands for Hack and rebalancement :)
+** [P] stands for Porting from ToME.
+
+
+=============================================================================
+memo and questions:
+(nothing so far)
+
+=============================================================================
+TODO: things to do before 4.0.0
+
+- backport ToME spells {DG, cept marked {Jir}}
+  + spells that specify items (this should be handled in client)
+  + handle auto_target in client-side
+  + energy consumption
+  + manual target!
+  + auto-retaliator
+  + interference (maybe for attack-spells only?)
+  + some items give extra-casting; make them revert to spell-power
+  + allow using spell names for macro
+  + make some spells 'friend castable' (eg. healing)
+  + backport tgt_pt {Jir}
+  + implement the following spells: {Jir - pfft}
+    - Poison Blood, Wings of Winds, Thunder Storm (Air)
+      + set_tim_fly, set_tim_ffail; set_poison; set_tim_thunder
+    - Stone Skin, Stone Prison*, Shake (Earth) (does Strike work correctly?)
+      + set_shield; (LUA wpos code)
+    - Regeneration (Nature)
+      + set_tim_regen
+    - Magelock, Essense of Speed (Temporal)
+      + wizard_lock; set_fast; (tgt_pt)
+    - Disperse Magic (Meta)
+    - (everything in Mind/Shadow)
+  [B]- spell descriptions leave debris on the screen
+  [B]- GF_UNBREATH(Noxious Cloud) doesn't seem to work (in both ToME/NET)
+  (RFEs)
+  + some 'weak' attack spells with *low* SP consumption
+  + some schools (esp.elemental) should use WIS instead of INT?
+  + Phase Door accept direction in high lv? (like former Jump)
+  + Prayer/Fighting/Hunting/Ghost ? (maybe not for v4)
+- login code {Evileye}
+  (RFEs)
+  + If you care, would you add temporal account banning (like IP
+    banning)?
+  + Great if accedit can change password of every account; that'll allow
+    admin to use/modify/fix every character on the server (former
+    /shutdown 1024, I'm meaning).
+  + How about adding o_ptr->account along with o_ptr->id/owner?
+    this would make cheeze-tracking much easier maybe.
+  + char name should be case-insensitive maybe? (eVileye and Evileye
+    should be handled as the same char, that is)
+  + documentating how to use new account system (admin handbook :)
+  + tomenet.acc contains death/winning counter
+- 'world server' {Evileye}
+
+
+- revise monster color schemes using CLIENT_SHIMMER {Evileye}
+- rebalance skill-points (after spell)
+- rebalance mimics (they are way too hard, seemingly)
+- fix gfx if possible
+- source-code cleanup (best if the release will contain 0 warnings)
+- export configurable things to tomenet.cfg
+- a spoonful of documentation for skill system
+- rewrite this changes.txt into the 'new' format
+- total rebalancing for all of them
+- clear the licence out!
+
+
+- LUA hook (hooked, but not used for now)
+- csfunc
+  + save/load perfectly work. hit/see need some works, maybe.
+- mimics (they are 'RFE's - anyway, some kind of rebalancement is needed)
+  + new skill 'Ego Powers', 'Innate Powers'
+  + RBM and RBE
+- 'power' code {DG}
+
+- other small stuffs
+  - display "non-scoring mode" in '@' screen
+  - illuminate the Bree tavern :)
+  - implement EGO_WOUNDING(ie. monster bleeding/poisoning)
+    + consider m_ptr->last_dmg
+  - revise 'dungeon generation' commands (it lacks most of flags etc)
+
+(likely to be postponed till v5?)
+- alignment
+- a little more complicated quest system (no offense, but something a little
+  more than 'kill 5 jackals')
+- refine pk code (just set as option?)
+  + do_cmd_fire
+  + all the spells
+  + terrain effects
+  + blindness/hallucination etc reduces the penalty?
+  + 'tentative' and 'comission'
+
+
+=============================================================================
+Porting targets
+[P] show_file, for tagged file browsing
+    (but maybe ##### tag is bad methinks - cannot draw ascii-art dungeon!)
+[P] powers.c for misc activations {DG seems to have another plan}
+[P] display_player (character dump)
+[P] do_cmd_html_dump (screenshot)
+
+
+
+==== TODO(2): below this line are changes to be done in the future ====
+[minor ones - let's do them before v4 if possible(not sure)]
+- multiple-dungeons stuff
+  + we should preserve level_up_y etc. for manually-added dungeons/towers.
+  + recall-depth array for each dungeons/towers
+- LITE/RING/AMULET shouldn't be EASY_KNOWN (for ego/randarts)
+- Nazgul rings should have corresponding names
+- implement GF_* flags for exploding monsters(voir monster_death)
+- flavor variator (eg. 'light' + 'red' => 'light red potion')
+- reimplement /cast.  ('/cast Manathrust' would be useful for macro)
+- implement monster mimics in a nicer way
++ towns
+  - hint players of town locations (like 'Lorien is south-east to Bree')
+[C] chat-line cursor editing
+
+
+[major ones - they are for v5]
+(5.0)
+- quests using LUA and dungeons
+- reform object_type, so that we can alter artifacts/egos *after* creation
+- backbone scenario
+  - token system (gather blabla to do blabla)
+  - competitive events
+- NPC/pet/golem/slave
+  + NPC should basically be a monster with a flag (like RF9_NPC),
+    and prolly with special array (npc_list[])?
+- guild, or new party system (multi-player Omega :)
+  + prepare pre-defined set of guilds, and player can be 'owner' or 'member'
+    of some of them.
+  + some buildings can give extra services for members only
+  + member can gain/polish related skills (eg. Thieves Guild => Sneakiness)
+- interactive spell system (like in C3)
+- extend worldpos, so that one surface can have more than one dungeons/towers
+
+
+[sober ones]
+- total source-code cleanup {takkaria?}
+  - do :s/\/\/\(.*\)$/\/\*\1 \*\//
+  - rewrite externs.h
+- integrate save/load into one function (eg. saveload.c)
+- *_info.txt encryption / allow *.raw files
+- better remove 'take note'(monster knowledge) stuffs?
+- move configurable stuffs from defines.h to config.h
+- savedata snapshot (via this, player can report bugs with savedata)
+- slash-commands should have info file (like sl_info.txt)
+- put CVS keyword($ID$) to every file.
+- obsolete c-tables.c (hrm, not sure)
+- send flags for each spell, so that we can obsolete do_cmd_cast_aux etc.
+- integrate p_ptr->fruit_bat into p_ptr->body_monster
+- exploding arrows should be ego?
+- switch MAX_*_IDX(define) to max_*_idx(variable) as far as possible.
+- /ver should tell 'last commit time' instead of 'last compile'.
+- allow the server to draw screen more freely (like c_prt)
+- remove the savefile of 'destroyed' characters
+
+[speeding the server up]
+# it's 3 times faster. maybe we don't have to squeeze it further for now.
+- m_list and o_list should be separated by worldpos (like zcave)
+- wilderness compacting (how about 'compacting' townies?)
+- purging things (more)
+- optimize monster AI
+- reduce ATTR_MULTI (now testing)
+- reduce floor size :)
+- give up 'random-seeds' thingie and put flags to every item
+- turn mmove2 functions into arrays
+- bottlenecks: process_monsters, update_view(MAX_SIGHT), lite_spot, map_info,
+    AI codes
+- cave generation (cave_gen) is another bottleneck and causes 'freezing'
+  when a player changes the floor.
+- force view_reduce_lite
+
+[balance matters]
+- should HAND_DOOM be allowed out of sight?
+- missile traps do too small dmgs?
+- 2H weapons should be more powerful in general?
+  (they actually occupy 3 equipment slots!)
+- Mage Staves should only be available for Sorc?
+- NO_MAGIC can be off-balancing (wizard and spellcasting monster will suck)
+- mimic could be too weak on the deepest levels
+- SANITY_BLAST should do insanity dmg according to the caster's level?
+  (too severe in shallow depth, almost no harm in deeper depth)
+
+==== below this line are RFEs collected so far (good or bad) ====
+[minor ones]
+- party, guild and pk (players' interaction) codes:
+  + pk via missile/spell should be punished?
+  + player attacked by another player should be able to strike back at once?
+  + the first /pk of newbie should put him into 'SAFE' mode (and not 'PK')?
+  + not only 'attempt' but also 'commission' of pk should be punished.
+  + ball spell should harm neutral players somewhat
+    (or warrior&sorc combination will be too mighty)
+  + vision sharing among the members of a party
+  + make wand of haste monster etc. friend-castable
+  + guilds related to skills (eg. Thieves' Guild => Sneakiness tree)
+  + command to change party owner (this can be abusable tho)
+  + account-based party controlling (not sure it's good)
+- monsters:
+  + monster speech
+  + 'water bolt' should wash players away.
+  + aquatic should be hard to attack if underwater? (bonus for polearm?)
+  + some monster may become 'ghost' after being killed?
+  + monster spell points.
+  + upper limit of monsters per floor?
+  + better way to display egos/uniques (like bold/underline)
+  + monsters should follow the player when climbling up/down staircase.
+  + aquatic uniques
+  + vault treasures should be held by guardians
+  + strong bosses should drop better than DROP_GOOD
+    (DROP_GOOD can still drop excellent/arts, so better leave as it is now)
+- traps:
+  + missile traps should have AC check(check_hit)?
+  * Trap ideas
+    - no return trap should steal books also?
+    - telekinesis trap
+    - house-door-opening trap
+- items:
+  + Potion of Light Mana?
+  + Staff of Opening/Closing
+  + Scroll of Admin Message (another way to tell players of information)
+  + Musical Instruments (DG seems to have new idea for them)
+  + blessed/cursed, rusty/broken, fire/erode/waterproof flags etc.
+  + upgrade some of arts, so that they'll be treasured.
+  + more tools
+  + generic mimic rings (like 'D', 'Z') / ego rings
+  + wooden/leather armours should be immune to water damage.
+  + sell magic ammo in normal store (maybe archery shop?)
+  + store should buy mimic rings for better prices than 90au?
+  + arts should be stronger/rarer?
+    (consider using 'pair'/'evolving' arts of ToME)
+- anticheeze:
+  + all the house contents belonging to a dead player should be erased?
+- players:
+  + thirst/sleep?
+  + Asclep's '/spell' should be applicable to wands/rods? (fix that first)
+  + when fruit-batting, only overflowed items should be dropped?
+  + lowbies (<lv10?) should be immune to Black Breath?
+  + more equipment slots in general (like Bracer)
+  + being poison-resistant form should slow poison, etc
+  + ghost resurrection gets severer
+    (eg. exp penalty gets worse like 80%,75%,70%,..)
+  + paralysis shouldn't stack (eg.floating eye) (I don't think so - Jir)
+- combat:
+  + players should be able to interfere monsters' firing/casting?
+  + 2-weapon combat
+  + DEX should affect missile to-hit? (or maybe done with skill)
+  + more RBM and RMEs (like seducing, switching place)
+- magic:
+  + sth should be done with all those 'attacking' magic devices no1 uses,
+    such as fire bolt wand/rod.. {DG seems to have an idea}
+  + enlarge 'destroy traps' spell radius (but traps may 'resist' it)
+  + implement project_m
+  + separate GoI into 'vs.spell' and 'vs.melee'.
+  + avoid landing in the middle of a lake (river is ok)
+  + some methods(spell?) to detect vault entrance, so that ppl won't peek
+    v_info.txt ...
+  + 'Negate Time' spell (this should be great in real-time :)
+- user interface:
+  + query[Y/n] for selling/buying houses.
+  + visual effect when teleporting, so that players won't lose sight of '@'.
+  + add a command to *completely* redraw the screen.
+  - enhanced help system (imo we cannot beat web browsers anyway..)
+    + at least, jump and colour tags are needed.
+  + 'hand to(give)' command
+  + client option for verbosity; (half done)
+    msg_print(Ind, importance, "Vlad was here!");
+  + options ('=') should be revised.
+  + auto-retaliator should be able to handle non-item actions.
+  + better character ('C') screen (esp. abilities and resistances)
+  + auto-inscriber for item attributes (eg. {StDxNeFASI})
+  + resurrect 'repeat' (eg. '099^j' to dig etc.)
+  + let players target monsters outside the screen (scrolling)
+  - character screen / chardump
+    + Identify the items when in tombstone screens.
+    + change default file name if already exists.
+    + screenshot! (do_cmd_html_dump)
+  + chat-history/spell window
+  + inventory/equipment display should accept next command directly.
+  + online help (nice, esp. if someone else writes that ;)
+  + more status display (eg. fury, bless, tmp.fire-res...)
+  + resurrect 'cancel adding skill points' {Zz}
+  + warriors.prf, priest.prf etc. should be bandled with client distribution?
+- stores:
+  + one player shouldn't stay more than 1 minutes in a store?
+  + stores should buy {cursed} potions/scrolls/wands etc?
+  + artifact repair (not sure if good -Jir)
+  + casino should have games playable 'between players'
+  + pvp arena
+  + Auction house {A.Dingle}
+  + sell powerful gears in general (not for 'normal' towns maybe)
+- dungeon & terrain:
+  + antimagic terrain feature (is that 'playable'..?)
+  + pattern vaults
+  + moonlit night (not easy under current code)
+  + loophole(like wall, but missiles/breathes pass)
+  + terrain effects (eg. +AC; like in some 'strategy' games)
+- misc:
+  + some measures to 'cheezy' admins (at least some warnings)
+  + resurrect 'level feelings'
+  + allow 'guest' account for invite-only server
+  + water should 'flow', pushing players toward downstream.
+  + score list should show middle-earth time (and not raw turn).
+  + spiked/locked door should be *tougher* (cf. Vanilla)
+  + IRC server connection
+  + player in multi-hued form should be multi-hued (naturally - code it)
+
+[major ones]
+- monsters' interactions
+- subclass system (thief, esper, erudit, tough, mighty etc)
+- karma/luck system (karma is like luck, but never gets positive value)
+- make charisma/wisdom/dexterity more important
+- resistances handled by percent
+- time-limited features(like in Larn) / time bomb
+    struct timed_event{
+        worldpos wpos;
+        int time;
+        char ly, lx, event_kind, magnitude;};
+- horizontal-connected caves (eg.[32,32,-40]=>[32,31,-40])
+- (re)new classes/races (XXX revise this list!)
+  + Paladin/Ranger
+  + Mimic (actually it's popular now, so no need perhaps :)
+  + Telepath (as a keystone of party)
+  + Merchant/Diplomat
+  + Bard/Beastmaster/Necromancer
+  * race/class extra powers (via '\n' command maybe?)
+  * client changes below should be done first, so that we can add/change
+    race/class w/o client update!
+- randunis
+- port internationalization codes
+- newbie and veteran mode
+- really intelligent auto-retaliator/borg
+- documentations (we need volonteers ;)
+- grec-mythology monsters (GRECANGBAND)
+- allow players to run always, by allowing it to the monsters too?
+- screen wider than 66x22
+
+[sober (intrinsic) ones]
+- savedata editor
+- savedata scanner (to fix broken arts/unique lists, find illigal data etc.)
+- vault/map editor
+- new networking code (to kiss xpilot adieu :)
+- redefine packets in a more generic way
+- ./configure
+- most of configurable-things should be in tonemet.cfg(and not config.h)?
+- meta-server should:
+  + transmit 'port No.', 'variant name' information.
+- periodic (a la cron) savedata backup
+- infinite loop detector
+- sort ?_info.txt (they are quite messy now)
+
+[client matters]
+- GTK client
+- new method to do character-generation;
+  - server prepares and sends a table of valid choices,
+    and the client just displays it and send the answer back.
+  - another solution is to put those things in a file like plug-ins.
+- resurrect 'targetting cursor'
+- client options other than boolean
+- following things should be client-side options:
+  + scroll_mergin (x, y)
+- allow sex/race/class/stat-order/mode specification in .tomenetrc
+- preserve message history
+
+
+[lunatic ones]
+(tbh I'm not so interested in - Jir)
+- 3-D gfx and full-audio support
+- full-mouse operation
+
+
+
+==== Global matters ====
+* direction
+  - 'Buncha new stuffs'(ala Slash'em) vs. 'Handiness of playing'(ala Rogue)?
+  - features vs. speed
+  - long-term gameplay(ala UO/EQ) vs. quick game(ala Rogue)
+  - terminal base(ascii+vi) vs modernity(gui+mouse)
+
+
+
+
+=============================================================================
+below this line are the unfixed bugs known:
+
+** Major Bugs **
+[B]- 'Ghost power' doesn't work at all!! (it used fix_spell..) we should
+     either reimplement it, or make it a pseudo school..
+
+
+** Minor Bugs **
+[B]- wpos display hides wound states(eg.'Deep Gash')
+[B]- mon_vis, obj_vis etc. are messed while the player is off.
+[B]- some ivents are not told to the players even when within the sight.
+     (see msg_print_near_monster etc.. we need to enhance them)
+[B]- white '@' sometimes appear on the screen(eg. when targetting/redrawing).
+[B]- Martial-artist has strange +To RHit/+To RDam display.
+[B]- [C] inventory window sometimes loses a) b) etc.
+[B]- 'write error' - admin char gets disconnected after generation once.
+[B]- 'No more Scroll of *Identify*'
+[B]- Macro sticks sometimes (this should be fixed by spell restructuring)
+[B]- Window refreshing fails sometimes, requiring ^R.
+[B]- ghost gets 'The weight of your armor emcumbers your movement' msg.
+[B]- isolated space can be generated (generate.c)
+     (esp. random vaults tend to have no entrance)
+[B]- cannot specify some monster names in master summoning (&35)
+[B]- cannot specify 0-depth monsters in admin summoning.
+[B]- monsters sometimes drop '(nothing)' (Dread?)
+[B]- 'drop items' trap generated (nothing)?
+     (I suspect the compacting functions..)
+[B]- strange gray spots in the dark. (info=26; room filler leaks maybe)
+[B]- sometimes you can see monsters over the door.
+[B]- [C] X11 client doesn't accept keystrokes if screen is less than 80x24
+[B]- 'You are shooting with a Boomerang.' is not so cool a msg
+[B]- macro 'w0w0' doesn't work correctly (unfixable - workaround with /dr)
+[B]- Warrior gets ugly char-dump; Device skill under Combat (dump_skills)
+ - Combat                                         14.000 [0.600]
+     - Weaponmastery                              01.000 [0.600]
+     - Archery                                    16.600 [0.600]
+     . Magic-device                               02.000 [0.900]
+
+[B]- gray dot left after disarming monster-trap
+[B]- 'The The Borshin' when hallucinating (monster_desc)
+[B]- ego/randart lite/ring/amu can easily be distinguished with {?} req.
+[B]- unique/mego partial shimmering seems to be broken (they always shimmer)
+[B]- starting items don't get autotag even with auto_inscribe (Handle_login)
+[B]- '/' searching doesn't work very well due to msg compressing (x12)
+[B]- stores in different town can have the same owner (wow! 2 Bilbo!)
+[B]- connection for player being frozen by Floating eye never timeouts
+[B]- character-choice screen sometimes tell wrong character level
+[B]- store buys uncursed ring of Searching (-1).
+[B]- when dying, client emits 'broken pipe' error.
+     (not crucial, and it's same with mang070.)
+     Program received signal SIGPIPE, Broken pipe.
+     0x281f7134 in sendto () from /usr/lib/libc.so.4
+[B]- if the *server* dies of SIGPIPE, duplicated char can be generated.
+        Choose a character
+           a) Breadric the level 1 Half-Elf Adventurer
+           b) Olaudon the level 4 DragonRider Warrior
+           c) Kieder the level 6 High-Elf Archer
+           d) Acealdan the level 1 Half-Orc Rogue
+           e) Acealdan the level 1 Human Adventurer
+           f) Acealdan the level 1 Human Adventurer
+           g) New character
+           Q) Quit
+
+
+**Crushing bugs**
+
+[B]- deallocator deallocates the floor that ghost is on!
+     shutdown in dungeon, login, other player recalls there and voila..
+     1 players on -1950ft of (32,32).
+     Key_monk was killed by a Night mare.
+     saving server info...
+     1 players on -1950ft of (32,32).
+     14 Jul 16:43:51: Welcome Laggwyrm=key@pm.dip.jp (127.0.0.1/2179)
+     saving server info...
+     1 players on -1950ft of (32,32).
+     1 players on -3050ft of (32,32).
+     saving server info...
+     1 players on -1950ft of (32,32).
+     deallocating -1950ft of (32,32)
+
+[B]-
+     Program received signal SIGSEGV, Segmentation fault.
+     update_view (Ind=1) at server/cave.c:3384
+     3384                    c_ptr->info |= CAVE_XTRA;
+     (gdb) bt
+     #0  update_view (Ind=1) at server/cave.c:3384
+     #1  0x806efcd in update_stuff (Ind=1) at server/xtra1.c:3627
+     #2  0x806fc9e in handle_stuff (Ind=1) at server/xtra1.c:3948
+     #3  0x807b0bc in teleport_player (Ind=1, dis=300) at server/spells1.c:710
+     #4  0x8074261 in player_death (Ind=1) at server/xtra2.c:4198
+     (gdb) print y
+     $2 = 65
+     (gdb) print x
+     $3 = 174
+
+[B]- scroll of house creation causes crash after shutdown/reboot
+     Program received signal SIGSEGV, Segmentation fault.
+     0x80d8201 in load_guildhalls (wpos=0x886c356) at server/load2.c:2568
+     2568                    if((houses[i].dna->owner_type==OT_GUILD) && (inarea(wpos, &houses[i].wpos))){
+     (gdb) bt
+     #0  0x80d8201 in load_guildhalls (wpos=0x886c356) at server/load2.c:2568
+     #1  0x80efd31 in wild_add_uhouses (wpos=0x886c356) at server/wild.c:2570
+     #2  0x80d6eb5 in rd_server_savefile () at server/load2.c:2382
+     #3  0x809fb08 in load_server_info () at server/save.c:2626
+     #4  0x80f5e82 in play_game (new_game=0 '\000') at server/dungeon.c:4212
+     #5  0x810a4d3 in main (argc=3, argv=0xbfbff6b0) at server/main.c:276
+     #6  0x8049df9 in _start ()
+[B]- (tho it doesn't crash) 'You hit it.' when building houses.
+
+
+
+**below are bugs repoorted but not confirmed yet**
+[B]- House doors are still said to crash sometimes. (door even vanishes??)
+[B]- -read WoR scroll -> "Full" appeared as if I had eaten something.
+     (maybe already full, but wasn't shown. ^R)
+[B]- Ale ego/arts crash if wished for? (I could create.. -Jir)
+[B]- Blasted weapons can be generated? (possible, but not fatal maybe)
+
+
+**below are bugs repoorted but not reproduced**
+[B]- Mindcrafter does unmagic? (wrong report, I'm afraid)
+[B]- No magic arrows? (at least, my server offers plenty) (maybe wrong report)
+[B]- perma walls / normal walls are not distinguishable anymore
+     (were they distinguishable before??)
+[B]- Ancient Blue Dragon appears regularly on 550 ft (didn't see a vault)
+     (Hrm I've never met one -Jir)
+
+
+**below are bugs not shown recently(fixed??)**
+[B]- 'Nothng to buy here.' when sunrise/sunset
+[B]- [C] GCU client doesn't show the motd when using 'fullauto'
+[B]- Forest wight (Lv 4098, undamaged, clone) [<dir>, q] (on 5550')
+     (it's actually lv77 - shown in a wrong way only for DM)
+[B]- 'You hit it.' etc in town (99% problem in zcave.m_idx)
+    sometimes, monsters attack the player from nowhere.. prolly same root?
+    * this only happens when rebooting the server and caves lost.
+[B]- ever-charging arts (eg.star)
+[B]- cave can be erased prematurely after loading.
+[B]- /rec won't work if to wilderness? (admin)
+[B]- store '3' sells tons of Aman daggers when reset.
+[B]- apartment doors can displace? (seemingly Evileye fixed it :)
+
+[B]- crash the moment one die (maybe fixed - in_bounds4)
+     Laggwyrm was killed by a Great Storm Wyrm.
+     Program received signal SIGSEGV, Segmentation fault.
+     update_view (Ind=1) at server/cave.c:3407
+     3407                    c_ptr->info |= CAVE_XTRA;
+     (gdb) bt
+     #0  update_view (Ind=1) at server/cave.c:3407
+     #1  0x806f61d in update_stuff (Ind=1) at server/xtra1.c:3629
+     #2  0x80702ee in handle_stuff (Ind=1) at server/xtra1.c:3950
+     #3  0x807b75a in teleport_player (Ind=1, dis=300) at server/spells1.c:710
+     #4  0x80748a5 in player_death (Ind=1) at server/xtra2.c:4205
+     #5  0x80f195f in dungeon () at server/dungeon.c:3866
+
+[B]- file transfer code crashes, trying to send file to disconnected client
+     (maybe already fixed?)
+     20 Aug 15:58:51: Goodbye Afared(Key)=key@pm.dip.jp ("client quit")
+     send end
+
+     Program received signal SIGSEGV, Segmentation fault.
+     Packet_printf (sbuf=0x88b1024, fmt=0x8171e65 "%c%c%hd") at common/sockbuf.c:473
+     473                     *buf++ = cval;
+     (gdb) bt
+     #0  Packet_printf (sbuf=0x88b1024, fmt=0x8171e65 "%c%c%hd") at common/sockbuf.c:473
+     #1  0x810c1cb in Send_file_end (ind=0, id=123) at server/nserver.c:2733
+     #2  0x8117e8b in do_xfers () at common/files.c:149
+     #3  0x80f568e in process_various () at server/dungeon.c:3288
+     #4  0x80f6b8b in dungeon () at server/dungeon.c:4133
+     #5  0x80dc671 in sched () at server/sched.c:508
+     #6  0x80f6f84 in play_game (new_game=0 '\000') at server/dungeon.c:4408
+     #7  0x810c67b in main (argc=3, argv=0xbfbff6b0) at server/main.c:276
+     #8  0x8049df9 in _start ()
+
+
+
+
+**below are bugs not fixed but avoided**
+[B]- [C] chat-history contains lines with 'mindcrafter'.
+     (do_cmd_messages_chatonly)
+[B]- client quits badly (Destroy_connection)
+     (avoided by removing Evileye's anti-DoS code.. FIXME)
+     pm/src/tomenet: Can't read on socket
+     pm/src/tomenet: Net input error
+     Program received signal SIGPIPE, Broken pipe.
+     0x281c0134 in sendto () from /usr/lib/libc.so.4
+     (gdb) bt
+     #0  0x281c0134 in sendto () from /usr/lib/libc.so.4
+     #1  0x281e72db in send () from /usr/lib/libc.so.4
+     #2  0x804bf7a in DgramWrite (fd=8, wbuf=0xbfbff4d7 "\0048\225\005\b\003", size=1) at common/net-unix.c:2112
+     #3  0x805ef02 in Net_cleanup () at client/nclient.c:513
+     #4  0x805ab95 in client_init (argv1=0x0, skip=0 '\000') at client/c-init.c:527
+     #5  0x80662b7 in main (argc=2, argv=0xbfbff6cc) at client/client.c:498
+     #6  0x804a11d in _start ()
+
+[B]- vault generator. (in_bounds check prevents it, but it should be fixed
+     in a better way)
+     Program received signal SIGSEGV, Segmentation fault.
+     0x805a34e in cave_set_feat (wpos=0x8dd4ab4, y=66, x=1, feat=122) at server/cave.c:4261
+     4261            c_ptr->feat = feat;
+     (gdb) bt
+     #0  0x805a34e in cave_set_feat (wpos=0x8dd4ab4, y=66, x=1, feat=122)
+         at server/cave.c:4261
+     #1  0x80dfb35 in build_room_vault (wpos=0x8dd4ab4, x0=22, y0=55, xsize=43, ysize=21)
+         at server/generate.c:4977
+     #2  0x80e1428 in build_type11 (wpos=0x8dd4ab4, by0=4, bx0=1) at server/generate.c:5889
+     #3  0x80e2cc2 in room_build (wpos=0x8dd4ab4, y=4, x=1, typ=11)
+         at server/generate.c:7024
+     #4  0x80e36a2 in cave_gen (wpos=0x8dd4ab4) at server/generate.c:7307
+     #5  0x80e58c5 in generate_cave (wpos=0x8dd4ab4) at server/generate.c:8628
+     #6  0x80eee09 in process_player_change_wpos (Ind=1) at server/dungeon.c:3342
+     #7  0x80ef8a7 in dungeon () at server/dungeon.c:3675
+
+
+
+**below are phenomena not confirmed as bug**
+[B]- breeders breed less if many players are on. (process_monster)
+     buggie, but saves the server from getting slowed by breeding..
+[B]- p_ptr->to_d_ranged is always 0. (same with ToME)
+[B]- meanless double egos like Elven Robe of Fire Resistance
+[B]- ^S(Spike doors) is bad key for GCU
+[B]- ^O(Chat history) is bad key for XIM
+[B]- If character savedate exists but it's not on the player-name database,
+     that data can be 'stolen' by anyone else who specifies the name.
+[B]- fountain symbol ("_") stays constant while player is hallucinating
+     (b/c they're "cave" and not object - but might as well be 'fixed')
+[B]- one can raise father skill beyond limit by increasing the children
+     (eg. Weaponmastery=>Combat)
+
+
+==== below this line are 'implementations' and not 'bugs' ====
+(Don't 'fix' them!! ;)
++ store beats price for non-*ID*ed items (esp.ego & randarts)
++ extra attack rings don't always give extra blows (esp.if heavy)
++ phase/recall may land you on water.
++ randarts lantern/torch may need fueling (and non-lit one doesn't give
+  any resistances/abilities).
++ Sirene(1100') at 750' (see get_mon_num() and NASTY_MON)
+  roughly, 1/40 chance for +250', 1/2500 chance for +500' (same with Vanilla)
+  (also +100' for lake/pit/nest)
++ monster interferes too much (raise 'Calmness' skill)
+  1-(1-0.08)^8 = 0.486
++ magic arrows are always (+0,+0)  (they're as such)
++ To-Dam bonus doesn't seem to apply to Ranged attack (it's really so, as V)
+# I'm tired; if not on 'bug' list, that's as such ;)
+
+==== below this line are backtraces collected so far (bad or mad.) ====
+(Infinite loop when recalling into dungeon)
+(gdb) bt
+#0  Rand_div (m=42) at common/z-rand.c:203
+#1  0x80d8553 in cave_gen (wpos=0x8d558e0) at server/generate.c:411
+#2  0x80d9c65 in generate_cave (wpos=0x8d558e0) at server/generate.c:5148
+#3  0x80e2622 in dungeon () at server/dungeon.c:3177
+#4  0x80d14cd in sched () at server/sched.c:508
+#5  0x80e3612 in play_game (new_game=0 '\000') at server/dungeon.c:3845
+#6  0x80f56ca in main (argc=2, argv=0xbfbff6c4) at server/main.c:272
+#7  0x8049d65 in _start ()
+(gdb) print *dun.l_ptr
+$6 = {ondepth = 1, lastused = 1025134735, up_x = 63 '?', up_y = 41 ')',
+  dn_x = 50 '2', dn_y = 41 ')', rn_x = 183 '', rn_y = 8 '\b', flags1 = 0,
+    hgt = 44 ',', wid = 99 'c', cave = 0x87c6600}
+
+Program received signal SIGSEGV, Segmentation fault.
+0x80879d3 in project_i (Ind=1, who=-1, r=0, wpos=0x8d3ca2c, y=121, x=179,
+        dam=500, typ=13) at server/spells1.c:2606
+2606            o_ptr = &o_list[c_ptr->o_idx];
+#0  0x80879d3 in project_i (Ind=1, who=-1, r=0, wpos=0x8d3ca2c, y=121, x=179,
+        dam=500, typ=13) at server/spells1.c:2606
+#1  0x808d8b1 in project (who=-1, rad=16, wpos=0x8d3ca2c, y=121, x=179,
+        dam=500, typ=13, flg=120) at server/spells1.c:5850
+#2  0x8095348 in fire_ball (Ind=1, typ=13, dir=6, dam=500, rad=16)
+at server/spells2.c:4082
+#3  0x80c3441 in do_cmd_pray_aux (Ind=1, dir=6) at server/cmd5.c:3365
+#4  0x810fd7f in Handle_direction (Ind=1, dir=6) at server/nserver.c:6736
+#5  0x810e0f1 in Receive_direction (ind=0) at server/nserver.c:5891
+#6  0x8103d5a in process_pending_commands (ind=0) at server/nserver.c:1717
+#7  0x8103fdc in Handle_input (fd=10, arg=0) at server/nserver.c:1862
+#8  0x80e3f45 in sched () at server/sched.c:549
+#9  0x80f8aef in play_game (new_game=0 '\000') at server/dungeon.c:3462
+#10 0x8110c70 in main (argc=0, argv=0xbfbff740) at server/main.c:269
+#11 0x8049d99 in _start ()
+
+Program received signal SIGSEGV, Segmentation fault.
+0x80526bf in message_str (age=0) at client/c-util.c:1340
+1340            o = message__ptr[x];
+#0  0x80526bf in message_str (age=0) at client/c-util.c:1340
+#1  0x80659f1 in fix_message () at client/c-xtra1.c:1067
+#2  0x80666d0 in window_stuff () at client/c-xtra1.c:1407
+#3  0x805b0f5 in Input_loop () at client/c-init.c:229
+#4  0x805b5b0 in client_init (argv1=0x0) at client/c-init.c:464
+#5  0x806822a in main (argc=1, argv=0xbfbff740) at client/client.c:263
+#6  0x804a311 in _start ()
+
+Program received signal SIGBUS, Bus error.
+0x281e4901 in memcpy () from /usr/lib/libc.so.4
+#0  0x281e4901 in memcpy () from /usr/lib/libc.so.4
+#1  0xbfbff72c in ?? ()
+#2  0x805f527 in Flush_queue () at client/nclient.c:831
+#3  0x8054e8e in cmd_inven () at client/c-cmd.c:782
+#4  0x80548e5 in process_command () at client/c-cmd.c:315
+#5  0x805b0a9 in Input_loop () at client/c-init.c:201
+#6  0x805b5b0 in client_init (argv1=0x0) at client/c-init.c:464
+#7  0x806822a in main (argc=1, argv=0xbfbff724) at client/client.c:263
+#8  0x804a311 in _start ()
+
+Program terminated with signal 10, Bus error.
+#0  0x281e3c71 in ?? ()
+(gdb) bt
+#0  0x281e3c71 in ?? ()
+#1  0x805c1d1 in Flush_queue () at client/nclient.c:789
+#2  0x8062bea in do_cmd_messages () at client/c-xtra2.c:303
+#3  0x80534fd in process_command () at client/c-cmd.c:511
+#4  0x8058fb1 in Input_loop () at client/c-init.c:206
+#5  0x80595c7 in client_init (argv1=0x806e8c0 "a *SUPERB* hit!", skip=1 '\001') at client/c-init.c:476
+#6  0x80640e1 in main (argc=1, argv=0xbfbff6f8) at client/client.c:463
+#7  0x804a0dd in _start ()
+
+
+
+ vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=memo:norl:

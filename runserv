@@ -1,0 +1,19 @@
+#!/bin/sh
+# Runserv, by Chris Atenasio
+# Upgraded to store server logs by evileye
+ulimit -c unlimited
+
+while :; do
+	./tomenet.server 
+	if [ -f core ] ; then
+		mv core cores/`/bin/date +"%Y%m%d%H%M%S"`
+	fi
+	if [ -f tomenet.server.core ] ; then
+		mv tomenet.server.core cores/core`/bin/date +"%Y%m%d%H%M%S"`
+	fi
+	if [ -f lib/data/tomenet.log ] ; then
+		gzip lib/data/tomenet.log
+		mv lib/data/tomenet.log.gz lib/data/`/bin/date +"%Y%m%d%H%M.log.gz"`
+	fi
+	sleep 1
+done

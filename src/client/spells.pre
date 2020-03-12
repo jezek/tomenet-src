@@ -1,0 +1,58 @@
+/* register server type for #if..#else..#endif structures with 'preproc' */
+#parse "../common/defines-local.h"
+#parse "../common/defines-features.h"
+
+/* specific includes for spells.pre file */
+#include "../common/defines-spells.h"
+
+
+/* $Id$ */
+/* File: spells.pkg */
+
+/*
+ * Purpose: Lua interface defitions for spells.
+ * To be processed by tolua to generate C source code.
+ */
+
+$#include "angband.h"
+$#include "lua.h"
+
+typedef char* cptr;
+typedef int errr;
+typedef unsigned char bool;
+typedef unsigned char byte;
+typedef signed short s16b;
+typedef unsigned short u16b;
+typedef signed int s32b;
+typedef unsigned int u32b;
+
+
+/*
+ * The spell function must provide the desc
+ */
+struct spell_type
+{
+        cptr name;                      /* Name */
+        byte skill_level;               /* Required level (to learn) */
+	byte mana;			/* Required mana at lvl 1 */
+	byte mana_max;			/* Required mana at max lvl */
+	byte fail;			/* Minimum chance of failure */
+        s16b level;                     /* Spell level(0 = not learnt) */
+        byte spell_power;		/* affected by spell-power skill? */
+};
+
+struct school_type
+{
+        cptr name;                      /* Name */
+        s16b skill;                     /* Skill used for that school */
+};
+
+
+/* lua_bind.c */
+extern s16b new_school(int i, cptr name, s16b skill);
+extern s16b new_spell(int i, cptr name);
+extern spell_type *grab_spell_type @ spell(s16b num);
+extern school_type *grab_school_type @ school(s16b num);
+extern s32b lua_get_level(int Ind, s32b s, s32b lvl, s32b max, s32b min, s32b bonus);
+extern s32b lua_spell_chance(int Ind, s32b chance, int level, int skill_level, int mana, int cur_mana, int stat);
+/* extern u32b get_school_spell(cptr do_what); */

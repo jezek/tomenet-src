@@ -1,0 +1,414 @@
+# File: q_info.txt
+
+# This file contains all the quest information for new quest_info[] struct
+# on which work started in 2013, to provide a full fledged quest framework.
+#                                                    - C. Blue
+
+
+# Version stamp (required)
+V:1.0.0
+
+
+# Current state - things that have already been implemented. Other stuff is omitted here.
+# Some things that are not implemented in here are noted in caps in each line ;)
+# 'NI' is short for  NOT IMPLEMENTED.
+
+# N:index:internal codename(UNIQUE AND EXACTLY 10 CHARACTERS):creatorname:quest name:repeatable (-1 for infinitely, default is 0, append an 'x' to disable it):auto-accept it? (0=no (default), 1=yes, 2=yes quietly, 3=yes quietly and no ending notification):local? (0=normal,1=yes)
+# (optional) C:list stages that allow a player to acquire the quest, separated by colons (usually 0 aka the first stage)
+# (optional - player requirements) I:privileged:individual (MUST BE 1 or 2):minlv:maxlv:races:classes:modenorm:modeel:modepvp:fruitbat(1=real,2=real or fake):monsterform:questdonecreditstage
+# (optional - prerequisites) E:list of colon-separated prequest codenames (up to 5) which must have been completed to pick up this quest
+# (optional - quest spawn times) T:night:day:morning:forenoon:noon:afternoon:evening:midnight:deepnight:starttime:stoptime
+# (optional - quest ending/respawn) U:endingstage (0 = none):duration:cooldown
+
+# There can be up to 30 Q-lines, for up to 30 questors
+# Q (for type=monster)  :type:lite:ridx:reidx:char:attr:minlv:maxlv:name
+# Q (for type=parchment):type:lite:sval:attr:level:name
+# Q (for type=object)   :type:lite:tval:sval:pval:bpval:name1:name2:name2b:good?:great?:verygreat?:attr:level:name
+
+# note: Each L/F/K-line must follow after its Q line!
+# L (up to 30x, per Q line - questor location):locations (SURFACE/TOWNS ONLY):terrains:towns (BASIC 5 ONLY):exact wpos wx:wy:wz:adjacent terrain extension:exact pos x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+# Ld (up to 30x, per L line):minfloorlev:maxfloorlev:list of dungeon indices eligible for spawning, separated by colons... (255 = IDDC, 0 = all 'wilderness' dungeons ie those not in d_info.txt)
+# (optional) F (up to 30x, per Q line - initial behaviour):accept-on-los? (NI):accept-on-interaction?:talkable?:despawned?:invincible?:questor floor is static?:quest ends on leaving floor?(NI)
+# (optional) K (up to 30x, per Q line - for killable questors):itemdroptype (0=none,1=regular,2=specific,3=both):tval:sval:pval:bpval:name1:name2:name2b:good:great:verygreat:createreward 0..5:dropgold:giveexp (-1 for normal exp)
+
+#(Parameters from here on, except for keywords/keywordreplies, are all individual per quest stage)
+
+# (optional - stage automatics) A:stage:spawn quest (-1 to disable):auto-accept it (2=quietly):change stage (255 to disable):0:timed change at ingame hour (-1 to disable):timed change after realtime minutes (0 to disable):change quietly (skip stage dialogue):set/clear flags:genocide-wpos x:y:z (set x==-1 to disable)
+# (optional, up to 15x) Af:stage:questor's wpos (0..n, 255 to use specific wpos instead):quest item wpos (0..n, 255 to use specific wpos instead):specific wpos wx:wy:wz:pos x:y:grid feature to be 'built' there on stage start (see f_info.txt)
+
+# (optional, up to 5x - quest items) B:stage:<spawn special quest item> pval (can be used as sort of an index for retrieval quest goals):char:attr:weight:level:name
+# (for each B line) Bl:stage:questorhandout (-1 to disable):locations (SURFACE/TOWNS ONLY):terrains:towns (BASIC 5 ONLY):exact wpos wx:wy:wz:adjacent terrain extension:exact pos x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+# note: 'Bl' takes same parameters as 'L' lines (except for 'questor hand out'). Each Bl-line must follow after its B-line!
+
+# (optional - questor morph/change) S:stage:questor to modify:talkable:despawned:invincible:death_fail:name ("-" to keep):ridx (0 to keep):reidx (-1 to keep):char ('-' to keep):attr ('-' to keep):level (0 to keep)
+# (optional - questor hostility) H:stage:questor:unquestor?:hostile-to-players?:hostile-to-monsters?:revert-hp:revert-ingametime (-1 to disable):revert-after-realtime (0 to disable):newstage:quiet?
+# (optional - questor moves/teles) J:stage:questor:teleport wx:wy:wz:x:y:teleport players wx:wy:wz:x:y:walkspeed:destx:desty:newstage:quiet?
+
+# (optional - add temporary dungeon) D:stage:base:max:tower?:nomap?:hard (1=forcedown:2=iron):stores (1=iron,2=all):theme(NI):name (or "-"):floors are static?:keep until quest ends?:flags1:flags2:flags3:[:final floor map file: offset x:y]
+# (for D-line) Dl:stage:locations (SURFACE/TOWNS ONLY):terrains:towns (BASIC 5 ONLY):exact wpos wx:wy:adjacent terrain extension:exact pos x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+
+# (optional, up to 10x - spawn monsters) m:stage:amount:groups:scattered?:clones:specific ridx:re_idx (-1 for random) CURRENTLY NOT IMPLEMENTED:char:attr:minlev:maxlev:partial name to match
+# (for each 'm'-line) ml:stage:locations (SURFACE/TOWNS ONLY):terrains:towns (BASIC 5 ONLY):exact wpos wx:wy:wz:adjacent terrain extension:exact pos x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+# (optional, for each 'm'-line) mh:hurtplayers?:hurtquestors?:invincplayers?:invincquestors?:targetplayers?:targetquestors? (completely NI: will always behave like normal monsters)
+
+# (optional, up to 15x - automatic narration) X:stage:flags:narration text
+# (optional, up to 15x - quest log status narration) x:stage:flags:quest status log text
+# (optional? - up to 15x - questor dialogue) W:questor:stage:examine? (0=normal talk,1=examine, negative = copy another stage):flags:convo line
+#   if a negative examine-argument is specified, the line ends after that. The remaining arguments are not to be specified. Only one W-line is required in this case!
+#   this is a hack: This stage's dialogue will actually mimic the stage dialogue from the stage of the absolute value of 'examine' argument. NOTE: You must not refer to another cloned dialogue!
+# (optional - for questor dialogue) Wr:questor:stage:default reply line (replaces the 'has nothing to say about that' line)
+#   use $$Q or $$q up to one time, to insert the questor's name! Q = show in light umber (for active talk), q = show in dark umber (for passive narration)
+# (optional - up to 100x - dialogue keywords) Y:questor (-1 for any):stage (-1 for any*):flags:keyword (or "y" for 1st keyword and "n" for second, for a yes/no choice; or $$p1 to $$p5 for up to 5 different randomly generated passwords):changeflags:nextstage (or 255 for dont change stage)
+# (optional - after a Y-line) YQ:list of further questors (their index numbers, 0..29) for which this keyword is valid, separated by colons
+# (optional - after a Y-line) YS:list of further stages during which this keyword is valid, separated by colons
+# (optional - up to 50x - replies to keywords) y:questor (-1 for any):stage (-1 for any):flags:keyword
+# (optional - after a y-line) yY:list of further keywords for which this reply is valid, separated by colons
+# (optional - after a y-line) yQ:list of further questors for which this reply is valid, separated by colons
+# (optional - after a y-line) yS:list of further stages during which this reply is valid, separated by colons
+# (optional - after a y-line, 15x repeatable) yR:flags:reply convo line
+
+# goals to kill specific monsters:
+# (optional) k:stage:goal:minlev:maxlev:number
+# (optional) kN:stage:goal:partial name... (list of partial names, up to 5, separated by colons)
+# (optional) kI:stage:goal:r_idx... (list of r_idx, up to 10, separated by colons)
+# (optional) kE:stage:goal:re_idx... (list of re_idx, up to 10, separated by colons)
+# (optional) kV:stage:goal:r_char:r_attr... (list of ':r_char:r_attr' pairs, up to 5, separated by colons)
+
+# goals to collect specific items:
+# (optional) r:stage:goal:min value:number:allow owned items?
+# (optional) rN:stage:goal:partial name... (list of partial names, up to 5, separated by colons)
+# (optional) rI:stage:goal:tval:sval... (list of ':tval:sval' pairs, up to 10, separated by colons)
+# (optional) rV:stage:goal:pval:bpval:attr:name1:name2:name2b... (list of 6-tuples like this, up to 5, separated by colons)
+
+# optional target location where those kill/retrieve goals have to be cleared:
+# (optional, if k/r line exists) P:stage:goal#:goalwpos wx:wy:wz:adjacent terrain extension:goal at exact x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+
+# optional target location where the player has to move after having cleared the goals, to get them credited.
+# This can also be specified without any kill/retrieve goals, in which case it becomes a simple 'travel-to' goal:
+# (optional) M:stage:goal#:deliver to questor (takes precedence, -1 for none):deliver to wpos wx:wy:wz:deliver to terrain type:deliver to pos x:y:radius:mapfile (if not using terrain type) or '-':map offset x:y
+
+# (optional) Z:stage:goal:changeflags (flags that get set/cleared when that goal is cleared)
+# (up to 5x) G:stage:next stage:main kill/retrieve/move goals required to complete separated by colons (optional goals are NOT allowed here) to progress to next stage
+# (optional) O:stage:get reward n (-1 to disable):main/optional goals required for reward (0 for none -> it's for free) separated by colons
+# (optional, up to 10x - rewards) R:stage:define reward tval:sval:pval:bpval:name1:name2:name2b:good?:great?:verygreat?:createreward 0..5:gold:exp:specialstatuseffect
+
+# New (2018): Most text lines (W:, yR:, X:, x:, Wr:) can call a lua function. It must begin with two slashes and nothing else must be in the line.
+# Parameters are possible. As usual, ':' symbols are not allowed anywhere. Lua functions cannot change any quest parameters except for flags.
+# If a lua function is supposed to be able to read and/or write flags, it must have a parameter named <?flags?>. If it needs to actually modify the flags,
+# it must have a parameter named <!flags!> and the function must return a string containing two comma-separated 16-bit values, set-flag-mask and clear-flag-mask again.
+# The !flags! or ?flags? parameter must always be the FIRST parameter specified. Eg:
+# yR:-://qtestlua1("Hello.", 3)
+# Wr:0:0://qtestlua2(!flags!, "$$Q That's not the right password, $$r!")  and this function would:
+#   return set_mask .. "," .. clear_mask    --- or as a specific min/max example:    return 0 .. "," .. 65535
+# Note that the actual lua function will always need to have an 'Ind' parameter before all other custom parameters from the call definition in q_info.txt.
+# If the function queries or even modifies flags, the '?flags?' or '!flags!' will translate to  just <flags> as the FIRST parameter in the function call.
+# All further parameters, if any, come after that. Eg (in regards to above examples):
+#   function qtestlua1(Ind, message, number)
+#     ....
+#   end
+#   function qtestlua2(flags, Ind, message)
+#     ....
+#     return set_mask..","..clear_mask
+#   end
+
+# Further notes:
+# -The index number must just be counting up for each quest added to this file, starting with 0.
+# -The internal codename must be unique among all quests and exactly 10 characters long.
+# -All quests should currently be set to 'individual'! (Global quests work depending on the quest goals. Some won't, though.)
+#  Individual means either '1' (goals are shared with party members) or '2' (must be completely soloed). '0' means 'global' and is currently not implemented.
+# -Stage changes can use negative numbers. In that case the new stage is the current stage + random 1..(absolute value of nextstage). Eg -3 -> will proceed +1, +2 or +3 stages randomly.
+# -questor types 1 (monster) and 3 (object) are supported at the moment.
+# -questor 'locations' are: +1 for 'world surface', +2 for 'town' (so '3' for both). Must not be zero unless a specific wpos is set instead.
+# -For item questors you might want to set 'examine' flag so they don't "talk" to you.
+# -#goal is 1..5 for main goal, and -1..-5 for optional goals.
+# -Although the 'examine' flag can be specified for each conversation line again, the last line existing for a questor/stage combination will take priority.
+# -About dialogues/narrations:
+#   Use [[...]] to highlight the text between the brackets.
+#   You can automatically insert the player's name, title, race, race-attribute ('elven') or class, by using these placeholders: $$N, $$T, $$R, $AA, $$C.
+#   If you don't want the first letter to be capitalised, use $$n, $$t, $$r, $$a, $$c instead.
+#   $$P will substitute the amount of party members (0 for no party).
+# -About keywords:
+#   "~" means the empty keyword "", user can just press ENTER key without writing anything to trigger it.
+#   if the FIRST MATCHING (questor+stage) keyword is "y" it brings up a yes/no prompt. The second questor/stage-matching keyword should be "n".
+#   (*) Keywords set to 'any stage' (-1) are not sufficient to stop an otherwise empty stage from terminate nor to prompt a quest_dialogue() on their own.
+# -About global 'flags':
+#   '-' means no flags.
+#   For lines that change those: 'a' to 'p' to clear flags, 'A' to 'P' to set flags, eg  ..:aBChK:..
+#   For lines that check those (conversational lines): 'A' to 'P' to check for a flag, which must be set (to display the convo line etc). Cleared flags don't matter.
+# -About retrieving items:
+#   char/attr '-' means 'any', pval/bpval -9999 means 'any', oname1/2/2b -1 means 'any' and -2 means 'any but must not be zero'.
+# -About R/O lines:
+#   If R-lines are given for a stage, but no O line is defined, the rewards are handed out "for free" in that stage.
+
+# You must never use the ':' char in any keyword or text line, since it's used as delimiter here.
+# #questor is 0..29 (30 questors max)
+# #stage is 1..29 (30 stages max, 0 is reserved for the initial stage)
+# talk/narration can have up to 15 text lines
+# keywords can be up to 29 characters long
+# #goal is 1..5 for main goal, and -1..-5 for optional goals.
+#  Optional goals are currently NOT IMPLEMENTED and will break the quest!
+# Status effects (rewards): Positive numbers indicate a potion, scroll, staff or non-directional(!) rod from k_info.txt.
+#  Negative numbers are extra effects: -1 = 1000t of luck, -2 = 2000t of luck, -3 = 3000t of luck.
+
+
+
+# for testing purpose
+N:0:testquesAR:C. Blue:Test Quest:-1:0:0
+C:0
+I:1:1:1:100:FFFFF:FFFF:1:1:1:0:0:1
+T:1:1:1:1:1:1:1:1:1:-1:-1
+Q:1:0:37:0:b:T:-1:-1:Blind Bat
+#L:2:0:1:-1:-1:-1:0:98:39:0:-:0:0
+L:0:0:0:63:63:0:0:98:39:0:-:0:0
+F:0:1:1:0:1:0:0
+U:0:0:0
+W:0:0:0:-:Hello, $$N!
+W:0:0:0:-:Would you like some [[ale]] or rather a [[solid ration]]?
+Y:0:0:-:ale:-:1
+Y:0:0:-:ration:-:2
+Y:0:0:-:solid ration:-:2
+x:0:-:You haven't decided upon the request yet..
+W:0:1:0:-:Well then, visit the shop keeper of the general store!
+x:1:-:You accepted the request to get some ale.
+W:0:2:0:-:Well then, visit the shop keeper of the general store..
+x:2:-:You accepted the request to get some food.
+#position 105:40 for actual Bree's general store entrance:
+M:1:1:-1:32:32:0:0:105:40:0:-:0:0
+M:2:1:-1:32:32:0:0:105:40:0:-:0:0
+G:1:3:1
+G:2:4:1
+O:3:0:0
+X:3:-:The shop keeper hands you a pint of fine ale!
+O:4:1:0
+X:4:-:The shop keeper hands you a ration of food!
+R:3:80:38:0:0:0:0:0:0:0:0:0:4:2:0
+R:4:80:35:0:0:0:0:0:0:0:0:0:3:1:0
+
+
+
+# for testing purpose
+N:1:testquestM:C. Blue:Minimal Test Quest:-1:0:0
+# note: only purpose of I-line is to restrict it to privileged users/admins
+I:1:1:1:100:FFFFF:FFFF:1:1:1:0:0:1
+#Q:1:0:37:0:b:n:-1:-1:-1:-1:-1:Fast Bat
+Q:3:0:22:30:0:0:0:0:0:0:0:0:P:0:Sharp..Bat..of Slicing?
+L:0:0:0:63:63:0:0:100:39:0:-:0:0
+W:0:0:1:-:Hello, $$T! Wanna visit the General Store for me?
+Y:0:0:-:y:-:1
+Y:0:0:-:n:-:2
+W:0:1:0:-:Thanks!
+M:1:1:-1:32:32:0:0:105:40:0:-:0:0
+G:1:3:1
+X:3:-:The shop keeper hands you a pint of fine ale!
+R:3:80:38:0:0:0:0:0:0:0:0:0:1:1:0
+
+
+
+# for testing purpose
+N:2:testquesKR:C. Blue:Kill/Retrieve Test Quest:-1:0:0
+I:1:1:1:100:FFFFF:FFFF:1:1:1:0:0:1
+Q:1:0:37:0:b:N:-1:-1:Goalkeeper Bat
+L:0:0:0:63:63:0:0:99:35:0:-:0:0
+W:0:0:0:-:'Sup, yo $$r! [[Kill]] shit or [[retrieve]] stuff for me.
+W:0:0:0:-:So what do you prefer, buddy?
+Y:0:-1:-:sup:-:255
+y:0:-1:-:sup
+yR:-:Yo!
+Y:0:-1:-:yo:-:255
+y:0:-1:-:yo
+yR:-:Sup!
+x:0:-:You haven't decided upon the request yet..
+
+Y:0:0:-:kill:-:1
+#W:0:1:0:-:Slay two dogs or wolves, they deserve it. Report to the general store's keeper!
+W:0:1:0:-:Slay two dogs or wolves, they deserve it. Let me know when you're done.
+W:0:1:0:-:..oh and also, maybe this bat comes in handy. DON'T LOSE IT!
+x:1:-:You accepted the request to kill two dogs or wolves.
+B:1:0:\:u:40:0:& Bat~
+Bl:1:0:0:0:0:0:0:0:0:0:0:0:-:0:0
+r:1:3:0:1:0
+rI:1:3:127:2
+#rV:1:3:-9999:-9999:-:-1:-1:-1
+k:1:1:0:0:2
+kV:1:1:C:-
+#kI:1:1:r_idx...
+#M:1:2:32:32:0:0:105:40:0:-:0:0
+#M:1:2:-1:63:63:0:0:99:35:1:-:0:0
+M:1:2:0:63:63:0:0:99:35:1:-:0:0
+G:1:3:1:2:3
+X:3:-:The Goalkeeper Bat seems very satisfied.
+R:3:80:38:0:0:0:0:0:0:0:0:0:2:2:0
+
+Y:0:0:-:retrieve:-:2
+W:0:2:0:-:Dude where's muh potions.. I had two red potions I'm sure.
+#W:0:2:0:-:Anyway, if you find them, just bring them to the general store's keeper, ok?
+x:2:-:You accepted the request to retrieve two red potions.
+r:2:1:0:2:0
+#note: since tval/sval aren't defined here, any other red item would work too (rings!) ;)
+rV:2:1:-9999:-9999:r:-1:-1:-1:-9999:-9999:R:-1:-1:-1:
+#M:2:2:32:32:0:0:105:40:0:-:0:0
+#M:2:2:-1:63:63:0:0:99:35:1:-:0:0
+M:2:2:0:63:63:0:0:99:35:1:-:0:0
+G:2:4:1:2
+X:4:-:The Goalkeeper Bat seems very satisfied.
+R:4:80:38:0:0:0:0:0:1:1:0:0:2:2:0
+
+
+
+N:3:testCastle:C. Blue:Treasure Depository Breach:-1:0:0
+I:1:1:1:100:FFFFF:FFFF:1:1:1:0:0:1
+
+Q:1:1:1059:0:p:u:-1:-1:Guard
+L:0:0:0:63:63:0:0:150:30:0:tq_tc.txt:143:22
+W:0:0:0:-:Hold it right there! What is the password?
+Wr:0:0:$$Q That's not the right password, $$r!
+Y:0:-1:-:suxen:-:1
+y:0:-1:-:suxen
+yR:-:You may enter!
+Y:0:-1:-:$$p1:-:1
+y:0:-1:-:$$p1
+yR:-:You may enter!
+J:1:0:-1:-1:-1:-1:-1:-1:-1:-1:151:28:0:0:0:0:0
+
+Q:1:1:1059:0:p:u:-1:-1:Guard
+L:0:0:0:63:63:0:0:152:30:0:-:0:0
+W:1:0:0:-:Hold it right there! What is the password?
+Y:1:-1:-:suxen:-:1
+y:1:-1:-:suxen
+yR:-:You may enter!
+J:1:1:-1:-1:-1:-1:-1:-1:-1:-1:151:28:0:0:0:0:0
+
+$TEST_SERVER$Q:1:0:15:0:t:y:-1:-1:Dozing drunk
+$TEST_SERVER$L:0:0:0:63:63:0:0:149:24:0:-:0:0
+$TEST_SERVER$W:2:0:0:-:Washhup? Hic..
+
+$TEST_SERVER$r:0:1:0:1:1
+$TEST_SERVER$rI:0:1:80:38:80:39
+$TEST_SERVER$M:0:1:2:-1:-1:-1:0:0:0:0:-:0:0
+$TEST_SERVER$G:0:2:1
+$TEST_SERVER$W:2:2:0:-:Ohhdshankyou! Hic..
+
+$TEST_SERVER$r:2:1:0:1:1
+$TEST_SERVER$rI:2:1:80:38:80:39
+$TEST_SERVER$M:2:1:2:-1:-1:-1:0:0:0:0:-:0:0
+$TEST_SERVER$G:2:3:1
+$TEST_SERVER$W:2:3:0:-:Ohhdshankyou! Hic..
+
+$TEST_SERVER$r:3:1:0:1:1
+$TEST_SERVER$rI:3:1:80:38:80:39
+$TEST_SERVER$M:3:1:2:-1:-1:-1:0:0:0:0:-:0:0
+$TEST_SERVER$G:3:4:1
+$TEST_SERVER$W:2:4:0:-:Ohhdshankyou! Watshout that Nexus won't arresht you! Hic..
+
+
+
+N:4:towneltalk:C. Blue:Town Elder Talk:-1:3:1
+C:0
+I:0:1:1:100:FFFFF:FFFF:1:1:1:0:0:1
+T:1:1:1:1:1:1:1:1:1:-1:-1
+Q:1:1:15:15:t:v:-1:-1:Town Elder
+#L:0:0:0:32:32:0:0:95:35:0:-:0:0
+#L:0:0:0:32:32:0:0:120:39:0:-:0:0
+L:0:0:0:32:32:0:0:120:40:0:-:0:0
+F:0:1:1:0:1:0:0
+U:0:0:0
+W:0:0:0:-:Stay awhile and listen, $$T!
+W:0:0:0:-:In the game you can press '?' key for a list of command keys.
+W:0:0:0:-:Would you like to visit the training [[tower]] first or venture into this
+W:0:0:0:-:town's [[dungeon]], named Barrow-Downs, right away?
+W:0:0:0:-:Or do you just seek generic [[advice]]?
+W:0:0:0:-:The training tower is a safe place where you won't die for real,
+W:0:0:0:-:Experience gain is pretty limited however, and it only has two floors.
+W:0:0:0:-:If you go to the dungeon, don't forget to bring a light source!
+
+Y:0:0:-:*tower*:-:255
+Y:0:0:-:*training*:-:255
+y:-1:-1:-:*tower*
+yY:*training*
+yR:-:Take the south-eastern path out of the town centre,
+yR:-:it leads to the training tower. The entrance is a green '<' symbol.
+yR:-:You can press SHIFT+L to locate it on the map.
+
+Y:0:0:-:*dungeon*:-:255
+Y:0:0:-:*barrow*:-:255
+y:-1:-1:-:*dungeon*
+yY:*barrow*
+yR:-:Take the western path out of the town centre,
+yR:-:it leads to the somewhat hidden entrance to barrow-downs.
+yR:-:The entrance is a white '>' symbol.
+yR:-:You can press SHIFT+L to locate it on the map.
+yR:-:You should bring some torches or a lantern, except if you're a vampire I guess.
+#yR:-:You can also buy lights and lamp oil in the general store in this town.
+
+Y:0:0:-:*light*:-:255
+Y:0:0:-:*lamp*:-:255
+Y:0:0:-:*torch*:-:255
+y:-1:-1:-:*light*
+yY:*lamp*:*torch*
+yR:-:Except for vampires everyone usually brings a light source along.
+yR:-:You can also buy lights and lamp oil in the general store in this town.
+
+Y:0:0:-:*thank*:-:1
+Y:0:0:-:*dank*:-:1
+y:-1:-1:-:*thank*
+yY:*dank*
+#bug: too many keywords apparently :/ but should accept up to 100 really..
+#yY:thanks:thank you:thankyou:thanks you:thx:merci:danke:gracias:grazie:arigato:arigatou:xiexie:xie xie:spacibo:spasibo
+yR:-:You are welcome!
+
+Y:0:0:-:*cafe*:-:255
+y:-1:-1:-:*cafe*
+yR:-:Thanks, but I prefer tea.
+
+Y:0:0:-:*help*:-:255
+y:-1:-1:-:*help*
+yR:-:Have you come to seek [[advice]]? I might be able to tell you something.
+
+Y:0:0:-:*advice*:-:255
+Y:0:0:-:*advise*:-:255
+y:-1:-1:-:*advice*
+yY:*advise*
+yR:-://quest_towneltalk("$$c", -1)
+#yR:-:Hm hm, what do you need advice on?  --moved to quest_towneltalk() actually, as it depends on above function call to sound proper.
+yR:-:How to properly [[prepare]] yourself for venturing into the unknown?, picking
+yR:-:an unknown dungeon to [[explore]]? Honing your [[skills]]?
+yR:-:Or are you wondering about the public [[events]] that are taking place from
+yR:-:time to time? You might also be interested in forming a [[party]] with fellow
+yR:-:adventurers, as it tends to increase chances of survival!
+yR:-:I could also have a look at your [[equipment]] and [[status]] of your
+yR:-:well-being in general.
+
+Y:0:0:-:*prepar*:-:255
+Y:0:0:-:*inven*:-:255
+Y:0:0:-:*pack*:-:255
+y:-1:-1:-:*prepar*
+yY:*inven*:*pack*
+yR:-://quest_towneltalk("$$c", 0)
+
+Y:0:0:-:*equip*:-:255
+y:-1:-1:-:*equip*
+yR:-://quest_towneltalk("$$c", 1)
+
+Y:0:0:-:*skill*:-:255
+y:-1:-1:-:*skill*
+yR:-://quest_towneltalk("$$c", 2)
+
+Y:0:0:-:*stat*:-:255
+y:-1:-1:-:*stat*
+yR:-://quest_towneltalk("$$c", 3)
+
+Y:0:0:-:*part*:-:255
+y:-1:-1:-:*part*
+yR:-://quest_towneltalk("$$c", 4)
+
+Y:0:0:-:*explor*:-:255
+y:-1:-1:-:*explor*
+yR:-://quest_towneltalk("$$c", 5)
+
+Y:0:0:-:*event*:-:255
+y:-1:-1:-:*event*
+yR:-://quest_towneltalk("$$c", 6)
+
+
+#Talk to a roaming guard who patrols Menegroth
+#N5:menegguard:C. Blue:Menegroth Patrol:-1:3:1

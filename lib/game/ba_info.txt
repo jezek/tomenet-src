@@ -1,0 +1,371 @@
+# $Id$
+# File: ba_info.txt
+
+
+# This file is used to initialize the "lib/raw/ba_info.raw" file, which is
+# used to initialize the "store/building actions type" information for
+# the Angband game.
+
+# Do not modify this file unless you know exactly what you are doing,
+# unless you wish to risk possible system crashes and broken savefiles.
+
+# N:<index>:<name>
+# C:<hated cost>:<normal cost>:<liked cost>
+# I:<action>:<acttion restriction>:<letter>:<flags>
+
+# Restriction:
+# 0 = No restrictions
+# 1 = Restrict to normal & liked
+# 2 = Restrict to liked
+
+# Flags:
+# 0 = Nothing
+# 1 = Specify store inventory
+# 2 = Specify player inventory/equipment
+# 4 = Specify gold
+# 128 = Hardcoded in client
+
+# Version stamp (required)
+
+V:2.0.0
+
+N:0:Nothing
+C:0:0:0
+I:0:0:.:0
+
+N:1:Sell an item
+C:0:0:0
+I:43:0:s:2
+
+N:2:Purchase an item
+C:0:0:0
+I:44:0:p:1
+
+N:3:Examine an item
+C:0:0:0
+I:45:0:x:1
+
+N:4:Steal an item
+C:0:0:0
+I:46:0:Z:1
+
+N:5:Rest for the night
+C:25:20:15
+I:17:0:r:0
+
+N:6:Buy food and drink
+C:3:2:1
+I:18:0:f:0
+
+N:7:Listen for rumors
+C:0:0:0
+I:19:0:u:0
+
+N:8:Presage fate
+C:600:500:480
+I:42:0:l:0
+
+N:9:In-Between
+C:0:0:0
+I:12:0:b:4
+
+N:10:Play craps
+C:0:0:0
+I:14:0:c:4
+
+N:11:Spin the wheel
+C:0:0:0
+I:15:0:s:4
+
+N:12:Play dice slots
+C:0:0:0
+I:16:0:d:4
+
+N:13:* Game rules *
+C:0:0:0
+I:13:0:r:0
+
+N:14:Research item
+C:3000:2500:2000
+I:1:0:a:2
+
+N:15:Town history
+C:0:0:0
+I:2:0:h:0
+
+#N:16:Race legends
+N:16:Noteworthy occurances
+C:0:0:0
+I:3:0:n:0
+
+N:17:Look at busts of Kings
+C:0:0:0
+I:5:0:l:0
+
+N:18:Research monster
+C:1600:1500:1400
+I:20:0:r:0
+
+N:19:View bounties
+C:0:0:0
+I:38:0:v:0
+
+N:20:Receive bounty money
+C:0:0:0
+I:39:0:b:0
+
+N:21:Get quest monster
+C:0:0:0
+I:54:0:q:0
+
+N:22:Turn in quest corpse
+C:0:0:0
+I:55:0:m:0
+
+# This should have new flag (2 weps)
+N:23:Compare weapons
+C:220:200:180
+I:21:0:c:128
+
+N:24:Enchant weapon
+C:40000:37000:34000
+I:23:0:w:0
+
+N:25:Enchant armour
+C:29000:26000:23000
+I:24:0:a:0
+
+N:26:Recharge item
+C:800:650:500
+I:25:0:r:2
+
+N:27:Identify possessions
+C:2200:1900:1600
+I:26:0:D:0
+
+N:28:Healing prayer
+C:600:400:200
+I:28:0:h:0
+
+N:29:Restoration
+C:6000:5000:4000
+I:29:0:r:0
+
+N:30:Get share of stolen gold
+C:0:0:0
+I:7:2:g:0
+
+N:31:Enchant ammo
+C:180000:170000:160000
+I:30:0:a:0
+
+N:32:Enchant bow
+#double price because these don't get damaged
+C:84000:78000:72000
+I:31:0:b:0
+
+N:33:Recall to dungeon
+C:300:200:100
+I:33:0:r:0
+
+N:34:Teleport to dungeon-level
+C:15000:10000:5000
+I:34:0:t:0
+
+N:35:Get an extermination order
+C:0:0:0
+I:6:0:x:0
+
+#	--unused
+# Restrict to liked/normal
+N:36:Get an extermination order
+C:0:0:0
+I:46:1:x:0
+
+#	--unused
+N:37:Get an extermination order
+C:0:0:0
+I:47:0:x:0
+
+#	--unused
+N:38:Get an extermination order
+C:0:0:0
+I:49:0:x:0
+
+N:39:Herbal Healing
+C:15000:10000:7500
+I:50:0:h:0
+
+N:40:Song of Lore
+C:2600:2200:1800
+I:26:0:D:0
+
+N:41:Distribute earnings
+C:0:0:0
+I:7:2:d:0
+
+N:42:Morph restoration
+#C:3000:1500:1000
+#C:6000:5000:4000
+C:12000:10000:8000
+I:37:0:r:0
+
+#for The Mirror
+N:43:View fate
+C:500:500:500
+I:42:0:v:0
+
+#for The Mirror
+N:44:Research item
+C:3500:3500:3500
+I:1:0:a:2
+
+#for library in gondol
+N:45:Research item
+C:5000:5000:5000
+I:1:0:a:2
+
+#for Star-Dome
+N:46:Identify possessions
+C:2400:2000:1600
+I:26:0:D:0
+
+#for Star-Dome
+N:47:Recharge item
+C:1200:1000:750
+I:25:0:r:2
+
+#for Valarin Temple
+N:48:Restoration
+C:6200:5000:4000
+I:29:0:r:0
+
+#for Sea-Dome
+N:49:Morph restoration
+#C:1500:1500:1500
+C:5000:5000:5000
+I:37:0:r:0
+
+#for The Golden Flower
+N:50:Enchant ammo
+C:170000:160000:150000
+I:30:0:a:0
+
+#for The Golden Flower
+N:51:Enchant bow
+C:44000:41000:38000
+I:31:0:b:0
+
+#for The Fountain
+N:52:Enchant armour
+C:33000:29000:25000
+I:24:0:a:0
+
+#for The Fountain
+N:53:See Healers
+C:1100:1000:900
+I:28:0:h:0
+
+N:54:Drop an item
+C:0:0:0
+I:43:0:d:2
+
+N:55:Get an item
+C:0:0:0
+I:44:0:g:1
+
+#maybe not for v4
+N:56:Request an item
+C:0:0:0
+I:51:2:r:128
+
+N:57:Ask for loan
+C:0:0:0
+I:52:2:a:4
+
+N:58:Pay back loan
+C:0:0:0
+I:53:2:p:4
+
+N:59:Donate an item
+C:0:0:0
+I:43:0:d:2
+
+N:60:Deposit gold
+C:0:0:0
+I:54:0:d:4
+
+N:61:Withdraw gold
+C:0:0:0
+I:55:0:w:4
+
+N:62:Extend the house
+C:0:0:0
+I:56:0:h:0
+
+N:63:Public cheeze records
+C:0:0:0
+I:57:0:c:0
+
+N:64:Redeem deed for an item
+C:0:0:0
+I:58:0:t:2
+
+N:65:Redeem deed for a blessing
+C:0:0:0
+I:59:0:b:2
+
+N:66:Go challenge
+C:0:0:0
+I:60:0:g:0
+
+N:67:Instant resurrection
+C:0:0:0
+I:61:0:r:0
+
+N:68:Exploration reports
+C:0:0:0
+I:62:0:r:0
+
+N:69:Change guild name
+C:0:0:0
+I:63:0:g:0
+
+N:70:Static floor records
+C:0:0:0
+I:64:0:f:0
+
+#SOLO_REKING
+N:71:Donate gold and pray to the gods
+C:0:0:0
+I:65:0:d:0
+
+#ENABLE_ITEM_ORDER
+N:72:Order an item
+C:0:0:0
+I:66:0:o:0
+
+#GLOBAL_DUNGEON_KNOWLEDGE
+N:73:Exploration history
+C:0:0:0
+I:67:0:h:0
+
+N:74:Send item
+C:0:0:0
+I:68:0:t:2
+
+N:75:Send gold
+C:0:0:0
+I:69:0:g:4
+
+N:76:Send item for payment
+C:0:0:0
+I:70:0:a:2
+
+N:77:Repair weapon
+C:0:0:0
+I:71:0:r:2
+
+N:78:Repair armour
+C:0:0:0
+I:72:0:r:2

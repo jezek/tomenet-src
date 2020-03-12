@@ -1,0 +1,30 @@
+# Hints for TomeNET, following the scheme of rumors.txt. - C. Blue
+# Basically same as rumours, except that by using an extra file here we
+# can choose to display useful hints more often than those random rumours.
+# (amount number below N: is last used lines - 7)
+
+N:*:Default
+23
+Press Shift+p to form a party and share experience within 7 levels!
+Special techniques and abilities are available with 'm' key!
+Press 'b' to browse a spellbook, then press a spell's key (eg 'a') for details!
+Dual-wield, dodging and some other skills won't work with heavy armour!
+Even just one scroll of teleportation can already save your life!
+Potions of resistance protect both you and your inventory from harm!
+Even a jack of all trades should still maximise at least one of his skills!
+Don't train multiple weapon types at once. Instead, specialize in one!
+If specializing in martial arts, only light armour will help, if any at all!
+Races and classes have many special abilities. Make sure to read up on them!
+Have a question? Make sure to read the text file 'TomeNET-Guide.txt' too!
+If you die and want to keep your items, just ask other players for help!
+Keep in mind that true artifacts cannot be dropped in houses but will vanish!
+Type /xo in chat to get a random extermination order!
+You can also bind macros to SHIFT+key or CTRL+key to reuse a key!
+Creating ammo from a larger stack of raw materials results in more ammo!
+Use the number pad on your keyboard so you can easily move diagonally too!
+Party members should not wander off but stick together to survive!
+Have a suggestion or bug report? Please use the /rfe or /bug command!
+Stores in higher-level towns usually offer higher-level spells more often!
+Press Shift+i to inspect an item (or Shift+x to inspect a store item)!
+The temples offer 'Instant Resurrection' for everlasting characters, at a cost!
+Never use your best artifacts for fighting Nazgul!
