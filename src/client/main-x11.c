@@ -1722,14 +1722,21 @@ static errr CheckEvent(bool wait) {
 		/* An Expose Event */
 		case Expose:
 		{
-			/* Ignore "extra" exposes */
-			if (xev->xexpose.count) break;
-
-			/* Clear the window */
-			Infowin_wipe();
-
 			/* Redraw (if allowed) */
-			if (iwin == td->inner) Term_redraw();
+			if (iwin == td->inner) {
+				/* Get the area that should be updated */
+				int x1 = xev->xexpose.x / td->fnt->wid;
+				int y1 = xev->xexpose.y / td->fnt->hgt;
+				int x2 = ((xev->xexpose.x+xev->xexpose.width) / td->fnt->wid);
+				int y2 = ((xev->xexpose.y+xev->xexpose.height) / td->fnt->hgt);
+
+				/* Redraw section*/
+				Term_redraw_section(x1, y1, x2, y2);
+			}
+			/* Clear the window */
+			else {
+				Infowin_wipe();
+			}
 
 			break;
 		}
@@ -3203,7 +3210,7 @@ void set_palette(byte c, byte r, byte g, byte b) {
 		if (!term_prefs[0].visible) return;
 		if (term_prefs[0].x == -32000 || term_prefs[0].y == -32000) return;
 		Term_activate(&term_idx_to_term_data(0)->t);
-		Term_redraw();
+		Term_redraw_section(0, 0, Term->wid-1, Term->hgt-1);
 		Term_activate(&old_td->t);
 		return;
 	}
